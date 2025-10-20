@@ -20,6 +20,9 @@
   z-index: 0;
   pointer-events: none;
 }
+@media (max-width: 600px) {
+  .hero-bg { display: none; }
+}
 
 body,
 #about,
