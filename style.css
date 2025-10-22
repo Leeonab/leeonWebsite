@@ -57,17 +57,7 @@ html, body {
   padding: 0;
 }
 
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 60px; /* אם כבר יש padding-top, לא צריך calc */
-  padding-top: env(safe-area-inset-top);
-  background: #070708;
-  z-index: 9999;
-}
+.nav { position: fixed; top: 0; left: 0; right: 0; width: 100vw; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #070708; z-index: 9999; padding-top: 0 !important; margin-top: 0 !important; }
 
 
 
