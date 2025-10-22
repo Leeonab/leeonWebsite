@@ -1,6 +1,32 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
+  document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector(".nav");
+
+    function adjustNavForSafeArea() {
+      // קבלת ערך safe-area-inset-top אם קיים, אחרת 0
+      const safeTop = parseFloat(getComputedStyle(document.documentElement)
+                        .getPropertyValue("--safe-top")) || 0;
+
+      // בדיקה אם env(safe-area-inset-top) נתמך
+      const envTop = (typeof env === "function" ?
+                       env("safe-area-inset-top") : null);
+
+      // השתמשי בערך הכי אמין
+      const paddingTop = envTop || safeTop || 0;
+
+      // קביעת padding‑top ו‑height מתאימים
+      nav.style.paddingTop = paddingTop + "px";
+      nav.style.height = `calc(60px + ${paddingTop}px)`;
+    }
+
+    // אתחול
+    adjustNavForSafeArea();
+
+    // התאמה מחדש במידה שהחלון משתנה גודל
+    window.addEventListener("resize", adjustNavForSafeArea);
+  });
 
 (function reveal() {
   const obs = new IntersectionObserver((entries, o) => {
