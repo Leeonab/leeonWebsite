@@ -23,8 +23,8 @@ html {
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0;
   position: relative;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body,
@@ -58,7 +58,6 @@ html, body {
 .nav {
   padding-top: 0 !important;
   margin-top: 0 !important;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 
