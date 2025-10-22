@@ -55,16 +55,17 @@ html, body {
   left: 0;
   right: 0;
   width: 100vw;
-  height: 60px;
+  height: calc(60px + env(safe-area-inset-top)); /* תוספת לטלפונים */
+  padding-top: env(safe-area-inset-top); /* גורם ל־navbar להידבק לתקרה */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding-left: 24px;
+  padding-right: 24px;
   background: #070708;
   z-index: 9999;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
 }
+
 
 .nav-inner {
   width: 100%;
