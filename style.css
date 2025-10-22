@@ -22,13 +22,14 @@
 
 @supports (padding-top: env(safe-area-inset-top)) {
   @media (max-width: 768px) {
-    nav {
-      padding-top: env(safe-area-inset-top);
-      padding-left: env(safe-area-inset-left);
-      padding-right: env(safe-area-inset-right);
+    :root {
+      --safe-top: env(safe-area-inset-top);
+      --safe-left: env(safe-area-inset-left);
+      --safe-right: env(safe-area-inset-right);
     }
   }
 }
+
 body,
 #about,
 #services,
