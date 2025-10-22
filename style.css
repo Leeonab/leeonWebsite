@@ -51,15 +51,12 @@ html, body {
   top: 0;
   left: 0;
   right: 0;
-  width: 100vw;
-  height: calc(60px + env(safe-area-inset-top)); /* תוספת לטלפונים */
-  padding-top: env(safe-area-inset-top); /* גורם ל־navbar להידבק לתקרה */
+  height: calc(60px + env(safe-area-inset-top));
+  padding-top: env(safe-area-inset-top);
+  background: red;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 24px;
-  padding-right: 24px;
-  background: #070708;
+  justify-content: center;
   z-index: 9999;
 }
 
