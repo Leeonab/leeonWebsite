@@ -204,11 +204,32 @@
 <p>אין התחייבות — רק שיחה נעימה על איך AI יכול להרים את העסק שלכם לגבהים חדשים.</p>
         </div>
         <div class="booking-right">
-          <iframe class="cal-embed" src="https://cal.com/lee-on-amsily-barak-p0ri5w" frameborder="0" allowfullscreen></iframe>
-        </div>
+<form id="contactForm">
+  <label for="fullname">שם מלא:</label><br>
+  <input type="text" id="fullname" name="fullname" required><br><br>
+
+  <label for="phone">טלפון:</label><br>
+  <input type="tel" id="phone" name="phone" required><br><br>
+
+  <label for="email">אימייל:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="message">הודעה אישית:</label><br>
+  <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+  <button type="submit">שלח</button>
+</form>
+
+<div id="responseMessage" style="display:none;" class="response-message">
+  תודה שפנית אלינו! נחזור אלייך בהקדם.
+</div>        </div>
       </div>
     </section>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>
+  (function(){
+    emailjs.init("7sqzrgavHU1sl1r2B");
+  })();
+</script>
     <section id="reviews" class="projects-section">
     <h2 class="section-title">מה אומרים עליי?</h2>
 <div class="reviews-gallery">
