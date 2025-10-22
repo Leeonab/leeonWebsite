@@ -784,3 +784,85 @@ html, body {
   font-weight: bold;
   cursor: pointer;
 }
+
+form {
+    background-color: #111; /* מעט אפור כהה */
+    padding: 20px;
+    border: 2px solid #e10600; /* אדום */
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 40px auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #e10600; /* אדום */
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1.5px solid #e10600;
+    border-radius: 4px;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    resize: vertical;
+  }
+
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #fff; /* לבן בהיר בעת פוקוס */
+    background-color: #222;
+  }
+
+  button {
+    font-weight: bold;
+    background-color: #e10600; /* אדום */
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #a80400; /* אדום כהה */
+  }
+
+  #responseMessage {
+    max-width: 400px;
+    margin: 20px auto;
+    font-size: 18px;
+    font-weight: bold;
+    color: #e10600; /* אדום */
+    text-align: center;
+  }
+
+   .response-message {
+    background-color: #111; /* רקע כהה */
+    color: #e10600; /* אדום */
+    border: 2px solid #e10600;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 400px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
