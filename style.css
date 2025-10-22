@@ -825,7 +825,7 @@ form {
     background-color: #222;
   }
 
-  button {
+  .form-button {
     font-weight: bold;
     background-color: #e10600; /* אדום */
     color: #fff;
