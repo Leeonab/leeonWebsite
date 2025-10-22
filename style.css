@@ -62,7 +62,6 @@ html, body {
   padding: 0 24px;
   background: #070708;
   z-index: 9999;
-  min-height: 100dvh;
   padding-top: 0 !important;
   margin-top: 0 !important;
 }
