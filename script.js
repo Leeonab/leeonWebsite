@@ -40,3 +40,28 @@ hamburger.addEventListener('click', () => {
       modal.style.display = "none";
     }
   }
+
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const today = new Date().toLocaleDateString('he-IL');
+
+  const templateParams = {
+    fullname: this.fullname.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    message: this.message.value,
+    date: today
+  };
+
+
+  emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
+    .then(function(response) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('responseMessage').style.display = 'block';
+      console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+      alert('אירעה שגיאה בשליחת ההודעה, אנא נסי שוב.');
+      console.log('FAILED...', error);
+    });
+});
