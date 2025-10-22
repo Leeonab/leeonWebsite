@@ -27,11 +27,6 @@ html {
   position: relative;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)
-}
 body,
 #about,
 #services,
@@ -63,6 +58,7 @@ html, body {
 .nav {
   padding-top: 0 !important;
   margin-top: 0 !important;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 
