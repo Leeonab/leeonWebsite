@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -21,7 +22,8 @@
 <body>
 
   
-  <header class="nav">
+  <!-- HEADER -->
+<header class="nav">
   <div class="nav-inner">
     <div class="brand">
       <img src="assets/images/logo.png" class="logo-mark">
@@ -29,25 +31,58 @@
         <div class="name">Leeon.AI</div>
       </div>
     </div>
-          <nav class="nav-links" id="nav-links">
-        <a href="#home">דף הבית</a>
-        <a href="#about">אודות</a>
-        <a href="#services">שירותים</a>
-        <a href="#clients">לקוחות</a>
-        <a href="#projects">פרויקטים</a>
-        <a href="#work-process">המסע שלנו</a>
-        <a href="#reviews">ביקורות</a>
-        <a href="#booking" class="cta-link">צרו קשר</a>
-      </nav>
+  </div>
+
       <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
-      </div>
-  </div> 
+    </div>
+  </div>
+  
+  <nav class="nav-links" id="nav-links">
+    <a href="#home">דף הבית</a>
+    <a href="#about">אודות</a>
+    <a href="#services">שירותים</a>
+    <a href="#clients">לקוחות</a>
+    <a href="#projects">פרויקטים</a>
+    <a href="#work-process">המסע שלנו</a>
+    <a href="#reviews">ביקורות</a>
+    <a href="#booking" class="cta-link">צרו קשר</a>
+  </nav>
 </header>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector(".nav");
+
+    function adjustNavForSafeArea() {
+      // קבלת ערך safe-area-inset-top אם קיים, אחרת 0
+      const safeTop = parseFloat(getComputedStyle(document.documentElement)
+                        .getPropertyValue("--safe-top")) || 0;
+
+      // בדיקה אם env(safe-area-inset-top) נתמך
+      const envTop = (typeof env === "function" ?
+                       env("safe-area-inset-top") : null);
+
+      // השתמשי בערך הכי אמין
+      const paddingTop = envTop || safeTop || 0;
+
+      // קביעת padding‑top ו‑height מתאימים
+      nav.style.paddingTop = paddingTop + "px";
+      nav.style.height = `calc(60px + ${paddingTop}px)`;
+    }
+
+    // אתחול
+    adjustNavForSafeArea();
+
+    // התאמה מחדש במידה שהחלון משתנה גודל
+    window.addEventListener("resize", adjustNavForSafeArea);
+  });
+</script>
+
   <main>
-        <section id="home" class="hero">
+    <!-- HERO -->
+    <section id="home" class="hero">
       <div class="hero-center">
         <h1 class="hero-title">פרסומת AI למוצר שלכם — מבלי לצאת מהבית!</h1>
         <p class="hero-sub">כדאי לכם לגלול למטה, מה שתראו עשוי לשנות לכם את החיים</p>
@@ -58,7 +93,8 @@
       </div>
     </section>
 
-        <section id="about" class="section reveal">
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
   <div class="container split">
     <div class="text about-text">
       <h2>הגיע הזמן שנכיר 👋</h2>
@@ -71,7 +107,8 @@
       </div>
     </section>
 
-        <section id="services" class="projects-section">
+    <!-- SERVICES -->
+    <section id="services" class="projects-section">
     <h2 class="section-title">השירותים שלנו</h2>
       <div class="container">
         <div class="cards">
@@ -103,7 +140,8 @@
       </div>
     </section>
 
-    <div id="clients" class="clients-section">
+    <!-- CLIENTS -->
+<div id="clients" class="clients-section">
   <h2 class="section-title">הלקוחות שלנו</h2>
   <div class="carousel">
     <div class="carousel-track">
@@ -117,7 +155,8 @@
   </div>
 </div>
 
-    <section id="projects" class="projects-section">
+    <!-- PROJECTS -->
+<section id="projects" class="projects-section">
   <div class="container">
     <h2 class="section-title">פרויקטים וסרטוני פרסומות</h2>
     <p class="section-subtitle">כמה מהפרויקטים המובילים שלנו</p>
@@ -191,7 +230,8 @@
 
 
 
-        <section id="booking" class="section reveal">
+    <!-- BOOKING -->
+    <section id="booking" class="section reveal">
       <div class="container booking-wrap">
         <div class="booking-left">
           <h2>בואו נתחיל!</h2>
