@@ -52,12 +52,32 @@ html, body {
   padding: 0;
 }
 
-.nav {transition: height 0.2s ease, padding-top 0.2s ease; position: fixed; top: 0; left: 0; right: 0; width: 100vw; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #070708; z-index: 9999; padding-top: 0 !important; margin-top: 0 !important; }
+.nav {
+    transition: height 0.2s ease, padding-top 0.2s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 60px; /* הגובה הבסיסי */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    background: #070708;
+    z-index: 9999;
+}
 
 .nav {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+    /* הכללים הקודמים... */
+    
+    /* 1. השתמש ב-env() עבור גובה כולל (גובה בסיסי + safe-area) */
+    height: calc(60px + env(safe-area-inset-top, 0px));
+    
+    /* 2. השתמש ב-padding עליון כדי לדחוף את התוכן הפנימי (הלוגו וההמבורגר) */
+    padding-top: env(safe-area-inset-top, 0px);
 }
+
 
 
 .nav-inner {
