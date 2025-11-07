@@ -195,11 +195,6 @@ html, body {
   overflow: hidden;
   padding: 40px 20px;
   background: #000;
-
-/* כדי שהתוכן לא ידבק ל-nav */
-.hero-center {
-  margin-top: -60px; /* מושך את התוכן קצת למעלה כדי שיהיה במרכז האמיתי */
-}
 }
 .hero-center { position: relative; z-index: 3; max-width: 1100px; text-align: center; padding: 20px; }
 .hero-title {
