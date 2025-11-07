@@ -188,13 +188,19 @@ html, body {
 
 .hero {
   position: relative;
-  height: 105vh;
+  min-height: 100vh;
+  padding: 140px 20px 80px; /* 140px = nav (60) + מרווח נוסף */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 40px 20px;
   background: #000;
+}
+
+/* כדי שהתוכן לא ידבק ל-nav */
+.hero-center {
+  margin-top: -60px; /* מושך את התוכן קצת למעלה כדי שיהיה במרכז האמיתי */
+}
 }
 .hero-center { position: relative; z-index: 3; max-width: 1100px; text-align: center; padding: 20px; }
 .hero-title {
