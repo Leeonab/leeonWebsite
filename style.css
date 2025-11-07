@@ -40,36 +40,36 @@ body,
 }
 
 * { box-sizing: border-box; }
+/* בבלוק html, body */
 html, body {
-  height: 100%;
-  margin: 0;
-  font-family: "Alef", "Rubik", system-ui, sans-serif;
-  color: #fff;
-  direction: rtl;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  padding: 0;
-  **overflow-x: hidden;** /* **הוסף את זה** */
+  height: 100%;
+  margin: 0;
+  font-family: "Alef", "Rubik", system-ui, sans-serif;
+  color: #fff;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  padding: 0;
+  **overflow-x: hidden;** /* **הוסף את זה** כדי למנוע גלילה אופקית */
 }
-
 /* תיקון: הסרת רוחב בעייתי מה-nav */
 .nav {
-  transition: height 0.2s ease, padding-top 0.2s ease;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  **/* הסר את width: 100vw; */**
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  background: #070708;
-  z-index: 9999;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  transition: height 0.2s ease, padding-top 0.2s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  **/* הסר את השורה הזו: width: 100vw; */**
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #070708;
+  z-index: 9999;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .nav-inner {
@@ -712,17 +712,16 @@ html, body {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* **תיקון ב-Media Query** (אזור 820px ומטה) */
 @media (max-width: 820px) {
   .hamburger {
     display: flex;
   }
 
   .nav-links {
-    display: flex; /* **שנה מ-display: none;** */
+    **display: flex;** /* השאר flex כדי ש-transform יעבוד */
     position: fixed;
     top: 0;
-    right: 0; /* **שנה מ-left ל-right עבור RTL** */
+    **right: 0;** /* **חשוב מאוד ל-RTL** - ממקם אותו מצד ימין */
     height: 100dvh;
     width: 65%;
     background: rgba(10, 10, 10, 0.95);
@@ -733,11 +732,11 @@ html, body {
     box-shadow: -4px 0 20px rgba(0,0,0,0.4);
     z-index: 1000;
     transition: transform 0.3s ease;
-    **transform: translateX(100%);** /* **מיקום התחלתי: מחוץ למסך (ימינה)** */
+    **transform: translateX(100%);** /* **מצב סגור:** הזזת התפריט 100% ימינה (מחוץ למסך) */
   }
 
   .nav-links.show {
-    **transform: translateX(0);** /* **מצב פתוח: הזז למסך** */
+    **transform: translateX(0);** /* **מצב פתוח:** החזרת התפריט למסך */
   }
 
   .nav-links a {
