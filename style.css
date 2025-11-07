@@ -41,24 +41,36 @@ body,
 
 * { box-sizing: border-box; }
 html, body {
-  height: 100%;
-  margin: 0;
-  font-family: "Alef", "Rubik", system-ui, sans-serif;
-  color: #fff;
-  direction: rtl;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  padding: 0;
+  height: 100%;
+  margin: 0;
+  font-family: "Alef", "Rubik", system-ui, sans-serif;
+  color: #fff;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  padding: 0;
+  **overflow-x: hidden;** /* **הוסף את זה** */
 }
 
-.nav {transition: height 0.2s ease, padding-top 0.2s ease; position: fixed; top: 0; left: 0; right: 0; width: 100vw; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #070708; z-index: 9999; padding-top: 0 !important; margin-top: 0 !important; }
-
+/* תיקון: הסרת רוחב בעייתי מה-nav */
 .nav {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  transition: height 0.2s ease, padding-top 0.2s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  **/* הסר את width: 100vw; */**
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #070708;
+  z-index: 9999;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
-
 
 .nav-inner {
   width: 100%;
