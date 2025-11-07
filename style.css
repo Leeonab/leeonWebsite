@@ -881,3 +881,9 @@ form {
 
 .credit-name {
   color: inherit;
+}
+
+/* הוסף את זה ל-style.css, בדרך כלל למעלה עם ה-body */
+.no-scroll {
+  overflow: hidden;
+}
