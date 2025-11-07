@@ -713,7 +713,7 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100dvh;
     width: 65%;
     background: rgba(10, 10, 10, 0.95);
     flex-direction: column;
