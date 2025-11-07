@@ -21,9 +21,7 @@
 }
 html {
   height: 100%;
-  width: 100%;
-  margin: 0;
-  position: relative;
+  overflow-x: hidden;
 }
 
 body,
@@ -43,20 +41,59 @@ body,
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   font-family: "Alef", "Rubik", system-ui, sans-serif;
   color: #fff;
   direction: rtl;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  padding: 0;
+  width: 100vw
+
 }
 
 .nav {transition: height 0.2s ease, padding-top 0.2s ease; position: fixed; top: 0; left: 0; right: 0; width: 100vw; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #070708; z-index: 9999; padding-top: 0 !important; margin-top: 0 !important; }
 
 .nav {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  transition: height 0.2s ease, padding-top 0.2s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Updated width to use 100vw */
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  /* Changed to flex-start and removed padding to let nav-inner control the content */
+  justify-content: flex-start;
+  padding: 0; /* Remove main nav padding here */
+  background: #070708;
+  z-index: 9999;
+  /* Removed redundant !important declarations */
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* NEW/MODIFIED: Add this to specifically center your nav content within the 100vw nav bar, 
+   and use the padding you had previously (0 24px) for the content spacing. */
+.nav > .nav-inner {
+  width: 100%;
+  max-width: var(--maxW);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  /* Restored the original horizontal padding here */
+  padding: 6px 24px;
+  margin: 0 auto; /* Center the inner content */
+}
+
+/* Ensure the logo and hamburger menu are properly positioned when the nav-links disappear */
+@media (max-width: 820px) {
+  .nav > .nav-inner {
+    /* Use full width spacing for mobile */
+    padding: 6px 24px;
+  }
 }
 
 
