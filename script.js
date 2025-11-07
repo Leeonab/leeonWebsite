@@ -64,3 +64,27 @@ hamburger.addEventListener('click', () => {
       console.log('FAILED...', error);
     });
 });
+
+
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+
+// פונקציה אחת לניהול המצב
+const toggleMenu = () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('show');
+  **document.body.classList.toggle('no-scroll'); // מונע גלילה ברקע**
+};
+
+hamburger.addEventListener('click', toggleMenu);
+
+// הוספה: סגירת התפריט בלחיצה על קישור
+**navLinks.querySelectorAll('a').forEach(link => {**
+**  link.addEventListener('click', () => {**
+**    if (navLinks.classList.contains('show')) {**
+**      toggleMenu();**
+**    }**
+**  });**
+**});**
+
+// ... שאר הקוד ממשיך מכאן
