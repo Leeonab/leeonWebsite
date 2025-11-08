@@ -65,6 +65,11 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     });
 });
 
+// Custom function for accessibility button
+function openAccessibilityModal() {
+  document.getElementById('accessibility-modal').style.display = 'block';
+}
+
 // מחליף את כל ה-adjustLayout הישן שלך
 function fixiPhoneChrome() {
   const n = document.querySelector('.nav').offsetHeight;
