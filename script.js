@@ -65,12 +65,18 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     });
 });
 
-function adjustLayout() {
-  document.body.style.paddingTop = `${document.querySelector('.nav').offsetHeight}px`;
-  document.querySelector('.hero').style.minHeight = `calc(100dvh - ${document.querySelector('.nav').offsetHeight}px)`;
+// מחליף את כל ה-adjustLayout הישן שלך
+function fixiPhoneChrome() {
+  const n = document.querySelector('.nav').offsetHeight;
+  document.body.style.paddingTop = n + 'px';
+  
+  // הכי חשוב – משתמש ב-100dvh ולא ב-100vh
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+  document.querySelector('.hero').style.minHeight = `calc(var(--vh) - ${n}px)`;
 }
 
-window.addEventListener('resize', adjustLayout);
-window.addEventListener('load', adjustLayout);
-window.addEventListener('orientationchange', adjustLayout);
-setInterval(adjustLayout, 500); // For dynamic changes
+// הפעלה בכל שינוי
+window.addEventListener('load', fixiPhoneChrome); 
+window.addEventListener('resize', fixiPhoneChrome); 
+window.addEventListener('orientationchange', fixiPhoneChrome); 
+fixiPhoneChrome(); // פעם ראשונה
