@@ -869,3 +869,15 @@ form {
 
 .credit-name {
   color: inherit;
+} 
+
+:root { --nav-h: 60px; }
+
+body {
+  padding-top: calc(var(--nav-h) + env(safe-area-inset-top));
+}
+.nav {
+  height: var(--nav-h);
+  padding-top: env(safe-area-inset-top);
+}
+
