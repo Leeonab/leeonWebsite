@@ -23,7 +23,7 @@
   
   <!-- HEADER -->
 <header class="nav">
-  <div class="nav-inner">
+  <div class="nav-inner" style="padding-top: max(16px, env(safe-area-inset-top));">
     <div class="brand">
       <img src="assets/images/logo.png" class="logo-mark">
       <div class="logo-text">
@@ -48,24 +48,6 @@
     <a href="#booking" class="cta-link">צרו קשר</a>
   </nav>
 </header>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.querySelector(".nav");
-
-    function adjustNavForSafeArea() {
-      const safeTop = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--safe-area-top")) || 0;
-      nav.style.paddingTop = `${safeTop}px`;
-      nav.style.height = `calc(60px + ${safeTop}px)`;
-    }
-
-    // Initial adjustment
-    adjustNavForSafeArea();
-
-    // Re-adjust on resize or orientation change
-    window.addEventListener("resize", adjustNavForSafeArea);
-    window.addEventListener("orientationchange", adjustNavForSafeArea);
-  });
-</script>
 
   <main>
     <!-- HERO -->
@@ -223,7 +205,7 @@
         <div class="booking-left">
           <h2>בואו נתחיל!</h2>
 <p>השאירו פרטים ונחזור אליכם בהקדם האפשרי</p>
-<p>יחד נוכל לדבר על איך AI יכול יכול להרים את העסק שלכם לגבהים חדשים!</p>
+<p>יחד נוכל לדבר על איך AI יכול להרים את העסק שלכם לגבהים חדשים!</p>
         </div>
         <div class="booking-right">
 <form id="contactForm">
