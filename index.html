@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, viewport-fit=cover">
 <meta name="theme-color" content="#070708"/>
 <meta name="google-site-verification" content="ZtaLcj0Trk8IwbS6UEoriov-6DrWU3qOIR1BgAVJbMM" />
 <title>לי-און אמסילי ברק</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico"> 
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/Favicon48x48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/Favicon96x96.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/Favicon512x512.png">
 <meta name="description" content="פרסומות AI">
 <meta name="description" content="Leeon AI">
 
@@ -30,7 +25,9 @@
         <div class="name">Leeon.AI</div>
       </div>
     </div>
-    <div class="hamburger" id="hamburger">
+  </div>
+
+      <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
       <span></span>
@@ -48,6 +45,34 @@
     <a href="#booking" class="cta-link">צרו קשר</a>
   </nav>
 </header>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const nav = document.querySelector(".nav");
+
+    function adjustNavForSafeArea() {
+      // קבלת ערך safe-area-inset-top אם קיים, אחרת 0
+      const safeTop = parseFloat(getComputedStyle(document.documentElement)
+                        .getPropertyValue("--safe-top")) || 0;
+
+      // בדיקה אם env(safe-area-inset-top) נתמך
+      const envTop = (typeof env === "function" ?
+                       env("safe-area-inset-top") : null);
+
+      // השתמשי בערך הכי אמין
+      const paddingTop = envTop || safeTop || 0;
+
+      // קביעת padding‑top ו‑height מתאימים
+      nav.style.paddingTop = paddingTop + "px";
+      nav.style.height = `calc(60px + ${paddingTop}px)`;
+    }
+
+    // אתחול
+    adjustNavForSafeArea();
+
+    // התאמה מחדש במידה שהחלון משתנה גודל
+    window.addEventListener("resize", adjustNavForSafeArea);
+  });
+</script>
 
   <main>
     <!-- HERO -->
@@ -277,9 +302,7 @@
 
 
 </footer>
-
-<!-- Custom Accessibility Button for all browsers -->
-<div class="accessibility-btn" onclick="openAccessibilityModal()">♿</div>
+    
 
    
 <div id="accessibility-modal" class="modal">
@@ -289,11 +312,11 @@
     <p><strong>הצהרת נגישות – Leeon.ai</strong></p>
 
 
-<p>אתר leeon-ai.com (להלן: "האתר") מופעל על-ידי לי-און אמסילי ברק, בעל העסק Leeon.ai. האתר נועד להיות נגיש לכלל הציבור, ובפרט לאנשים עם מוגבלויות. אנו רואים חשיבות רבה בהנגשת האתר ופועלים בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998, ותקנות הנגישות הנגזרות ממנו.</p>
+<p>אתר leeon-ai.com (להלן: “האתר”) מופעל על-ידי לי-און אמסילי ברק, בעל העסק Leeon.ai. האתר נועד להיות נגיש לכלל הציבור, ובפרט לאנשים עם מוגבלויות. אנו רואים חשיבות רבה בהנגשת האתר ופועלים בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ”ח-1998, ותקנות הנגישות הנגזרות ממנו.</p>
 
 <p><strong>התאמות נגישות באתר</strong></p>
 
-<p>האתר פועל בהתאם להנחיות התקן הישראלי ת"י 5568 ומבוסס על הנחיות הנגישות הבינלאומיות WCAG 2.0 ברמה AA. באתר מותקן תוסף הנגישות של Enable (https://www.enable.co.il) המאפשר מגוון התאמות לשיפור חוויית הגלישה, ביניהן:</p>
+<p>האתר פועל בהתאם להנחיות התקן הישראלי ת”י 5568 ומבוסס על הנחיות הנגישות הבינלאומיות WCAG 2.0 ברמה AA. באתר מותקן תוסף הנגישות של Enable (https://www.enable.co.il) המאפשר מגוון התאמות לשיפור חוויית הגלישה, ביניהן:</p>
 
 <ul>
   <li>שינוי גודל גופן והגדלת טקסט.</li>
@@ -312,7 +335,7 @@
 
 <p><strong>רכיבים שאינם בשליטתנו</strong></p>
 
-<p>ייתכן שבחלק מהעמודים או ברכיבי צד ג' (כגון סרטונים, מפות, פלאגינים או קבצי PDF ישנים) תופענה חריגות מהתקן. אנו פועלים לעדכן ולתקן מקרים אלו בהדרגה, בהתאם למשוב שמתקבל מהגולשים.</p>
+<p>ייתכן שבחלק מהעמודים או ברכיבי צד ג’ (כגון סרטונים, מפות, פלאגינים או קבצי PDF ישנים) תופענה חריגות מהתקן. אנו פועלים לעדכן ולתקן מקרים אלו בהדרגה, בהתאם למשוב שמתקבל מהגולשים.</p>
 
 <p><strong>יצירת קשר ומשוב בנושא נגישות</strong></p>
 
@@ -320,7 +343,7 @@
 
 <p><strong>פרטי קשר:</strong></p>
 <ul>
-  <li>📧 דוא"ל: li.ab225.146@gmail.com</li>
+  <li>📧 דוא”ל: li.ab225.146@gmail.com</li>
   <li>👤 אחראי נגישות: לי-און אמסילי ברק</li>
   <li>📍 אופי השירות: העסק פועל במתכונת דיגיטלית בלבד, ללא קבלת קהל פיזית. נשמח לספק חלופות נגישות בכל דרך אפשרית.</li>
 </ul>
@@ -336,6 +359,4 @@
   </div>
 </div>
   <script src="script.js"></script>
-<script src="https://cdn.enable.co.il/licenses/enable-L48813fqxlpnytbu-1025-74772/init.js"></script>
-</body>
-</html>
+<script src="https://cdn.enable.co.il/licenses/enable-L48813fqxlpnytbu-1025-74772/init.js"></script></html>
