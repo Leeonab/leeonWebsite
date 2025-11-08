@@ -21,26 +21,26 @@ hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('show');
 });
 
-  const modal = document.getElementById("accessibility-modal");
-  const btn = document.getElementById("accessibility-link");
-  const span = document.querySelector(".close-btn");
+const modal = document.getElementById("accessibility-modal");
+const btn = document.getElementById("accessibility-link");
+const span = document.querySelector(".close-btn");
 
-  btn.onclick = function(e) {
-    e.preventDefault();
-    modal.style.display = "block";
-  }
+btn.onclick = function(e) {
+  e.preventDefault();
+  modal.style.display = "block";
+}
 
-  span.onclick = function() {
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
     modal.style.display = "none";
   }
+}
 
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
   const today = new Date().toLocaleDateString('he-IL');
@@ -53,14 +53,7 @@ hamburger.addEventListener('click', () => {
     date: today
   };
 
-
   emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
     .then(function(response) {
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('responseMessage').style.display = 'block';
-      console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-      alert('אירעה שגיאה בשליחת ההודעה, אנא נסי שוב.');
-      console.log('FAILED...', error);
-    });
-});
