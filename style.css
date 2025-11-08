@@ -8,6 +8,7 @@
   --maxW:1200px;
   --radius:14px;
   --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .hero::before {
@@ -25,10 +26,16 @@ html {
   width: 100%;
   margin: 0;
   position: relative;
+}
+
+body {
+  background: #000 !important;
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
   overflow-x: hidden;
 }
 
-body,
 #about,
 #services,
 #clients,
@@ -39,7 +46,6 @@ body,
   background: #000;
   position: relative;
   z-index: 1;
-  -webkit-overflow-scrolling: touch;
 }
 
 * { box-sizing: border-box; }
@@ -53,15 +59,23 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
   padding: 0;
+  padding-bottom: var(--safe-area-bottom);
 }
-
-.nav {transition: height 0.2s ease, padding-top 0.2s ease; position: fixed; top: 0; left: 0; right: 0; width: 100vw; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #070708; z-index: 9999; padding-top: 0 !important; margin-top: 0 !important; }
 
 .nav {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #070708;
+  z-index: 9999;
 }
-
 
 .nav-inner {
   width: 100%;
@@ -202,7 +216,6 @@ html, body {
   overflow: hidden;
   padding: 40px 20px;
   background: #000;
-  width: 100%;
 }
 .hero-center { position: relative; z-index: 3; max-width: 1100px; text-align: center; padding: 20px; }
 .hero-title {
@@ -369,7 +382,7 @@ html, body {
   color: white;
   padding: 80px 20px;
   text-align: center;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .projects-container {
   display: flex;
@@ -760,12 +773,6 @@ html, body {
 @media (max-width: 480px) {
   .nav {
     padding: 0 16px;
-  }
-}
-
-@media (max-width: 375px) {
-  .logo-text .name {
-    font-size: 0.95rem;
   }
 }
 
