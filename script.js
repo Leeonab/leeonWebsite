@@ -64,3 +64,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       console.log('FAILED...', error);
     });
 });
+
+function adjustLayout() {
+  document.body.style.paddingTop = `${document.querySelector('.nav').offsetHeight}px`;
+  document.querySelector('.hero').style.minHeight = `calc(100dvh - ${document.querySelector('.nav').offsetHeight}px)`;
+}
+
+window.addEventListener('resize', adjustLayout);
+window.addEventListener('load', adjustLayout);
+window.addEventListener('orientationchange', adjustLayout);
+setInterval(adjustLayout, 500); // For dynamic changes
