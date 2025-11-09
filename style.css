@@ -44,15 +44,27 @@ body,
 * { box-sizing: border-box; }
 
 html, body {
-  height: 100%;
-  margin: 0;
-  font-family: "Alef", "Rubik", system-ui, sans-serif;
-  color: #fff;
-  direction: rtl;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  padding: 0;
+    height: 100%;
+    /* Use lvh (Large Viewport Height) for a stable base height, if supported */
+    height: 100lvh; 
+    /* Fallback and universal sizing controls: */
+    width: 100%;
+    margin: 0;
+    font-family: "Alef", "Rubik", system-ui, sans-serif;
+    color: #fff;
+    direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* CRITICAL: Limit scrolling to the body, not the HTML element */
+    overflow-x: hidden; 
+    overflow-y: scroll; /* Allow vertical scrolling */
+    -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+    padding: 0;
+}
+
+/* Add body overflow fix, if necessary (sometimes body gets reset) */
+body {
+    overflow-x: hidden;
 }
 
 .nav {
