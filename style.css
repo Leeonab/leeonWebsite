@@ -144,7 +144,7 @@ html, body {
 
 .hero {
   position: relative;
-  height: -webkit-fill-available; 
+  height: 100svh; 
   display: flex;
   align-items: center;
   justify-content: center;
