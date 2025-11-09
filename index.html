@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, viewport-fit=cover">
-<meta name="theme-color" content="#070708"/>
-<meta name="google-site-verification" content="ZtaLcj0Trk8IwbS6UEoriov-6DrWU3qOIR1BgAVJbMM" />
-<title>לי-און אמסילי ברק</title>
-<meta name="description" content="פרסומות AI">
-<meta name="description" content="Leeon AI">
-
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#070708"/>
+  <meta name="google-site-verification" content="ZtaLcj0Trk8IwbS6UEoriov-6DrWU3qOIR1BgAVJbMM" />
   <title>Leeon AI — פרסום חכם בעזרת בינה מלאכותית</title>
+  <meta name="description" content="פרסומות AI - Leeon AI">
   <link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Rubik:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/images/logo.png" as="image">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  
   <!-- HEADER -->
-<header class="nav">
-  <div class="nav-inner">
-    <div class="brand">
-      <img src="assets/images/logo.png" class="logo-mark">
-      <div class="logo-text">
-        <div class="name">Leeon.AI</div>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="assets/images/logo.png" class="logo-mark">
+        <div class="logo-text">
+          <div class="name">Leeon.AI</div>
+        </div>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-  </div>
-
-      <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  
-  <nav class="nav-links" id="nav-links">
-    <a href="#home">דף הבית</a>
-    <a href="#about">אודות</a>
-    <a href="#services">שירותים</a>
-    <a href="#clients">לקוחות</a>
-    <a href="#projects">פרויקטים</a>
-    <a href="#work-process">המסע שלנו</a>
-    <a href="#reviews">ביקורות</a>
-    <a href="#booking" class="cta-link">צרו קשר</a>
-  </nav>
-</header>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const nav = document.querySelector(".nav");
-
-    function adjustNavForSafeArea() {
-      // קבלת ערך safe-area-inset-top אם קיים, אחרת 0
-      const safeTop = parseFloat(getComputedStyle(document.documentElement)
-                        .getPropertyValue("--safe-top")) || 0;
-
-      // בדיקה אם env(safe-area-inset-top) נתמך
-      const envTop = (typeof env === "function" ?
-                       env("safe-area-inset-top") : null);
-
-      // השתמשי בערך הכי אמין
-      const paddingTop = envTop || safeTop || 0;
-
-      // קביעת padding‑top ו‑height מתאימים
-      nav.style.paddingTop = paddingTop + "px";
-      nav.style.height = `calc(60px + ${paddingTop}px)`;
-    }
-
-    // אתחול
-    adjustNavForSafeArea();
-
-    // התאמה מחדש במידה שהחלון משתנה גודל
-    window.addEventListener("resize", adjustNavForSafeArea);
-  });
-</script>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home">דף הבית</a>
+      <a href="#about">אודות</a>
+      <a href="#services">שירותים</a>
+      <a href="#clients">לקוחות</a>
+      <a href="#projects">פרויקטים</a>
+      <a href="#work-process">המסע שלנו</a>
+      <a href="#reviews">ביקורות</a>
+      <a href="#booking" class="cta-link">צרו קשר</a>
+    </nav>
+  </header>
 
   <main>
     <!-- HERO -->
@@ -89,21 +54,21 @@
 
     <!-- ABOUT -->
     <section id="about" class="section reveal">
-  <div class="container split">
-    <div class="text about-text">
-      <h2>הגיע הזמן שנכיר 👋</h2>
-      <p>היי, אני לי-און – הנדסאי אלקטרוניקה, עורך וידאו ומומחה לשימוש חכם בבינה מלאכותית. במהלך השנים ערכתי קורסים דיגיטליים, צילומי מוצרים, בוקים מקצועיים, סרטוני תדמית וקמפיינים ממומנים.</p>
-      <p>תוך כדי השירות הצבאי שלי, הבנתי כמה קשה לעצמאים למצוא זמן, כסף ואנרגיה לשיווק איכותי. אז במקום לעצור – השקעתי מאות שעות כדי לפתח פתרונות יצירתיים שמבוססים על AI, שיחסכו לכם זמן, עלויות והתעסקות.</p>
-      <p>המטרה שלי? לעזור לעצמאים להיראות מקצועיים גם בלי ימי צילום, בלי הפקות מסורבלות ובלי לוותר על איכות. כאלה שלא רוצים להישאר תקועים בגלל חוסר זמן או תקציב.</p>
-      <p>זה לא רק AI. זו דרך להציג את עצמכם לעולם וכמו שאתם באמת!</p>
-    </div>
+      <div class="container split">
+        <div class="text about-text">
+          <h2>הגיע הזמן שנכיר 👋</h2>
+          <p>היי, אני לי-און – הנדסאי אלקטרוניקה, עורך וידאו ומומחה לשימוש חכם בבינה מלאכותית. במהלך השנים ערכתי קורסים דיגיטליים, צילומי מוצרים, בוקים מקצועיים, סרטוני תדמית וקמפיינים ממומנים.</p>
+          <p>תוך כדי השירות הצבאי שלי, הבנתי כמה קשה לעצמאים למצוא זמן, כסף ואנרגיה לשיווק איכותי. אז במקום לעצור – השקעתי מאות שעות כדי לפתח פתרונות יצירתיים שמבוססים על AI, שיחסכו לכם זמן, עלויות והתעסקות.</p>
+          <p>המטרה שלי? לעזור לעצמאים להיראות מקצועיים גם בלי ימי צילום, בלי הפקות מסורבלות ובלי לוותר על איכות. כאלה שלא רוצים להישאר תקועים בגלל חוסר זמן או תקציב.</p>
+          <p>זה לא רק AI. זו דרך להציג את עצמכם לעולם וכמו שאתם באמת!</p>
+        </div>
         <div class="visual" style="background-image:url('assets/images/leeon.jpeg')"></div>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section id="services" class="projects-section">
-    <h2 class="section-title">השירותים שלנו</h2>
+      <h2 class="section-title">השירותים שלנו</h2>
       <div class="container">
         <div class="cards">
           <div class="card">
@@ -129,234 +94,227 @@
               <p>בלי לצאת מהבית! אתם שולחים כמה תמונות רגילות – ואני מחזיר לכם בוק תדמית שנראה כמו מאולפן יוקרתי.</p>
             </div>
           </div>
-
         </div>
       </div>
     </section>
 
     <!-- CLIENTS -->
-<div id="clients" class="clients-section">
-  <h2 class="section-title">הלקוחות שלנו</h2>
-  <div class="carousel">
-    <div class="carousel-track">
-      <div class="carousel-item"><img src="assets/images/amare.png" alt=""></div>
-      <div class="carousel-item"><img src="assets/images/aralie.png" alt=""></div>
-      <div class="carousel-item"><img src="assets/images/milan.png" alt=""></div>
-      <div class="carousel-item"><img src="assets/images/mod rich.png" alt=""></div>
-      <div class="carousel-item"><img src="assets/images/valentino.png" alt=""></div>
-      <div class="carousel-item"><img src="assets/images/brand6.png" alt=""></div>
-</div>
-  </div>
-</div>
+    <div id="clients" class="clients-section">
+      <h2 class="section-title">הלקוחות שלנו</h2>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-item"><img src="assets/images/amare.png" alt=""></div>
+          <div class="carousel-item"><img src="assets/images/aralie.png" alt=""></div>
+          <div class="carousel-item"><img src="assets/images/milan.png" alt=""></div>
+          <div class="carousel-item"><img src="assets/images/mod rich.png" alt=""></div>
+          <div class="carousel-item"><img src="assets/images/valentino.png" alt=""></div>
+          <div class="carousel-item"><img src="assets/images/brand6.png" alt=""></div>
+        </div>
+      </div>
+    </div>
 
     <!-- PROJECTS -->
-<section id="projects" class="projects-section">
-  <div class="container">
-    <h2 class="section-title">פרויקטים וסרטוני פרסומות</h2>
-    <p class="section-subtitle">כמה מהפרויקטים המובילים שלנו</p>
-    
-    <div class="projects-container">
-      <div class="project">
-          <video autoplay muted loop playsinline>
-          <source src="assets/videos/video1.mp4" type="video/mp4">
-          הדפדפן שלך לא תומך בוידאו.
-        </video>
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title">פרויקטים וסרטוני פרסומות</h2>
+        <p class="section-subtitle">כמה מהפרויקטים המובילים שלנו</p>
+        
+        <div class="projects-container">
+          <div class="project">
+            <video autoplay muted loop playsinline>
+              <source src="assets/videos/video1.mp4" type="video/mp4">
+              הדפדפן שלך לא תומך בוידאו.
+            </video>
+          </div>
+          <div class="project">
+            <video autoplay muted loop playsinline>
+              <source src="assets/videos/video2.mp4" type="video/mp4">
+              הדפדפן שלך לא תומך בוידאו.
+            </video>
+          </div>
+          <div class="project">
+            <video autoplay muted loop playsinline>
+              <source src="assets/videos/video3.mp4" type="video/mp4">
+              הדפדפן שלך לא תומך בוידאו.
+            </video>
+          </div>
+          <div class="project">
+            <video autoplay muted loop playsinline>
+              <source src="assets/videos/video4.mp4" type="video/mp4">
+              הדפדפן שלך לא תומך בוידאו.
+            </video>
+          </div>
+        </div>
       </div>
-      <div class="project">
-          <video autoplay muted loop playsinline>
-          <source src="assets/videos/video2.mp4" type="video/mp4">
-          הדפדפן שלך לא תומך בוידאו.
-        </video>
-      </div>
-      <div class="project">
-          <video autoplay muted loop playsinline>
-          <source src="assets/videos/video3.mp4" type="video/mp4">
-          הדפדפן שלך לא תומך בוידאו.
-        </video>
-      </div>
-      <div class="project">
-          <video autoplay muted loop playsinline>
-          <source src="assets/videos/video4.mp4" type="video/mp4">
-          הדפדפן שלך לא תומך בוידאו.
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="timeline-horizontal" id="work-process">
-    <h2 class="section-title">המסע שלנו</h2>
-  <div class="timeline-row">
-    <div class="step">
-      <div class="circle">
-        <span class="neon-icon">💡</span>
+    <section class="timeline-horizontal" id="work-process">
+      <h2 class="section-title">המסע שלנו</h2>
+      <div class="timeline-row">
+        <div class="step">
+          <div class="circle">
+            <span class="neon-icon">💡</span>
+          </div>
+          <h3>מחשבה ויצירתיות</h3>
+          <p>אנחנו חושבים יחד על רעיון! זה השלב שבו היצירתיות מתחילה לעבוד.</p>
+        </div>
+
+        <div class="step">
+          <div class="circle">
+            <span class="neon-icon">📄</span>
+          </div>
+          <h3>הצעת מחיר מותאמת</h3>
+          <p>אתם מקבלים ממני הצעת מחיר מותאמת אישית בהתאם לדרישות שלכם.</p>
+        </div>
+
+        <div class="step">
+          <div class="circle">
+            <span class="neon-icon">💰</span>
+          </div>
+          <h3>מקדמה והתקדמות</h3>
+          <p>לאחר תשלום מקדמה של 150 ש"ח אני מתחיל בעבודה ומעדכן אתכם לאורך הדרך.</p>
+        </div>
+
+        <div class="step">
+          <div class="circle">
+            <span class="neon-icon">🎯</span>
+          </div>
+          <h3>אישור וסיום</h3>
+          <p>לאחר אישור העבודה, משלמים את יתרת הסכום ומקבלים את התוצר הסופי בתיקייה אישית בגוגל דרייב.</p>
+        </div>
       </div>
-      <h3>מחשבה ויצירתיות</h3>
-      <p>אנחנו חושבים יחד על רעיון! זה השלב שבו היצירתיות מתחילה לעבוד.</p>
-    </div>
-
-    <div class="step">
-      <div class="circle">
-        <span class="neon-icon">📄</span>
-      </div>
-      <h3>הצעת מחיר מותאמת</h3>
-      <p>אתם מקבלים ממני הצעת מחיר מותאמת אישית בהתאם לדרישות שלכם.</p>
-    </div>
-
-    <div class="step">
-      <div class="circle">
-        <span class="neon-icon">💰</span>
-      </div>
-      <h3>מקדמה והתקדמות</h3>
-      <p>לאחר תשלום מקדמה של 150 ש"ח אני מתחיל בעבודה ומעדכן אתכם לאורך הדרך.</p>
-    </div>
-
-    <div class="step">
-      <div class="circle">
-        <span class="neon-icon">🎯</span>
-      </div>
-      <h3>אישור וסיום</h3>
-      <p>לאחר אישור העבודה, משלמים את יתרת הסכום ומקבלים את התוצר הסופי בתיקייה אישית בגוגל דרייב.</p>
-    </div>
-
-  </div>
-</section>
-
-
+    </section>
 
     <!-- BOOKING -->
     <section id="booking" class="section reveal">
       <div class="container booking-wrap">
         <div class="booking-left">
           <h2>בואו נתחיל!</h2>
-<p>השאירו פרטים ונחזור אליכם בהקדם האפשרי</p>
-<p>יחד נוכל לדבר על איך AI יכול להרים את העסק שלכם לגבהים חדשים!</p>
+          <p>השאירו פרטים ונחזור אליכם בהקדם האפשרי</p>
+          <p>יחד נוכל לדבר על איך AI יכול להרים את העסק שלכם לגבהים חדשים!</p>
         </div>
         <div class="booking-right">
-<form id="contactForm">
-  <label for="fullname">שם מלא:</label><br>
-  <input type="text" id="fullname" name="fullname" required><br><br>
+          <form id="contactForm">
+            <label for="fullname">שם מלא:</label><br>
+            <input type="text" id="fullname" name="fullname" required><br><br>
 
-  <label for="phone">טלפון:</label><br>
-  <input type="tel" id="phone" name="phone" required><br><br>
+            <label for="phone">טלפון:</label><br>
+            <input type="tel" id="phone" name="phone" required><br><br>
 
-  <label for="email">אימייל:</label><br>
-  <input type="email" id="email" name="email" required><br><br>
+            <label for="email">אימייל:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
 
-  <label for="message">הודעה אישית:</label><br>
-  <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            <label for="message">הודעה אישית:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
-  <button type="submit" class="form-button">שליחה</button>
-</form>
+            <button type="submit" class="form-button">שליחה</button>
+          </form>
 
-<div id="responseMessage" style="display:none;" class="response-message">
-  תודה שפנית אלינו! נחזור אלייך בהקדם. ✅
-</div>        </div>
+          <div id="responseMessage" style="display:none;" class="response-message">
+            תודה שפנית אלינו! נחזור אלייך בהקדם. ✅
+          </div>
+        </div>
       </div>
     </section>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script><script>
-  (function(){
-    emailjs.init("7sqzrgavHU1sl1r2B");
-  })();
-</script>
+
     <section id="reviews" class="projects-section">
-    <h2 class="section-title">מה אומרים עליי?</h2>
-<div class="reviews-gallery">
-  <div class="grid">
-    <div><img src="assets/images/review1.png" alt=""></div>
-    <div><img src="assets/images/review2.png" alt=""></div>
-    <div><img src="assets/images/review3.png" alt=""></div>
-    <div><img src="assets/images/review4.png" alt=""></div>
-    <div><img src="assets/images/review5.png" alt=""></div>
-    <div><img src="assets/images/review6.png" alt=""></div>
-    <div><img src="assets/images/review7.png" alt=""></div>
-    <div><img src="assets/images/review8.png" alt=""></div>
-  </div>
-</div>
-        </section>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<footer class="site-footer">
-  <canvas id="particles-footer" class="particles"></canvas>
-  <div class="container">
-    <div class="footer-grid">
-      <div>© לי-און אמסילי ברק 2025</div>
-      <div class="social-links">
-        <a href="https://www.instagram.com/leeon.ai" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+      <h2 class="section-title">מה אומרים עליי?</h2>
+      <div class="reviews-gallery">
+        <div class="grid">
+          <div><img src="assets/images/review1.png" alt=""></div>
+          <div><img src="assets/images/review2.png" alt=""></div>
+          <div><img src="assets/images/review3.png" alt=""></div>
+          <div><img src="assets/images/review4.png" alt=""></div>
+          <div><img src="assets/images/review5.png" alt=""></div>
+          <div><img src="assets/images/review6.png" alt=""></div>
+          <div><img src="assets/images/review7.png" alt=""></div>
+          <div><img src="assets/images/review8.png" alt=""></div>
+        </div>
       </div>
-      <div class="muted">פרסומות • בוקים • בינה מלאכותית</div>
-      
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <footer class="site-footer">
+      <canvas id="particles-footer" class="particles"></canvas>
+      <div class="container">
+        <div class="footer-grid">
+          <div>© לי-און אמסילי ברק 2025</div>
+          <div class="social-links">
+            <a href="https://www.instagram.com/leeon.ai" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <div class="muted">פרסומות • בוקים • בינה מלאכותית</div>
+        </div>
+        <div class="accessibility-footer">
+          <a href="#" id="accessibility-link">הצהרת נגישות</a>
+        </div>
+        <div class="credit">
+          created by: <span class="credit-name">Adaya Moyal</span>
+        </div>
+      </div>
+    </footer>
+
+    <div id="accessibility-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>הצהרת נגישות</h2>
+        <p><strong>הצהרת נגישות – Leeon.ai</strong></p>
+
+        <p>אתר leeon-ai.com (להלן: “האתר”) מופעל על-ידי לי-און אמסילי ברק, בעל העסק Leeon.ai. האתר נועד להיות נגיש לכלל הציבור, ובפרט לאנשים עם מוגבלויות. אנו רואים חשיבות רבה בהנגשת האתר ופועלים בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ”ח-1998, ותקנות הנגישות הנגזרות ממנו.</p>
+
+        <p><strong>התאמות נגישות באתר</strong></p>
+
+        <p>האתר פועל בהתאם להנחיות התקן הישראלי ת”י 5568 ומבוסס על הנחיות הנגישות הבינלאומיות WCAG 2.0 ברמה AA. באתר מותקן תוסף הנגישות של Enable (https://www.enable.co.il) המאפשר מגוון התאמות לשיפור חוויית הגלישה, ביניהן:</p>
+
+        <ul>
+          <li>שינוי גודל גופן והגדלת טקסט.</li>
+          <li>התאמות ניגודיות צבעים.</li>
+          <li>הדגשת קישורים וכותרות.</li>
+          <li>ניווט מקלדת מלא באמצעות מקשי Tab, Enter ו-Esc.</li>
+          <li>סימון מיקום הסמן והדגשת אזור הפוקוס.</li>
+          <li>קריינות טקסט (מצב קריאה).</li>
+          <li>ביטול אנימציות ותנועה.</li>
+          <li>אפשרות להפוך צבעים (נגטיב).</li>
+          <li>הדגשת תיאורי תמונות (alt).</li>
+          <li>נגישות לשפות ותמיכה בקוראי מסך.</li>
+        </ul>
+
+        <p>תפריט הנגישות מופיע בצד המסך וניתן לפתיחה באמצעות סמל הנגישות או לחיצה על מקש ESC.</p>
+
+        <p><strong>רכיבים שאינם בשליטתנו</strong></p>
+
+        <p>ייתכן שבחלק מהעמודים או ברכיבי צד ג’ (כגון סרטונים, מפות, פלאגינים או קבצי PDF ישנים) תופענה חריגות מהתקן. אנו פועלים לעדכן ולתקן מקרים אלו בהדרגה, בהתאם למשוב שמתקבל מהגולשים.</p>
+
+        <p><strong>יצירת קשר ומשוב בנושא נגישות</strong></p>
+
+        <p>אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם הצעות לשיפור, נשמח לשמוע ולטפל בכך בהקדם.</p>
+
+        <p><strong>פרטי קשר:</strong></p>
+        <ul>
+          <li>📧 דוא”ל: li.ab225.146@gmail.com</li>
+          <li>👤 אחראי נגישות: לי-און אמסילי ברק</li>
+          <li>📍 אופי השירות: העסק פועל במתכונת דיגיטלית בלבד, ללא קבלת קהל פיזית. נשמח לספק חלופות נגישות בכל דרך אפשרית.</li>
+        </ul>
+
+        <p>נשיב לפניות בנושא נגישות בהקדם האפשרי, תוך שאיפה למתן מענה מלא ופתרון נגיש הולם.</p>
+
+        <p><strong>תאריך עדכון אחרון</strong></p>
+        <p>19 באוקטובר 2025</p>
+
+        <p>Leeon.ai ©️ כל הזכויות שמורות • לי-און אמסילי ברק</p>
+      </div>
     </div>
-  </div>
-  <div class="accessibility-footer">
-  <a href="#" id="accessibility-link">הצהרת נגישות</a>
-</div>
+  </main>
 
-    <div class="credit">
-      created by: <span class="credit-name">Adaya Moyal</span>
-    </div>
-  </div>
-
-
-</footer>
-    
-
-   
-<div id="accessibility-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <h2>הצהרת נגישות</h2>
-    <p><strong>הצהרת נגישות – Leeon.ai</strong></p>
-
-
-<p>אתר leeon-ai.com (להלן: “האתר”) מופעל על-ידי לי-און אמסילי ברק, בעל העסק Leeon.ai. האתר נועד להיות נגיש לכלל הציבור, ובפרט לאנשים עם מוגבלויות. אנו רואים חשיבות רבה בהנגשת האתר ופועלים בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות, התשנ”ח-1998, ותקנות הנגישות הנגזרות ממנו.</p>
-
-<p><strong>התאמות נגישות באתר</strong></p>
-
-<p>האתר פועל בהתאם להנחיות התקן הישראלי ת”י 5568 ומבוסס על הנחיות הנגישות הבינלאומיות WCAG 2.0 ברמה AA. באתר מותקן תוסף הנגישות של Enable (https://www.enable.co.il) המאפשר מגוון התאמות לשיפור חוויית הגלישה, ביניהן:</p>
-
-<ul>
-  <li>שינוי גודל גופן והגדלת טקסט.</li>
-  <li>התאמות ניגודיות צבעים.</li>
-  <li>הדגשת קישורים וכותרות.</li>
-  <li>ניווט מקלדת מלא באמצעות מקשי Tab, Enter ו-Esc.</li>
-  <li>סימון מיקום הסמן והדגשת אזור הפוקוס.</li>
-  <li>קריינות טקסט (מצב קריאה).</li>
-  <li>ביטול אנימציות ותנועה.</li>
-  <li>אפשרות להפוך צבעים (נגטיב).</li>
-  <li>הדגשת תיאורי תמונות (alt).</li>
-  <li>נגישות לשפות ותמיכה בקוראי מסך.</li>
-</ul>
-
-<p>תפריט הנגישות מופיע בצד המסך וניתן לפתיחה באמצעות סמל הנגישות או לחיצה על מקש ESC.</p>
-
-<p><strong>רכיבים שאינם בשליטתנו</strong></p>
-
-<p>ייתכן שבחלק מהעמודים או ברכיבי צד ג’ (כגון סרטונים, מפות, פלאגינים או קבצי PDF ישנים) תופענה חריגות מהתקן. אנו פועלים לעדכן ולתקן מקרים אלו בהדרגה, בהתאם למשוב שמתקבל מהגולשים.</p>
-
-<p><strong>יצירת קשר ומשוב בנושא נגישות</strong></p>
-
-<p>אם נתקלתם בקושי כלשהו בגלישה באתר או שיש לכם הצעות לשיפור, נשמח לשמוע ולטפל בכך בהקדם.</p>
-
-<p><strong>פרטי קשר:</strong></p>
-<ul>
-  <li>📧 דוא”ל: li.ab225.146@gmail.com</li>
-  <li>👤 אחראי נגישות: לי-און אמסילי ברק</li>
-  <li>📍 אופי השירות: העסק פועל במתכונת דיגיטלית בלבד, ללא קבלת קהל פיזית. נשמח לספק חלופות נגישות בכל דרך אפשרית.</li>
-</ul>
-
-<p>נשיב לפניות בנושא נגישות בהקדם האפשרי, תוך שאיפה למתן מענה מלא ופתרון נגיש הולם.</p>
-
-<p><strong>תאריך עדכון אחרון</strong></p>
-<p>19 באוקטובר 2025</p>
-
-<p>Leeon.ai ©️ כל הזכויות שמורות • לי-און אמסילי ברק</p>
-  
-
-  </div>
-</div>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("7sqzrgavHU1sl1r2B");
+    })();
+  </script>
   <script src="script.js"></script>
-<script src="https://cdn.enable.co.il/licenses/enable-L48813fqxlpnytbu-1025-74772/init.js"></script></html>
+  <script src="https://cdn.enable.co.il/licenses/enable-L48813fqxlpnytbu-1025-74772/init.js"></script>
+</body>
+</html>
