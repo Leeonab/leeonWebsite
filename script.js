@@ -73,3 +73,8 @@ window.addEventListener('load', () => {
     nav.style.display = 'flex';
   }
 });
+
+// Fallback for viewport shift on resize
+window.addEventListener('resize', () => {
+  document.querySelector('.hero').style.height = `${window.innerHeight}px`;
+});
