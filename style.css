@@ -10,16 +10,7 @@
   --safe-area-inset-top: env(safe-area-inset-top, 0px);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('assets/images/project1.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.50;
-  z-index: 0;
-}
+
 
 html {
   height: 100%;
