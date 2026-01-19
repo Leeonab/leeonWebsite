@@ -1,10 +1,10 @@
 :root {
-  --bg-100: #070708;
-  --bg-90: #0b0b0b;
-  --card: #0f1113;
-  --accent: #e50914;
-  --muted: rgba(255,255,255,0.65);
-  --glass: rgba(255,255,255,0.03);
+  --bg-100: #f8f8f8;
+  --bg-90: #ffffff;
+  --card: #ffffff;
+  --accent: #d4af37; /* Gold for jewelry theme */
+  --muted: rgba(0,0,0,0.65);
+  --glass: rgba(0,0,0,0.03);
   --maxW: 1200px;
   --radius: 14px;
   --safe-area-inset-top: env(safe-area-inset-top, 0px);
@@ -17,7 +17,7 @@
   background-image: url('assets/images/project1.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.50;
+  opacity: 0.15; /* Lighter opacity for bright theme */
   z-index: 0;
 }
 
@@ -36,9 +36,10 @@ body,
 #booking,
 .reviews-gallery,
 .site-footer {
-  background: #000;
+  background: #fff; /* Bright white background */
   position: relative;
   z-index: 1;
+  color: #000; /* Dark text for readability */
 }
 
 * { box-sizing: border-box; }
@@ -51,7 +52,7 @@ html, body {
     width: 100%;
     margin: 0;
     font-family: "Alef", "Rubik", system-ui, sans-serif;
-    color: #fff;
+    color: #000;
     direction: rtl;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -79,9 +80,10 @@ body {
     padding: 0 24px;
     padding-top: var(--safe-area-inset-top);
     
-    background: #070708;
+    background: #fff; /* Bright nav */
     z-index: 9999;
     will-change: transform;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Light shadow */
 
     /* === NEW HACKS FOR IOS STABILITY === */
     /* Force new rendering layers */
@@ -119,7 +121,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(229,9,20,0.15);
+  box-shadow: 0 6px 18px rgba(212,175,55,0.15); /* Gold shadow */
   background: none;
 }
 
@@ -130,7 +132,7 @@ body {
   border-radius: 50%;
 }
 
-.logo-text .name { font-weight: 800; font-size: 1.05rem; }
+.logo-text .name { font-weight: 800; font-size: 1.05rem; color: #000; }
 .logo-text .sub { font-size: .85rem; color: var(--muted); margin-top: 2px; }
 
 .nav-links {
@@ -150,17 +152,17 @@ body {
 }
 
 .nav-links a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.03);
+  color: #000;
+  background: rgba(212,175,55,0.1); /* Light gold hover */
   transform: translateY(-3px);
 }
 
 .nav-links .cta-link {
-  background: linear-gradient(90deg,var(--accent),#b70a10);
+  background: linear-gradient(90deg,var(--accent),#b8962e); /* Gold gradient */
   color: #fff;
   padding: 10px 16px;
   border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(229,9,20,0.12);
+  box-shadow: 0 8px 28px rgba(212,175,55,0.12);
 }
 
 .hero {
@@ -171,7 +173,7 @@ body {
   justify-content: center;
   overflow: hidden;
   padding: 40px 20px;
-  background: #000;
+  background: #f8f8f8; /* Light background */
 }
 
 .hero-center { position: relative; z-index: 3; max-width: 1100px; text-align: center; padding: 20px; }
@@ -181,8 +183,8 @@ body {
   font-size: 48px;
   letter-spacing: 0.2px;
   margin: 0 0 14px;
-  color: #fff;
-  text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  color: #000;
+  text-shadow: 0 10px 30px rgba(212,175,55,0.2); /* Gold shadow */
 }
 
 .hero-sub {
@@ -211,15 +213,15 @@ body {
 }
 
 .btn.primary {
-  background: linear-gradient(90deg,var(--accent),#b70a10);
-  color: #111;
-  box-shadow: 0 12px 40px rgba(229,9,20,0.12);
+  background: linear-gradient(90deg,var(--accent),#b8962e);
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(212,175,55,0.12);
 }
 
 .btn.ghost {
-  background: #e8e1e1;
-  border: 1px solid rgba(255,255,255,0.05);
-  color: black;
+  background: #f8f8f8;
+  border: 1px solid rgba(0,0,0,0.05);
+  color: #000;
 }
 
 .section { padding: 80px 20px; }
@@ -232,13 +234,13 @@ body {
 
 .text p { color: var(--muted); line-height: 1.6; }
 
-.visual { height: 350px; border-radius: 12px; background-size: cover; background-position: center; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+.visual { height: 350px; border-radius: 12px; background-size: cover; background-position: center; box-shadow: 0 20px 50px rgba(212,175,55,0.1); /* Light gold shadow */ }
 
 #services {
   position: relative;
   overflow: hidden;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0a0a0a 0%, #3b0a0a 50%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #ffffff 100%);
 }
 
 #services .section-title {
@@ -259,12 +261,12 @@ body {
   overflow: hidden;
   transition: transform .45s, box-shadow .45s;
   padding-bottom: 18px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.1);
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 30px 80px rgba(229,9,20,0.12);
+  box-shadow: 0 30px 80px rgba(212,175,55,0.2);
 }
 
 .card-media { height: 160px; background-size: cover; background-position: center; }
@@ -284,13 +286,13 @@ body {
   width: 100%;
   height: 520px;
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 18px 50px rgba(212,175,55,0.1);
 }
 
 .site-footer {
   padding: 40px 20px;
-  background: #000;
+  background: #f8f8f8;
 }
 
 .footer-grid {
@@ -309,27 +311,27 @@ body {
 .clients-section,
 .projects-section,
 .testimonials-section {
-  background: #000;
-  color: white;
+  background: #fff;
+  color: #000;
   padding: 80px 20px;
   text-align: center;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #ff2e2e;
+  color: var(--accent);
   margin-bottom: 10px;
   font-weight: 700;
   letter-spacing: 2px;
 }
 
-.section-subtitle { color: #bbb; font-size: 1.1rem; margin-bottom: 50px; }
+.section-subtitle { color: #555; font-size: 1.1rem; margin-bottom: 50px; }
 
-.client-card h3 { color:#fff; margin-bottom:8px; font-size:1.2rem; }
+.client-card h3 { color:#000; margin-bottom:8px; font-size:1.2rem; }
 
-.client-card p { color:#aaa; font-size:0.9rem; }
+.client-card p { color:#666; font-size:0.9rem; }
 
-.client-card:hover { transform: translateY(-8px); box-shadow: 0 0 25px rgba(255,0,0,0.4); }
+.client-card:hover { transform: translateY(-8px); box-shadow: 0 0 25px rgba(212,175,55,0.2); }
 
 .carousel { width: 100%; height:180px; margin:50px auto; perspective:900px; }
 
@@ -355,23 +357,23 @@ body {
 
 .testimonial {
   min-width: 300px;
-  background: #1a1a1a;
+  background: #f8f8f8;
   border-radius: 12px;
   padding: 30px 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.1);
   flex-shrink: 0;
   transition: transform 0.3s;
 }
 
 .testimonial:hover { transform: translateY(-10px); }
 
-.testimonial p { font-size: 1rem; color: #ccc; margin-bottom: 15px; line-height: 1.5; }
+.testimonial p { font-size: 1rem; color: #555; margin-bottom: 15px; line-height: 1.5; }
 
-.testimonial h4 { font-size: 1.1rem; color: #fff; font-weight: 600; }
+.testimonial h4 { font-size: 1.1rem; color: #000; font-weight: 600; }
 
 .projects-section {
-  background: #000;
-  color: white;
+  background: #fff;
+  color: #000;
   padding: 80px 20px;
   text-align: center;
   overflow-x: auto;
@@ -393,7 +395,7 @@ body {
   width: 280px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 30px rgba(212,175,55,0.1);
   transition: transform 0.3s;
 }
 
@@ -410,7 +412,7 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: -30px;
-  color: #ddd;
+  color: #555;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -436,7 +438,7 @@ body {
 
 .site-footer {
   position: relative;
-  background: #070708;
+  background: #f8f8f8;
   overflow: hidden;
 }
 
@@ -447,8 +449,8 @@ body {
 
 .site-footer {
   position: relative;
-  background: #070708;
-  color: white;
+  background: #f8f8f8;
+  color: #000;
   padding: 40px 0;
   overflow: hidden;
   text-align: center;
@@ -465,19 +467,19 @@ body {
 }
 
 .footer-grid .muted {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .social-links a {
-  color: white;
+  color: #000;
   font-size: 28px;
-  text-shadow: 0 0 10px #e50914, 0 0 20px #e50914, 0 0 40px #e50914;
+  text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37, 0 0 40px #d4af37;
   transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #e50914;
-  text-shadow: 0 0 15px #e50914, 0 0 30px #e50914, 0 0 60px #e50914;
+  color: #d4af37;
+  text-shadow: 0 0 15px #d4af37, 0 0 30px #d4af37, 0 0 60px #d4af37;
   transform: scale(1.15);
 }
 
@@ -489,7 +491,7 @@ body {
 }
 
 #booking {
-  background: linear-gradient(180deg, #1a0000, #300000, #1a0000);
+  background: linear-gradient(180deg, #ffffff, #f8f8f8, #ffffff);
   position: relative;
   z-index: 1;
 }
@@ -498,7 +500,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(229,9,20,0.15), transparent 70%);
+  background: radial-gradient(circle at center, rgba(212,175,55,0.15), transparent 70%);
   z-index: 0;
 }
 
@@ -509,7 +511,7 @@ body {
 
 .timeline-horizontal {
   background: var(--bg-90);
-  color: white;
+  color: #000;
   text-align: center;
   padding: 80px 20px;
 }
@@ -537,8 +539,8 @@ body {
   transform: translateX(-50%);
   width: 90%;
   height: 3px;
-  background: rgba(229, 9, 20, 0.2);
-  box-shadow: 0 0 20px rgba(255, 0, 70, 0.5);
+  background: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 20px rgba(212,175,55,0.5);
   z-index: 1;
 }
 
@@ -552,8 +554,8 @@ body {
 }
 
 .circle {
-  background: rgba(10, 10, 10, 0.8);
-  border: 2px solid rgba(255, 0, 70, 0.5);
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(212,175,55,0.5);
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -563,18 +565,18 @@ body {
   margin: 0 auto 20px auto;
   position: relative;
   z-index: 2;
-  box-shadow: 0 0 15px rgba(255, 0, 70, 0.3);
+  box-shadow: 0 0 15px rgba(212,175,55,0.3);
 }
 
 .neon-icon {
   font-size: 2.5rem;
-  color: #ff2f7a;
+  color: #d4af37;
   text-shadow:
-    0 0 5px #ff2f7a,
-    0 0 10px #ff2f7a,
-    0 0 20px #ff2f7a,
-    0 0 40px #ff2f7a,
-    0 0 80px #ff2f7a;
+    0 0 5px #d4af37,
+    0 0 10px #d4af37,
+    0 0 20px #d4af37,
+    0 0 40px #d4af37,
+    0 0 80px #d4af37;
   animation: pulseNeon 2.5s infinite alternate;
 }
 
@@ -582,16 +584,16 @@ body {
   0% {
     opacity: 0.8;
     text-shadow:
-      0 0 5px #ff2f7a,
-      0 0 15px #ff2f7a,
-      0 0 30px #ff2f7a;
+      0 0 5px #d4af37,
+      0 0 15px #d4af37,
+      0 0 30px #d4af37;
   }
   100% {
     opacity: 1;
     text-shadow:
-      0 0 10px #ff2f7a,
-      0 0 25px #ff2f7a,
-      0 0 50px #ff2f7a;
+      0 0 10px #d4af37,
+      0 0 25px #d4af37,
+      0 0 50px #d4af37;
   }
 }
 
@@ -640,7 +642,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.08), transparent 70%);
+  background: radial-gradient(circle at center, rgba(212,175,55,0.08), transparent 70%);
   z-index: 0;
 }
 
@@ -676,20 +678,20 @@ body {
 
 .grid div:hover {
   transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 0 35px rgba(229, 9, 20, 0.25);
+  box-shadow: 0 0 35px rgba(212,175,55,0.25);
 }
 
 .grid img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: brightness(0.9);
+  filter: brightness(1.1); /* Slightly brighter for jewelry theme */
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .grid div:hover img {
   transform: scale(1.05);
-  filter: brightness(1);
+  filter: brightness(1.2);
 }
 
 .hamburger {
@@ -704,7 +706,7 @@ body {
 }
 
 .hamburger span {
-  background: white;
+  background: #000;
   height: 3px;
   width: 100%;
   border-radius: 3px;
@@ -735,12 +737,12 @@ body {
     left: 0;
     height: 100vh;
     width: 65%;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(255, 255, 255, 0.95);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 24px;
-    box-shadow: -4px 0 20px rgba(0,0,0,0.4);
+    box-shadow: -4px 0 20px rgba(212,175,55,0.1);
     z-index: 1000;
     transition: transform 0.3s ease;
   }
@@ -751,6 +753,7 @@ body {
 
   .nav-links a {
     font-size: 1.2rem;
+    color: #000;
   }
 }
 
@@ -779,12 +782,12 @@ body {
 }
 
 .modal-content {
-  background-color: #111;
+  background-color: #fff;
   margin: 10% auto;
   padding: 20px;
   border-radius: 12px;
   max-width: 600px;
-  color: #fff;
+  color: #000;
   position: relative;
 }
 
@@ -798,9 +801,9 @@ body {
 }
 
 form {
-  background-color: #111; /* מעט אפור כהה */
+  background-color: #f8f8f8; /* Light background */
   padding: 20px;
-  border: 2px solid #e10600; /* אדום */
+  border: 2px solid var(--accent); /* Gold border */
   border-radius: 8px;
   max-width: 400px;
   margin: 40px auto;
@@ -810,7 +813,7 @@ label {
   display: block;
   margin-bottom: 6px;
   font-weight: bold;
-  color: #e10600; /* אדום */
+  color: var(--accent); /* Gold */
 }
 
 input[type="text"],
@@ -820,10 +823,10 @@ textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 18px;
-  border: 1.5px solid #e10600;
+  border: 1.5px solid var(--accent);
   border-radius: 4px;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   font-size: 14px;
   resize: vertical;
 }
@@ -833,13 +836,13 @@ input[type="tel"]:focus,
 input[type="email"]:focus,
 textarea:focus {
   outline: none;
-  border-color: #fff; /* לבן בהיר בעת פוקוס */
-  background-color: #222;
+  border-color: #000; /* Black on focus */
+  background-color: #f8f8f8;
 }
 
 .form-button {
   font-weight: bold;
-  background-color: #e10600; /* אדום */
+  background-color: var(--accent); /* Gold */
   color: #fff;
   padding: 12px 20px;
   border: none;
@@ -852,7 +855,7 @@ textarea:focus {
 }
 
 button:hover {
-  background-color: #a80400; /* אדום כהה */
+  background-color: #b8962e; /* Darker gold */
 }
 
 #responseMessage {
@@ -860,14 +863,14 @@ button:hover {
   margin: 20px auto;
   font-size: 18px;
   font-weight: bold;
-  color: #e10600; /* אדום */
+  color: var(--accent); /* Gold */
   text-align: center;
 }
 
 .response-message {
-  background-color: #111; /* רקע כהה */
-  color: #e10600; /* אדום */
-  border: 2px solid #e10600;
+  background-color: #f8f8f8; /* Light background */
+  color: var(--accent); /* Gold */
+  border: 2px solid var(--accent);
   padding: 20px;
   border-radius: 8px;
   font-size: 18px;
@@ -875,16 +878,16 @@ button:hover {
   text-align: center;
   max-width: 400px;
   margin: 30px auto;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(212,175,55,0.2);
   transition: all 0.3s ease-in-out;
 }
 
 .credit {
   margin-top: 10px;
-  color: #fff;
+  color: #000;
   font-size: 0.95rem;
   font-weight: 600;
-  text-shadow: 0 0 10px #e50914, 0 0 20px #e50914, 0 0 40px #e50914;
+  text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37, 0 0 40px #d4af37;
 }
 
 .credit-name {
