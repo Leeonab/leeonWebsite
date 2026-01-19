@@ -14,7 +14,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/project1.png');
+  background-image: url('assets/images/MainImage.jpeg');
   background-size: cover;
   background-position: center;
   opacity: 0.15; /* Lighter opacity for bright theme */
