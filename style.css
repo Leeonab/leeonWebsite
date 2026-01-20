@@ -411,17 +411,35 @@ body {
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 1.5rem;  /* Keeps space between paragraphs */
+  margin-bottom: 1.5rem;
   color: #555;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  text-align: right;  /* Aligns neatly to right in RTL – no stretching/gaps */
-  text-indent: 0;  /* No indent on first line, fixes "forward" shift */
-  padding: 0;  /* No extra internal padding */
-  letter-spacing: -0.05em;  /* Optional: Slightly tightens spaces between words – adjust or remove if too tight */
+  text-align: right;
+  text-indent: 0;
+  padding: 0;
+  letter-spacing: -0.05em;
+  animation: fadeInUp 0.8s ease-out forwards;  /* Applies the animation */
+  opacity: 0;  /* Starts hidden until animation triggers */
 }
 
+/* Stagger the animations for each paragraph */
+.about-text p:nth-child(1) {
+  animation-delay: 0.2s;  /* First paragraph starts immediately */
+}
+
+.about-text p:nth-child(2) {
+  animation-delay: 0.4s;  /* Second delays a bit */
+}
+
+.about-text p:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.about-text p:nth-child(4) {
+  animation-delay: 0.8s;
+}
 .about-text strong {
   font-weight: bold;
   letter-spacing: -0.03em;  /* Tightens spaces in bold text only – adjust as needed */
