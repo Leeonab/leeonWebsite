@@ -411,11 +411,14 @@ body {
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: -30px;
+  margin-bottom: 1.5rem;  /* Adds space between paragraphs for better readability */
   color: #555;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  text-align: right;  /* Aligns to the right for clean RTL (Hebrew) flow – change to 'justify' if you want even spacing on both sides */
+  text-indent: 0;  /* Removes any default indentation on the first line, fixing the "forward" shift */
+  padding: 0;  /* Ensures no extra padding inside paragraphs */
 }
 
 .about-text p {
