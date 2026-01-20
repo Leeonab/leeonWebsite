@@ -967,3 +967,9 @@ main {
 }
 
 
+#about {
+  border-top: 2px solid var(--accent);  /* Gold line – adjust thickness (e.g., 1px) or color if needed */
+  padding-top: 40px;  /* Adds space above the line for better separation */
+}
+
+
