@@ -424,12 +424,15 @@ body {
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 1.5rem;  /* Positive margin for space between paragraphs – try 1rem or 20px if you prefer */
+  margin-bottom: 1.5rem;  /* Keeps space between paragraphs */
   color: #555;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  text-align: justify;  /* Optional: Justifies the text for a cleaner, more professional look */
+  text-align: right;  /* Aligns neatly to right in RTL – no stretching/gaps */
+  text-indent: 0;  /* No indent on first line, fixes "forward" shift */
+  padding: 0;  /* No extra internal padding */
+  letter-spacing: -0.05em;  /* Optional: Slightly tightens spaces between words – adjust or remove if too tight */
 }
 
 @media(max-width:980px){
