@@ -904,3 +904,14 @@ button:hover {
 main {
   padding-top: calc(60px + var(--safe-area-inset-top));
 }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);  /* Starts slightly below and transparent */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);  /* Ends in place and fully visible */
+  }
+}
