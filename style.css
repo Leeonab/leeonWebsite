@@ -17,7 +17,7 @@
   background-image: url('assets/images/MainImage.jpeg');
   background-size: cover;
   background-position: center;
-  opacity: 0.5; /* Lighter opacity for bright theme */
+  opacity: 0.7; /* Lighter opacity for bright theme */
   z-index: 0;
 }
 
