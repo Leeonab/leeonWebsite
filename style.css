@@ -973,14 +973,5 @@ main {
 }
 
 
-.visual {
-  /* Existing styles */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
 
-@media (max-width: 768px) {
-  .visual {
-    clip-path: none;
-  }
-}
 
