@@ -188,7 +188,7 @@ body {
 }
 
 .hero-sub {
-  color: var(--muted);
+  color: rgba(0, 0, 0, 0.5); /* 50% opacity – change this value */
   font-size: 18px;
   max-width: 880px;
   margin: 0 auto 22px;
