@@ -424,6 +424,15 @@ body {
   opacity: 0;  /* Starts hidden until animation triggers */
 }
 
+.visual { 
+  height: 350px; 
+  border-radius: 12px; 
+  background-size: cover; 
+  background-position: center; 
+  box-shadow: 0 20px 50px rgba(212,175,55,0.1); /* Light gold shadow */ 
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
 /* Stagger the animations for each paragraph */
 .about-text p:nth-child(1) {
   animation-delay: 0.2s;  /* First paragraph starts immediately */
@@ -973,5 +982,9 @@ main {
 }
 
 
-
+@media (max-width: 768px) {
+  .visual {
+    clip-path: none;
+  }
+}
 
