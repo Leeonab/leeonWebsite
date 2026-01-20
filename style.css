@@ -933,3 +933,37 @@ main {
     transform: translateY(0);  /* Ends in place and fully visible */
   }
 }
+
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0.4);  /* Gold glow matching your theme */
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+}
+
+.btn.ghost {
+  background: #f8f8f8;
+  border: 1px solid rgba(0,0,0,0.05);
+  color: #000;
+  animation: pulseGlow 2s infinite ease-in-out;  /* Subtle pulse to draw attention – adjust duration or remove 'infinite' if you want it once */
+  transition: transform 0.2s ease;  /* Smooth click effect */
+}
+
+.btn.ghost:hover {
+  animation: pulseGlow 1s infinite ease-in-out;  /* Faster pulse on hover for more engagement */
+}
+
+.btn.ghost:active {
+  transform: scale(0.95);  /* Slight shrink on click for feedback */
+}
+
+
