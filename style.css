@@ -418,7 +418,16 @@ body {
   margin-right: auto;
 }
 
-.about-text p:last-child { margin-bottom: 0; }
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;  /* Positive margin for space between paragraphs – try 1rem or 20px if you prefer */
+  color: #555;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;  /* Optional: Justifies the text for a cleaner, more professional look */
+}
 
 @media(max-width:980px){
   .split,.booking-wrap{grid-template-columns:1fr}
