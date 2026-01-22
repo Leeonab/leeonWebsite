@@ -353,8 +353,6 @@ body {
 
 .carousel-item:nth-child(6){transform:rotateY(300deg) translateZ(300px);}
 
-.carousel-item:nth-child(7){transform:rotateY(300deg) translateZ(300px);}
-
 @keyframes rotate { from{transform:rotateY(0deg);} to{transform:rotateY(360deg);} }
 
 .testimonial {
