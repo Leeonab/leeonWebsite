@@ -347,10 +347,10 @@ body {
 
 .client-card {
   position: relative;
-  background: #ff69b4 
+  background: #ff69b4;  
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
