@@ -355,6 +355,60 @@ body {
 
 @keyframes rotate { from{transform:rotateY(0deg);} to{transform:rotateY(360deg);} }
 
+.more-clients-section {
+  background: #f8f8f8;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.more-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.client-highlight {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(212,175,55,0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.client-highlight:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(212,175,55,0.2);
+}
+
+.client-highlight img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.client-info {
+  text-align: center;
+}
+
+.client-info h3 {
+  font-size: 1.4rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.client-info p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .testimonial {
   min-width: 300px;
   background: #f8f8f8;
@@ -460,6 +514,7 @@ body {
 @media(max-width:600px){
   .grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .grid img { height: auto; }
+  .more-clients-grid { grid-template-columns: 1fr; }
 }
 
 .site-footer {
@@ -659,9 +714,32 @@ body {
   overflow: hidden;
 }
 
-.reviews-gallery,
-.grid {
-  background: transparent;
+.reviews-carousel {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.review-item {
+  flex: 0 0 300px;
+  margin: 0 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.review-item img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 #reviews::before {
@@ -971,4 +1049,41 @@ main {
 #about {
   border-top: 10px solid var(--accent);  /* Gold line – adjust thickness (e.g., 1px) or color if needed */
   padding-top: 40px;  /* Adds space above the line for better separation */
+}
+
+.reviews-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.reviews-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.review-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+}
+
+.review-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.review-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .reviews-carousel {
+    max-width: 100%;
+  }
 }
