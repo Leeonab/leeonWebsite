@@ -140,20 +140,23 @@
         <h2 class="section-title">פרויקטים וסרטוני פרסומות</h2>
         <p class="section-subtitle">כמה מהפרויקטים המובילים שלנו בתחום התכשיטים והיהלומים</p>
         
-        <div class="projects-container">
-          <div class="project">
-            <video autoplay muted loop playsinline>
-              <source src="assets/videos/video1.mp4" type="video/mp4">
-              הדפדפן שלך לא תומך בוידאו.
-            </video>
+        <div class="projects-wrapper">
+          <div class="projects-container">
+            <div class="project">
+              <video autoplay muted loop playsinline>
+                <source src="assets/videos/video1.mp4" type="video/mp4">
+                הדפדפן שלך לא תומך בוידאו.
+              </video>
+            </div>
+            <div class="project">
+              <video autoplay muted loop playsinline>
+                <source src="assets/videos/video3.mp4" type="video/mp4">
+                הדפדפן שלך לא תומך בוידאו.
+              </video>
+            </div>
           </div>
-          
-          <div class="project">
-            <video autoplay muted loop playsinline>
-              <source src="assets/videos/video3.mp4" type="video/mp4">
-              הדפדפן שלך לא תומך בוידאו.
-            </video>
-          </div>
+          <div class="scroll-arrow arrow-prev"><i class="fas fa-chevron-right"></i></div>
+          <div class="scroll-arrow arrow-next"><i class="fas fa-chevron-left"></i></div>
         </div>
       </div>
     </section>
@@ -326,5 +329,20 @@
   </script>
   <script src="script.js"></script>
   <script src="https://cdn.enable.co.il/licenses/enable-L48813fqxlpnytbu-1025-74772/init.js"></script>
+  <script>
+    // Add this to script.js or here inline
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.querySelector('.projects-container');
+      const projectWidth = 300; // Adjust based on .project width + gap
+
+      document.querySelector('.arrow-prev')?.addEventListener('click', () => {
+        container.scrollBy({ left: projectWidth, behavior: 'smooth' });
+      });
+
+      document.querySelector('.arrow-next')?.addEventListener('click', () => {
+        container.scrollBy({ left: -projectWidth, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
