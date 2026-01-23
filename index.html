@@ -230,19 +230,69 @@
       </div>
     </section>
 
-    <section id="reviews" class="projects-section">
+    <section id="reviews" class="reviews-section">
       <h2 class="section-title">מה אומרים עליי?</h2>
-      <div class="reviews-carousel">
-        <div class="reviews-track">
-          <div class="review-item"><img src="assets/images/review1.png" alt="Review 1"></div>
-          <div class="review-item"><img src="assets/images/review2.png" alt="Review 2"></div>
-          <div class="review-item"><img src="assets/images/review3.png" alt="Review 3"></div>
-          <div class="review-item"><img src="assets/images/review4.png" alt="Review 4"></div>
-          <div class="review-item"><img src="assets/images/review5.png" alt="Review 5"></div>
-          <div class="review-item"><img src="assets/images/review6.png" alt="Review 6"></div>
-          <div class="review-item"><img src="assets/images/review7.png" alt="Review 7"></div>
-          <div class="review-item"><img src="assets/images/review8.png" alt="Review 8"></div>
+      <div class="reviews-wrapper">
+        <div class="reviews-container">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">עמית</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"הזמנתי 2 סרטונים, אחד אופקי ואחד אנכי. לי און עשה עבודה מקצועית, עם מוזיקה מתאימה, טקסטים ואפקטים שגורמים לסרטון להיראות יוקרתי ומקצועי. ממליץ בחום!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">אורי</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"הזמנתי סרטון לפרסום, לי און היה מאוד קשוב ויצר סרטון מדהים. התוצאה הייתה מעולה והמחיר היה הוגן. תודה רבה!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">דניאל</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"לי און עשה עבודה מצוינת על סרטון הפרסום שלי. הוא היה זריז, מקצועי ויצירתי. התוצאה עלתה על הציפיות שלי. מומלץ!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">שירה</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"הזמנתי תמונות AI עם דוגמניות, לי און יצר תמונות מדהימות שמתאימות בדיוק למה שרציתי. שירות מהיר ומקצועי, תודה!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">יוסי</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"לי און יצר סרטון פרסום יפהפה, עם אפקטים ומוזיקה שמתאימים למותג. עבודה מקצועית ביותר, ממליץ בחום!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">רונית</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"השירות היה מעולה, לי און היה סבלני ועשה שינויים עד שהייתי מרוצה. הסרטון יצא מושלם!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">מיכאל</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"יצרתי קשר עם לי און לפרסומת, הוא הבין בדיוק מה רציתי ועשה עבודה נהדרת. תודה על השירות!"</p>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-name">נועה</div>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <p class="review-text">"לי און יצר תמונות AI יפהפיות, השירות היה מהיר ומקצועי. מרוצה מאוד!"</p>
+          </div>
         </div>
+        <div class="scroll-arrow arrow-prev"><i class="fas fa-chevron-right"></i></div>
+        <div class="scroll-arrow arrow-next"><i class="fas fa-chevron-left"></i></div>
       </div>
     </section>
 
@@ -332,15 +382,26 @@
   <script>
     // Add this to script.js or here inline
     document.addEventListener('DOMContentLoaded', () => {
-      const container = document.querySelector('.projects-container');
+      const projectsContainer = document.querySelector('.projects-container');
       const projectWidth = 300; // Adjust based on .project width + gap
 
-      document.querySelector('.arrow-prev')?.addEventListener('click', () => {
-        container.scrollBy({ left: projectWidth, behavior: 'smooth' });
+      document.querySelector('.projects-wrapper .arrow-prev')?.addEventListener('click', () => {
+        projectsContainer.scrollBy({ left: projectWidth, behavior: 'smooth' });
       });
 
-      document.querySelector('.arrow-next')?.addEventListener('click', () => {
-        container.scrollBy({ left: -projectWidth, behavior: 'smooth' });
+      document.querySelector('.projects-wrapper .arrow-next')?.addEventListener('click', () => {
+        projectsContainer.scrollBy({ left: -projectWidth, behavior: 'smooth' });
+      });
+
+      const reviewsContainer = document.querySelector('.reviews-container');
+      const reviewWidth = 320; // Adjust based on .review-card width + gap
+
+      document.querySelector('.reviews-wrapper .arrow-prev')?.addEventListener('click', () => {
+        reviewsContainer.scrollBy({ left: reviewWidth, behavior: 'smooth' });
+      });
+
+      document.querySelector('.reviews-wrapper .arrow-next')?.addEventListener('click', () => {
+        reviewsContainer.scrollBy({ left: -reviewWidth, behavior: 'smooth' });
       });
     });
   </script>
