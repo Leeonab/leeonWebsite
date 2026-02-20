@@ -1,62 +1,80 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // Intersection Observer for Reveal Effect
-    const observerOptions = { threshold: 0.15 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Hamburger Menu Logic
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-        hamburger.classList.toggle('active');
+(function reveal() {
+  const obs = new IntersectionObserver((entries, o) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        o.unobserve(e.target);
+      }
     });
+  }, {threshold: 0.15});
+  $$('.reveal').forEach(el => obs.observe(el));
+})();
 
-    // EmailJS Implementation
-    (function(){
-        emailjs.init("7sqzrgavHU1sl1r2B"); // ה-Public Key שלך
-    })();
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-    const contactForm = document.getElementById('contactForm');
-    const responseMsg = document.getElementById('responseMessage');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('show');
+});
 
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const params = {
-            fullname: this.fullname.value,
-            phone: this.phone.value,
-            message: this.message.value,
-            date: new Date().toLocaleDateString('he-IL')
-        };
+const modal = document.getElementById("accessibility-modal");
+const btn = document.getElementById("accessibility-link");
+const span = document.querySelector(".close-btn");
 
-        emailjs.send('service_qo34r5o', 'template_1c02ebv', params)
-            .then(() => {
-                contactForm.style.display = 'none';
-                responseMsg.style.display = 'block';
-            })
-            .catch((err) => {
-                alert('שגיאה בשליחה. נסו שוב מאוחר יותר.');
-                console.error('EmailJS Error:', err);
-            });
+btn.onclick = function(e) {
+  e.preventDefault();
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const today = new Date().toLocaleDateString('he-IL');
+
+  const templateParams = {
+    fullname: this.fullname.value,
+    phone: this.phone.value,
+    email: this.email.value,
+    message: this.message.value,
+    date: today
+  };
+
+  emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
+    .then(function(response) {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('responseMessage').style.display = 'block';
+      console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+      alert('אירעה שגיאה בשליחת ההודעה, אנא נסי שוב.');
+      console.log('FAILED...', error);
     });
+});
 
-    // Smooth Scrolling for Nav Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
+// Force repaint on load for nav on iOS
+window.addEventListener('load', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    nav.style.display = 'none';
+    nav.offsetHeight; // Trigger reflow
+    nav.style.display = 'flex';
+  }
+});
+
+// Fallback for viewport shift on resize
+window.addEventListener('resize', () => {
+  document.querySelector('.hero').style.height = `${window.innerHeight}px`;
 });
