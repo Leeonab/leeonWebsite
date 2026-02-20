@@ -221,6 +221,7 @@ main { padding-top: calc(64px + var(--safe-area-inset-top)); }
 .section-subtitle.light { color: rgba(255,255,255,0.6); }
 
 #about { background: #1a1a1a; padding: 100px 20px; }
+#about .about-text { text-align: center; }
 #about .about-text h2 { color: var(--white); }
 #about .about-text p { color: rgba(255,255,255,0.7); }
 #about .about-text strong { color: var(--red-light); }
