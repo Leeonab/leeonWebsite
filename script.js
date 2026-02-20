@@ -9,72 +9,125 @@ const $$ = s => [...document.querySelectorAll(s)];
         o.unobserve(e.target);
       }
     });
-  }, {threshold: 0.15});
+  }, { threshold: 0.15 });
+
   $$('.reveal').forEach(el => obs.observe(el));
 })();
 
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+/* Mobile nav */
+const hamburger = $('#hamburger');
+const navLinks = $('#nav-links');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navLinks.classList.toggle('show');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close menu on link click (mobile)
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A' && navLinks.classList.contains('show')) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('show');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
+/* Accessibility modal */
+const modal = $("#accessibility-modal");
+const btn = $("#accessibility-link");
+const closeBtn = $(".close-btn");
+
+function closeModal() {
+  if (modal) modal.style.display = "none";
+}
+function openModal() {
+  if (modal) modal.style.display = "block";
+}
+
+if (btn) {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openModal();
+  });
+}
+
+if (closeBtn) {
+  closeBtn.addEventListener('click', closeModal);
+  closeBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') closeModal();
+  });
+}
+
+window.addEventListener('click', (event) => {
+  if (event.target === modal) closeModal();
 });
 
-const modal = document.getElementById("accessibility-modal");
-const btn = document.getElementById("accessibility-link");
-const span = document.querySelector(".close-btn");
-
-btn.onclick = function(e) {
-  e.preventDefault();
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-
-  const today = new Date().toLocaleDateString('he-IL');
-
-  const templateParams = {
-    fullname: this.fullname.value,
-    phone: this.phone.value,
-    email: this.email.value,
-    message: this.message.value,
-    date: today
-  };
-
-  emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
-    .then(function(response) {
-      document.getElementById('contactForm').style.display = 'none';
-      document.getElementById('responseMessage').style.display = 'block';
-      console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-      alert('אירעה שגיאה בשליחת ההודעה, אנא נסי שוב.');
-      console.log('FAILED...', error);
-    });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
 });
 
-// Force repaint on load for nav on iOS
+/* EmailJS form */
+const contactForm = $('#contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const today = new Date().toLocaleDateString('he-IL');
+
+    const templateParams = {
+      fullname: this.fullname.value,
+      phone: this.phone.value,
+      email: this.email.value,
+      message: this.message.value,
+      date: today
+    };
+
+    emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
+      .then(() => {
+        contactForm.style.display = 'none';
+        $('#responseMessage').style.display = 'block';
+      }, (error) => {
+        alert('אירעה שגיאה בשליחת ההודעה, נסה שוב.');
+        console.log('FAILED...', error);
+      });
+  });
+}
+
+/* Projects arrows scrolling */
+document.addEventListener('DOMContentLoaded', () => {
+  const container = $('.projects-container');
+  const project = $('.project');
+  const prev = $('.arrow-prev');
+  const next = $('.arrow-next');
+
+  if (!container || !project) return;
+
+  const gap = 20;
+  const projectWidth = project.getBoundingClientRect().width + gap;
+
+  prev?.addEventListener('click', () => {
+    container.scrollBy({ left: projectWidth, behavior: 'smooth' });
+  });
+
+  next?.addEventListener('click', () => {
+    container.scrollBy({ left: -projectWidth, behavior: 'smooth' });
+  });
+});
+
+/* iOS nav repaint fix */
 window.addEventListener('load', () => {
-  const nav = document.querySelector('.nav');
-  if (nav) {
-    nav.style.display = 'none';
-    nav.offsetHeight; // Trigger reflow
-    nav.style.display = 'flex';
-  }
+  const nav = $('.nav');
+  if (!nav) return;
+  nav.style.display = 'none';
+  nav.offsetHeight; // reflow
+  nav.style.display = 'flex';
 });
 
-// Fallback for viewport shift on resize
+/* Stable hero height fallback */
 window.addEventListener('resize', () => {
-  document.querySelector('.hero').style.height = `${window.innerHeight}px`;
+  const hero = $('.hero');
+  if (hero) hero.style.minHeight = `${window.innerHeight}px`;
 });
