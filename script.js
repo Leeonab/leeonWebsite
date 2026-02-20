@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x = Math.random() * W; this.y = Math.random() * H;
       this.r = Math.random() * 1.5 + 0.5;
       this.speed = Math.random() * 0.4 + 0.1;
-      this.alpha = Math.random() * 0.5 + 0.1;
+      this.alpha = Math.random() * 0.4 + 0.1;
       this.dir = Math.random() * Math.PI * 2;
     }
     update() {
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     draw() {
       ctx.beginPath();
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(212,175,55,${this.alpha})`;
+      ctx.fillStyle = `rgba(192,57,43,${this.alpha})`;
       ctx.fill();
     }
   }
@@ -210,5 +210,5 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const activeStyle = document.createElement('style');
-activeStyle.textContent = '.nav-links a.active-nav { color: var(--gold) !important; background: var(--gold-pale) !important; }';
+activeStyle.textContent = '.nav-links a.active-nav { color: #e74c3c !important; background: rgba(192,57,43,0.15) !important; }';
 document.head.appendChild(activeStyle);
