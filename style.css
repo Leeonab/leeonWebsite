@@ -167,16 +167,18 @@ body {
 
 .hero-title {
   font-family: "Rubik", sans-serif;
-  font-size: 48px;
+  font-size: 3.5rem;
+  font-weight: 900;
   letter-spacing: 0.2px;
   margin: 0 0 14px;
   color: #000;
-  text-shadow: 0 10px 30px rgba(212,175,55,0.2);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 10px 30px rgba(212,175,55,0.2);
 }
 
 .hero-sub {
-  color: rgba(0, 0, 0, 0.8);
-  font-size: 18px;
+  color: rgba(0, 0, 0, 0.9);
+  font-size: 1.5rem;
+  font-weight: 500;
   max-width: 880px;
   margin: 0 auto 22px;
   line-height: 1.6;
@@ -265,23 +267,6 @@ body {
 .card-media { height: 160px; background-size: cover; background-position: center; }
 
 .card-content { padding: 20px; }
-
-.booking-wrap {
-  display: grid;
-  grid-template-columns: 1fr 480px;
-  gap: 28px;
-  align-items: start;
-}
-
-.booking-left h2 { font-family: "Rubik", sans-serif; color: var(--accent); }
-
-.cal-embed {
-  width: 100%;
-  height: 520px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.04);
-  box-shadow: 0 18px 50px rgba(212,175,55,0.1);
-}
 
 .site-footer {
   padding: 40px 20px;
@@ -467,7 +452,7 @@ body {
 .about-text strong { font-weight: bold; letter-spacing: -0.03em; }
 
 @media(max-width:980px){
-  .split,.booking-wrap{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
   .hero-title{font-size:36px}
   .hero{height:100dvh}
   .nav-inner{padding:6px 8px}
@@ -655,41 +640,13 @@ body {
   .step { width: 100%; margin-bottom: 50px; }
 }
 
-#reviews {
+#reviews, #brands {
   background: transparent;
   position: relative;
   overflow: hidden;
 }
 
-.reviews-carousel {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.reviews-track {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.review-item {
-  flex: 0 0 300px;
-  margin: 0 15px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  background: #fff;
-}
-
-.review-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-#reviews::before {
+#reviews::before, #brands::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -988,4 +945,15 @@ main {
   height: auto;
   border-radius: 12px;
   object-fit: cover;
+  border: 1px solid var(--accent);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.booking-title {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 30px;
 }
