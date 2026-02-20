@@ -166,15 +166,16 @@ body {
 .hero-center { position: relative; z-index: 3; max-width: 1100px; text-align: center; padding: 20px; }
 
 .hero-title {
-  font-family: "Rubik", sans-serif;
+  font-family: "Alef", sans-serif;
   font-size: 3.5rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.2px;
   margin: 0 0 14px;
   color: #000;
   text-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 10px 30px rgba(212,175,55,0.2);
 }
 
+/* שאר ה-CSS ללא שינויים */
 .hero-sub {
   color: rgba(0, 0, 0, 0.9);
   font-size: 1.5rem;
