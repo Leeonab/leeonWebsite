@@ -1,133 +1,62 @@
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
-
-(function reveal() {
-  const obs = new IntersectionObserver((entries, o) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        o.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  $$('.reveal').forEach(el => obs.observe(el));
-})();
-
-/* Mobile nav */
-const hamburger = $('#hamburger');
-const navLinks = $('#nav-links');
-
-if (hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('active');
-    navLinks.classList.toggle('show', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close menu on link click (mobile)
-  navLinks.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A' && navLinks.classList.contains('show')) {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('show');
-      hamburger.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
-
-/* Accessibility modal */
-const modal = $("#accessibility-modal");
-const btn = $("#accessibility-link");
-const closeBtn = $(".close-btn");
-
-function closeModal() {
-  if (modal) modal.style.display = "none";
-}
-function openModal() {
-  if (modal) modal.style.display = "block";
-}
-
-if (btn) {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    openModal();
-  });
-}
-
-if (closeBtn) {
-  closeBtn.addEventListener('click', closeModal);
-  closeBtn.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') closeModal();
-  });
-}
-
-window.addEventListener('click', (event) => {
-  if (event.target === modal) closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
-
-/* EmailJS form */
-const contactForm = $('#contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const today = new Date().toLocaleDateString('he-IL');
-
-    const templateParams = {
-      fullname: this.fullname.value,
-      phone: this.phone.value,
-      email: this.email.value,
-      message: this.message.value,
-      date: today
-    };
-
-    emailjs.send('service_qo34r5o', 'template_1c02ebv', templateParams)
-      .then(() => {
-        contactForm.style.display = 'none';
-        $('#responseMessage').style.display = 'block';
-      }, (error) => {
-        alert('אירעה שגיאה בשליחת ההודעה, נסה שוב.');
-        console.log('FAILED...', error);
-      });
-  });
-}
-
-/* Projects arrows scrolling */
 document.addEventListener('DOMContentLoaded', () => {
-  const container = $('.projects-container');
-  const project = $('.project');
-  const prev = $('.arrow-prev');
-  const next = $('.arrow-next');
+    
+    // Intersection Observer for Reveal Effect
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
 
-  if (!container || !project) return;
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  const gap = 20;
-  const projectWidth = project.getBoundingClientRect().width + gap;
+    // Hamburger Menu Logic
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
 
-  prev?.addEventListener('click', () => {
-    container.scrollBy({ left: projectWidth, behavior: 'smooth' });
-  });
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+        hamburger.classList.toggle('active');
+    });
 
-  next?.addEventListener('click', () => {
-    container.scrollBy({ left: -projectWidth, behavior: 'smooth' });
-  });
-});
+    // EmailJS Implementation
+    (function(){
+        emailjs.init("7sqzrgavHU1sl1r2B"); // ה-Public Key שלך
+    })();
 
-/* iOS nav repaint fix */
-window.addEventListener('load', () => {
-  const nav = $('.nav');
-  if (!nav) return;
-  nav.style.display = 'none';
-  nav.offsetHeight; // reflow
-  nav.style.display = 'flex';
-});
+    const contactForm = document.getElementById('contactForm');
+    const responseMsg = document.getElementById('responseMessage');
 
-/* Stable hero height fallback */
-window.addEventListener('resize', () => {
-  const hero = $('.hero');
-  if (hero) hero.style.minHeight = `${window.innerHeight}px`;
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const params = {
+            fullname: this.fullname.value,
+            phone: this.phone.value,
+            message: this.message.value,
+            date: new Date().toLocaleDateString('he-IL')
+        };
+
+        emailjs.send('service_qo34r5o', 'template_1c02ebv', params)
+            .then(() => {
+                contactForm.style.display = 'none';
+                responseMsg.style.display = 'block';
+            })
+            .catch((err) => {
+                alert('שגיאה בשליחה. נסו שוב מאוחר יותר.');
+                console.error('EmailJS Error:', err);
+            });
+    });
+
+    // Smooth Scrolling for Nav Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 });
