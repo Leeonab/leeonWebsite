@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.arrow-next')?.addEventListener('click', () => container.scrollBy({ left: -projectWidth, behavior: 'smooth' }));
 });
 
-// Footer particles — מכסים את כל שטח הפוטר
 (function footerParticles() {
   const canvas = document.getElementById('particles-footer');
   if (!canvas) return;
@@ -127,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   resize();
   window.addEventListener('resize', resize, { passive: true });
-
   class Particle {
     constructor() { this.reset(); }
     reset() {
@@ -206,3 +204,27 @@ window.addEventListener('scroll', () => {
 const activeStyle = document.createElement('style');
 activeStyle.textContent = '.nav-links a.active-nav { color: #e74c3c !important; background: rgba(192,57,43,0.15) !important; }';
 document.head.appendChild(activeStyle);
+
+// FAQ accordion
+$$('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+
+    $$('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      const a = openItem.querySelector('.faq-a');
+      a.classList.remove('expanded');
+      setTimeout(() => { if (!openItem.classList.contains('open')) a.hidden = true; }, 400);
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      answer.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => answer.classList.add('expanded')));
+    }
+  });
+});
