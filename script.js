@@ -1,7 +1,6 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-// Reveal on scroll
 (function reveal() {
   const obs = new IntersectionObserver((entries, o) => {
     entries.forEach(e => {
@@ -11,13 +10,11 @@ const $$ = s => [...document.querySelectorAll(s)];
   $$('.reveal').forEach(el => obs.observe(el));
 })();
 
-// Nav scroll state
 window.addEventListener('scroll', () => {
   const nav = $('.nav');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Hamburger
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 hamburger.addEventListener('click', () => {
@@ -46,7 +43,6 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Smooth scroll
 $$('.nav-links a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -65,7 +61,6 @@ $$('.nav-links a').forEach(link => {
   });
 });
 
-// Accessibility modal
 const modal = document.getElementById('accessibility-modal');
 const accessBtn = document.getElementById('accessibility-link');
 const closeBtn = document.querySelector('.close-btn');
@@ -84,7 +79,6 @@ window.addEventListener('click', e => {
   if (e.target === modal) { modal.style.display = 'none'; document.body.style.overflow = ''; }
 });
 
-// Contact form
 document.getElementById('contactForm').addEventListener('submit', function(event) {
   event.preventDefault();
   const btn = this.querySelector('.form-button');
@@ -112,7 +106,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     });
 });
 
-// Project scroll
 document.addEventListener('DOMContentLoaded', () => {
   const container = $('.projects-container');
   if (!container) return;
@@ -121,23 +114,28 @@ document.addEventListener('DOMContentLoaded', () => {
   $('.arrow-next')?.addEventListener('click', () => container.scrollBy({ left: -projectWidth, behavior: 'smooth' }));
 });
 
-// Footer canvas particles
+// Footer particles — מכסים את כל שטח הפוטר
 (function footerParticles() {
   const canvas = document.getElementById('particles-footer');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let particles = [];
   let W, H;
-  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
   resize();
   window.addEventListener('resize', resize, { passive: true });
+
   class Particle {
     constructor() { this.reset(); }
     reset() {
-      this.x = Math.random() * W; this.y = Math.random() * H;
-      this.r = Math.random() * 1.5 + 0.5;
-      this.speed = Math.random() * 0.4 + 0.1;
-      this.alpha = Math.random() * 0.4 + 0.1;
+      this.x = Math.random() * W;
+      this.y = Math.random() * H;
+      this.r = Math.random() * 1.8 + 0.4;
+      this.speed = Math.random() * 0.35 + 0.08;
+      this.alpha = Math.random() * 0.45 + 0.1;
       this.dir = Math.random() * Math.PI * 2;
     }
     update() {
@@ -153,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (let i = 0; i < 60; i++) particles.push(new Particle());
+    for (let i = 0; i < 80; i++) particles.push(new Particle());
     (function loop() {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(p => { p.update(); p.draw(); });
@@ -162,7 +160,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
-// Hero height fix (iOS)
 function setHeroHeight() {
   const hero = $('.hero');
   if (hero) hero.style.minHeight = `${window.innerHeight}px`;
@@ -170,13 +167,11 @@ function setHeroHeight() {
 setHeroHeight();
 window.addEventListener('resize', setHeroHeight, { passive: true });
 
-// Nav repaint fix (iOS)
 window.addEventListener('load', () => {
   const nav = $('.nav');
   if (nav) { nav.style.display = 'none'; nav.offsetHeight; nav.style.display = ''; }
 });
 
-// Staggered card animation
 const cardObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -196,7 +191,6 @@ const cardObs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 $$('.cards, .reviews-grid').forEach(g => cardObs.observe(g));
 
-// Active nav highlight
 const sections = $$('section[id]');
 const navAs = $$('.nav-links a');
 window.addEventListener('scroll', () => {
