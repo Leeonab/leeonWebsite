@@ -490,8 +490,19 @@ input:focus, textarea:focus { outline: none; border-color: var(--red); backgroun
   .footer-bottom { flex-direction: column; gap: 12px; }
   .trust-inner { gap: 12px; font-size: 0.78rem; }
   .trust-sep { display: none; }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .hero-actions .btn { width: auto; min-width: 190px; padding: 12px 20px; justify-content: center; }
+ .hero-actions {
+  flex-direction: row;     /* במקום column */
+  justify-content: center;
+  gap: 10px;
+  }
+
+  .hero-actions .btn {
+    width: auto;             /* שלא יתפרס על כל הרוחב */
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+}
+
   .faq-q { padding: 16px 18px; font-size: 0.92rem; }
   .faq-a { padding: 0 18px; }
   .faq-a.expanded { padding: 0 18px 16px; }
