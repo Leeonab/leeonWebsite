@@ -1225,3 +1225,23 @@ input:focus, textarea:focus{
   justify-content:center;
   gap:6px;
 }
+
+
+
+/* ✅ REVIEWS: make images fully cover the card (no empty area) */
+.reviews-grid .review-card{
+  overflow: hidden;
+  position: relative;
+
+  /* choose one: keeps all cards same size */
+  aspect-ratio: 9 / 16;   /* best for WhatsApp vertical screenshots */
+  /* if you prefer a different shape, try: 4 / 5 or 3 / 4 */
+}
+
+.reviews-grid .review-card img{
+  display: block;
+  width: 100%;
+  height: 100%;           /* <-- key fix */
+  object-fit: cover;      /* fill the entire card */
+  object-position: center;
+}
