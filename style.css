@@ -459,3 +459,8 @@ input:focus, textarea:focus { outline: none; border-color: var(--red); backgroun
   justify-content: center;
   gap: 6px;
 }
+
+/* מכסה את ה-status bar באייפון עם אותו צבע כמו ה-nav */
+html {
+  background-color: #0a0a0a;
+}
