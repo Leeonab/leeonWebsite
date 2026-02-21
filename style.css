@@ -141,7 +141,7 @@ main { padding-top: calc(64px + var(--safe-area-inset-top)); }
 }
 .hero::before {
   content: ""; position: absolute; inset: 0;
-  background-image: url('assets/images/MainImage1.jpeg');
+  background-image: url('assets/images/MainImage2.jpeg');
   background-size: cover; background-position: center;
   opacity: 0.25; z-index: 0;
 }
