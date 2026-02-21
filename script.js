@@ -6,7 +6,10 @@ const $$ = s => [...document.querySelectorAll(s)];
 (function initReveal() {
   const obs = new IntersectionObserver((entries, observer) => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      if (e.isIntersecting) { 
+        e.target.classList.add('visible'); 
+        observer.unobserve(e.target); 
+      }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   $$('.reveal').forEach(el => obs.observe(el));
@@ -35,6 +38,7 @@ const $$ = s => [...document.querySelectorAll(s)];
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
+  
   function closeMenu() {
     hamburger.classList.remove('active');
     navLinks.classList.remove('show');
@@ -45,56 +49,59 @@ const $$ = s => [...document.querySelectorAll(s)];
 
   hamburger.addEventListener('click', () => hamburger.classList.contains('active') ? closeMenu() : openMenu());
   overlay && overlay.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && navLinks.classList.contains('show')) closeMenu(); });
-
-  const MANUAL_HIGHLIGHT = ['#faq', '#booking'];
+  document.addEventListener('keydown', e => { 
+    if (e.key === 'Escape' && navLinks.classList.contains('show')) closeMenu(); 
+  });
 
   navAs.forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         e.preventDefault();
-
-        // סימון ידני לקישורים שמוחרגים מה-scroll-tracker
-        if (MANUAL_HIGHLIGHT.includes(href)) {
-          navAs.forEach(a => a.classList.remove('active-nav'));
-          link.classList.add('active-nav');
-        }
-
         closeMenu();
         const target = document.getElementById(href.substring(1));
         if (target) {
           const navH = $('.nav')?.offsetHeight || 64;
-          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - 8, behavior: 'smooth' });
+          window.scrollTo({ 
+            top: target.getBoundingClientRect().top + window.scrollY - navH - 8, 
+            behavior: 'smooth' 
+          });
         }
-      } else { closeMenu(); }
+      } else { 
+        closeMenu(); 
+      }
     });
   });
 })();
 
 (function initActiveNav() {
   const navAs = $$('.nav-links a');
-  const EXCLUDED = ['#faq', '#booking'];
-  const ids = navAs
-    .map(a => a.getAttribute('href'))
-    .filter(h => h && h.startsWith('#') && !EXCLUDED.includes(h))
-    .map(h => h.substring(1));
-  const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+  
+  // מיפוי כל הקישורים שיש להם ID תואם בדף
+  const sections = navAs
+    .map(a => {
+      const href = a.getAttribute('href');
+      return (href && href.startsWith('#')) ? document.getElementById(href.substring(1)) : null;
+    })
+    .filter(Boolean);
 
   const handler = () => {
     let current = '';
-    const scrollY = window.scrollY + 120;
-    sections.forEach(sec => { if (sec.offsetTop <= scrollY) current = sec.id; });
+    const scrollY = window.scrollY + 150; // Buffer לזיהוי המיקום
+
+    sections.forEach(sec => {
+      if (sec.offsetTop <= scrollY) {
+        current = sec.id;
+      }
+    });
+
     navAs.forEach(a => {
       const href = a.getAttribute('href');
-      if (EXCLUDED.includes(href)) {
-        // נקה תמיד את הסימון בגלילה — מסומנים רק בלחיצה ידנית
-        a.classList.remove('active-nav');
-        return;
-      }
+      // סימון אקטיבי אם ה-ID תואם למיקום הגלילה
       a.classList.toggle('active-nav', href === `#${current}`);
     });
   };
+
   window.addEventListener('scroll', handler, { passive: true });
   handler();
 })();
@@ -105,13 +112,25 @@ const $$ = s => [...document.querySelectorAll(s)];
   const closeBtn  = modal?.querySelector('.close-btn');
   if (!modal || !accessBtn || !closeBtn) return;
 
-  const openModal  = () => { modal.style.display = 'block'; modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; closeBtn.focus(); };
-  const closeModal = () => { modal.style.display = 'none';  modal.setAttribute('aria-hidden', 'true');  document.body.style.overflow = ''; accessBtn.focus(); };
+  const openModal  = () => { 
+    modal.style.display = 'block'; 
+    modal.setAttribute('aria-hidden', 'false'); 
+    document.body.style.overflow = 'hidden'; 
+    closeBtn.focus(); 
+  };
+  const closeModal = () => { 
+    modal.style.display = 'none';  
+    modal.setAttribute('aria-hidden', 'true');  
+    document.body.style.overflow = ''; 
+    accessBtn.focus(); 
+  };
 
   accessBtn.addEventListener('click', e => { e.preventDefault(); openModal(); });
   closeBtn.addEventListener('click', closeModal);
   window.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
+  document.addEventListener('keydown', e => { 
+    if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); 
+  });
 })();
 
 (function initContactForm() {
@@ -129,11 +148,14 @@ const $$ = s => [...document.querySelectorAll(s)];
     field.el.classList.add('error');
     let errEl = field.el.nextElementSibling;
     if (!errEl || !errEl.classList.contains('field-error')) {
-      errEl = document.createElement('div'); errEl.className = 'field-error';
+      errEl = document.createElement('div'); 
+      errEl.className = 'field-error';
       field.el.parentNode.insertBefore(errEl, field.el.nextSibling);
     }
-    errEl.textContent = msg; errEl.style.display = 'block';
+    errEl.textContent = msg; 
+    errEl.style.display = 'block';
   }
+
   function clearError(field) {
     field.el.classList.remove('error');
     const errEl = field.el.nextElementSibling;
@@ -150,7 +172,10 @@ const $$ = s => [...document.querySelectorAll(s)];
       if (!field.el) return;
       const val = field.el.value.trim();
       if (!val) { showError(field, field.msg); valid = false; }
-      else if (field.el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { showError(field, field.msg); valid = false; }
+      else if (field.el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { 
+        showError(field, field.msg); 
+        valid = false; 
+      }
       else clearError(field);
     });
     return valid;
@@ -176,7 +201,10 @@ const $$ = s => [...document.querySelectorAll(s)];
         .then(() => {
           form.style.display = 'none';
           const resp = document.getElementById('responseMessage');
-          if (resp) { resp.style.display = 'flex'; resp.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+          if (resp) { 
+            resp.style.display = 'flex'; 
+            resp.scrollIntoView({ behavior: 'smooth', block: 'center' }); 
+          }
         })
         .catch(error => {
           console.error('EmailJS error:', error);
@@ -230,7 +258,10 @@ const $$ = s => [...document.querySelectorAll(s)];
       entry.target.querySelectorAll('.card, .review-card').forEach((card, idx) => {
         card.style.opacity = '0'; card.style.transform = 'translateY(24px)';
         card.style.transition = `opacity 0.5s ease ${idx * 0.08}s, transform 0.5s ease ${idx * 0.08}s`;
-        requestAnimationFrame(() => requestAnimationFrame(() => { card.style.opacity = '1'; card.style.transform = 'none'; }));
+        requestAnimationFrame(() => requestAnimationFrame(() => { 
+          card.style.opacity = '1'; 
+          card.style.transform = 'none'; 
+        }));
       });
       cardObs.unobserve(entry.target);
     });
@@ -260,15 +291,41 @@ const $$ = s => [...document.querySelectorAll(s)];
 
   class Particle {
     constructor() { this.reset(true); }
-    reset(init = false) { this.x = Math.random()*W; this.y = init ? Math.random()*H : H+5; this.r = Math.random()*1.8+0.4; this.speed = Math.random()*0.35+0.08; this.alpha = Math.random()*0.45+0.1; this.dir = Math.random()*Math.PI*2; }
-    update() { this.x += Math.cos(this.dir)*this.speed; this.y += Math.sin(this.dir)*this.speed; if (this.x<0||this.x>W||this.y<0||this.y>H) this.reset(); }
-    draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=`rgba(192,57,43,${this.alpha})`; ctx.fill(); }
+    reset(init = false) { 
+      this.x = Math.random()*W; 
+      this.y = init ? Math.random()*H : H+5; 
+      this.r = Math.random()*1.8+0.4; 
+      this.speed = Math.random()*0.35+0.08; 
+      this.alpha = Math.random()*0.45+0.1; 
+      this.dir = Math.random()*Math.PI*2; 
+    }
+    update() { 
+      this.x += Math.cos(this.dir)*this.speed; 
+      this.y += Math.sin(this.dir)*this.speed; 
+      if (this.x<0||this.x>W||this.y<0||this.y>H) this.reset(); 
+    }
+    draw() { 
+      ctx.beginPath(); 
+      ctx.arc(this.x,this.y,this.r,0,Math.PI*2); 
+      ctx.fillStyle=`rgba(192,57,43,${this.alpha})`; 
+      ctx.fill(); 
+    }
   }
 
   resize();
   for (let i = 0; i < 60; i++) particles.push(new Particle());
-  let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 150); }, { passive: true });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(rafId); else loop(); });
-  function loop() { ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.update();p.draw();}); rafId = requestAnimationFrame(loop); }
+  let rt; window.addEventListener('resize', () => { 
+    clearTimeout(rt); 
+    rt = setTimeout(resize, 150); 
+  }, { passive: true });
+  document.addEventListener('visibilitychange', () => { 
+    if (document.hidden) cancelAnimationFrame(rafId); 
+    else loop(); 
+  });
+  function loop() { 
+    ctx.clearRect(0,0,W,H); 
+    particles.forEach(p=>{p.update();p.draw();}); 
+    rafId = requestAnimationFrame(loop); 
+  }
   loop();
 })();
