@@ -17,6 +17,9 @@
   --shadow-card: 0 8px 40px rgba(0,0,0,0.07);
   --safe-area-inset-top: env(safe-area-inset-top, 0px);
   --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  /* Ensure consistent black for blending */
+  --black: #0a0a0a;
+  --dark: #0a0a0a; /* Match to black for no color mismatch */
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,17 +67,28 @@ body {
 }
 
 .nav {
-  position: fixed; top: 0; left: 0; right: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100vw;
   height: calc(64px + var(--safe-area-inset-top));
   padding-top: var(--safe-area-inset-top);
-  background: rgba(10,10,10,0.97);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  background: var(--black); /* Solid black, no rgba or blur for better iOS blending */
   z-index: 9999;
-  border-bottom: 1px solid rgba(192,57,43,0.25);
-  -webkit-transform: translateZ(0); transform: translateZ(0);
+  /* Remove border to make it seamless with status bar */
+  border-bottom: none;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   transition: box-shadow 0.3s ease;
 }
+
+/* Ensure body and html match for no gaps */
+html, body {
+  background-color: var(--black);
+}
+
+
 .nav.scrolled { box-shadow: 0 4px 30px rgba(192,57,43,0.15); }
 .nav-inner {
   max-width: var(--maxW); margin: 0 auto;
