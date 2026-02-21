@@ -221,45 +221,33 @@ main { padding-top: calc(64px + var(--safe-area-inset-top)); }
 .btn.ghost:hover { background: rgba(255,255,255,0.14); border-color: var(--red-light); color: var(--red-light); transform: translateY(-3px); }
 
 /* CTA button animation (only the red button in hero) */
-.cta-pulse{
-  position: relative;
-  animation: ctaFloat 2.2s ease-in-out infinite;
-  will-change: transform;
+/* Luxury pulse animation */
+.cta-pulse {
+  animation: luxuryPulse 2.5s ease-in-out infinite;
 }
 
-.cta-pulse::after{
-  content:"";
-  position:absolute;
-  inset:-6px;
-  border-radius: 16px;
-  border: 2px solid rgba(231,76,60,0.55);
-  opacity: 0;
-  transform: scale(0.92);
-  animation: ctaRing 2.2s ease-out infinite;
-  pointer-events:none;
+@keyframes luxuryPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 30px rgba(192,57,43,0.35);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(231,76,60,0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 30px rgba(192,57,43,0.35);
+  }
 }
 
-@keyframes ctaFloat{
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-4px); }
-}
-
-@keyframes ctaRing{
-  0%   { opacity: 0.7; transform: scale(0.92); }
-  70%  { opacity: 0;   transform: scale(1.18); }
-  100% { opacity: 0;   transform: scale(1.18); }
-}
-
-/* Stop animation on hover/focus */
-.cta-pulse:hover,
-.cta-pulse:focus-visible{
+/* לעצור אנימציה בריחוף */
+.cta-pulse:hover {
   animation: none;
+  transform: scale(1.05);
 }
-.cta-pulse:hover::after,
-.cta-pulse:focus-visible::after{
-  animation: none;
-  opacity: 0;
-}
+
+
 
 .section { padding: 100px 20px; }
 .container { max-width: var(--maxW); margin: 0 auto; }
