@@ -82,25 +82,27 @@ const $$ = s => [...document.querySelectorAll(s)];
 
   const handler = () => {
     let current = '';
-    const scrollY = window.scrollY;
+    
+    // חישוב איזה סקשן תופס הכי הרבה מקום במרכז המסך
+    const viewportHeight = window.innerHeight;
+    const centerPoint = viewportHeight / 2;
+
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      
+      // אם מרכז המסך נמצא בתוך הטווח של הסקשן
+      if (rect.top <= centerPoint && rect.bottom >= centerPoint) {
+        current = sec.id;
+      }
+    });
+
+    // תיקון לסוף הדף: אם גללנו עד הסוף והשאירו פרטים נגלה לעין
     const scrollHeight = document.documentElement.scrollHeight;
+    const scrollY = window.scrollY;
     const clientHeight = document.documentElement.clientHeight;
-
-    // בדיקה אם הגענו ממש לקצה התחתון של הדף (פיקסלים אחרונים)
-    const isAtBottom = (scrollY + clientHeight >= scrollHeight - 20);
-
-    if (isAtBottom) {
-      // אם אנחנו ממש בסוף, נסמן את האחרון (השאירו פרטים)
-      current = sections[sections.length - 1].id;
-    } else {
-      // לוגיקה חכמה יותר: מוצאים את הסקשן שהכי קרוב לראש המסך אבל עדיין בטווח הראייה
-      sections.forEach(sec => {
-        const rect = sec.getBoundingClientRect();
-        // אם החלק העליון של הסקשן הגיע לאזור ה-200 פיקסלים העליונים
-        if (rect.top <= 200) {
-          current = sec.id;
-        }
-      });
+    
+    if (scrollY + clientHeight >= scrollHeight - 10) {
+      current = 'booking'; // ה-ID של הסקשן האחרון
     }
 
     navAs.forEach(a => {
@@ -110,6 +112,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   };
 
   window.addEventListener('scroll', handler, { passive: true });
+  window.addEventListener('resize', handler);
   handler();
 })();
 
