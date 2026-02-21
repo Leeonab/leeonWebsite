@@ -3,7 +3,6 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-/* 1. Reveal on scroll */
 (function initReveal() {
   const obs = new IntersectionObserver((entries, observer) => {
     entries.forEach(e => {
@@ -13,7 +12,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   $$('.reveal').forEach(el => obs.observe(el));
 })();
 
-/* 2. Nav scroll shadow */
 (function initNavScroll() {
   const nav = $('.nav');
   if (!nav) return;
@@ -22,7 +20,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   handler();
 })();
 
-/* 3. Mobile nav */
 (function initMobileNav() {
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('nav-links');
@@ -64,7 +61,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* 4. Active nav link */
 (function initActiveNav() {
   const navAs = $$('.nav-links a');
   const ids   = navAs.map(a => a.getAttribute('href')).filter(h => h && h.startsWith('#')).map(h => h.substring(1));
@@ -80,15 +76,14 @@ const $$ = s => [...document.querySelectorAll(s)];
   handler();
 })();
 
-/* 5. Accessibility modal */
 (function initModal() {
   const modal     = document.getElementById('accessibility-modal');
   const accessBtn = document.getElementById('accessibility-link');
   const closeBtn  = modal?.querySelector('.close-btn');
   if (!modal || !accessBtn || !closeBtn) return;
 
-  const openModal = () => { modal.style.display = 'block'; modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; closeBtn.focus(); };
-  const closeModal = () => { modal.style.display = 'none'; modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; accessBtn.focus(); };
+  const openModal  = () => { modal.style.display = 'block'; modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; closeBtn.focus(); };
+  const closeModal = () => { modal.style.display = 'none';  modal.setAttribute('aria-hidden', 'true');  document.body.style.overflow = ''; accessBtn.focus(); };
 
   accessBtn.addEventListener('click', e => { e.preventDefault(); openModal(); });
   closeBtn.addEventListener('click', closeModal);
@@ -96,7 +91,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.style.display === 'block') closeModal(); });
 })();
 
-/* 6. Contact form with validation */
 (function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -115,17 +109,16 @@ const $$ = s => [...document.querySelectorAll(s)];
       errEl = document.createElement('div'); errEl.className = 'field-error';
       field.el.parentNode.insertBefore(errEl, field.el.nextSibling);
     }
-    errEl.textContent = msg; errEl.classList.add('show');
+    errEl.textContent = msg; errEl.style.display = 'block';
   }
   function clearError(field) {
     field.el.classList.remove('error');
     const errEl = field.el.nextElementSibling;
-    if (errEl && errEl.classList.contains('field-error')) errEl.classList.remove('show');
+    if (errEl && errEl.classList.contains('field-error')) errEl.style.display = 'none';
   }
 
   Object.values(fields).forEach(field => {
-    field.el?.addEventListener('blur', () => { if (field.el.value.trim()) clearError(field); });
-    field.el?.addEventListener('input', () => { if (field.el.classList.contains('error') && field.el.value.trim()) clearError(field); });
+    field.el?.addEventListener('input', () => { if (field.el.value.trim()) clearError(field); });
   });
 
   function validate() {
@@ -140,17 +133,19 @@ const $$ = s => [...document.querySelectorAll(s)];
     return valid;
   }
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
     if (!validate()) return;
     const btn = this.querySelector('.form-button');
     btn.disabled = true;
-    btn.innerHTML = '<span>שולח...</span><i class="fas fa-spinner fa-spin"></i>';
+    btn.innerHTML = '<span>שולח...</span>';
 
     const templateParams = {
-      fullname: fields.fullname.el.value.trim(), phone: fields.phone.el.value.trim(),
-      email: fields.email.el.value.trim(), message: fields.message.el.value.trim(),
-      date: new Date().toLocaleDateString('he-IL'),
+      fullname: fields.fullname.el.value.trim(),
+      phone:    fields.phone.el.value.trim(),
+      email:    fields.email.el.value.trim(),
+      message:  fields.message.el.value.trim(),
+      date:     new Date().toLocaleDateString('he-IL'),
     };
 
     if (typeof emailjs !== 'undefined') {
@@ -166,23 +161,18 @@ const $$ = s => [...document.querySelectorAll(s)];
           btn.disabled = false;
           btn.innerHTML = '<span>שלחו עכשיו</span><i class="fas fa-paper-plane"></i>';
         });
-    } else {
-      btn.disabled = false;
-      btn.innerHTML = '<span>שלחו עכשיו</span><i class="fas fa-paper-plane"></i>';
     }
   });
 })();
 
-/* 7. Carousel arrows */
 (function initCarousel() {
   const container = $('.projects-container');
   if (!container) return;
   const projectWidth = 324;
-  $('.arrow-prev')?.addEventListener('click', () => container.scrollBy({ left: projectWidth, behavior: 'smooth' }));
+  $('.arrow-prev')?.addEventListener('click', () => container.scrollBy({ left:  projectWidth, behavior: 'smooth' }));
   $('.arrow-next')?.addEventListener('click', () => container.scrollBy({ left: -projectWidth, behavior: 'smooth' }));
 })();
 
-/* 8. FAQ accordion */
 (function initFAQ() {
   $$('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -197,13 +187,19 @@ const $$ = s => [...document.querySelectorAll(s)];
         openItem.querySelector('.faq-a').classList.remove('open');
       });
 
-      if (isOpen) { item.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); answer.classList.remove('open'); }
-      else         { item.classList.add('open');    btn.setAttribute('aria-expanded', 'true');  answer.classList.add('open'); }
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.classList.remove('open');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.classList.add('open');
+      }
     });
   });
 })();
 
-/* 9. Card entrance animations */
 (function initCardAnimations() {
   const cardObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -219,7 +215,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   $$('.cards, .reviews-grid').forEach(g => cardObs.observe(g));
 })();
 
-/* 10. Hero height fallback (older iOS) */
 (function initHeroHeight() {
   const hero = $('.hero');
   if (!hero || CSS.supports('height', '100svh')) return;
@@ -229,35 +224,28 @@ const $$ = s => [...document.querySelectorAll(s)];
   window.addEventListener('orientationchange', () => setTimeout(setH, 100), { passive: true });
 })();
 
-/* 11. Footer particles canvas */
 (function initFooterParticles() {
   const canvas = document.getElementById('particles-footer');
   if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
   const ctx = canvas.getContext('2d');
   let particles = [], W = 0, H = 0, rafId;
 
-  function resize() { W = canvas.width = canvas.parentElement.getBoundingClientRect().width || canvas.offsetWidth; H = canvas.height = canvas.parentElement.getBoundingClientRect().height || canvas.offsetHeight; }
+  function resize() {
+    W = canvas.width  = canvas.parentElement?.getBoundingClientRect().width  || canvas.offsetWidth;
+    H = canvas.height = canvas.parentElement?.getBoundingClientRect().height || canvas.offsetHeight;
+  }
 
   class Particle {
     constructor() { this.reset(true); }
-    reset(init = false) { this.x = Math.random() * W; this.y = init ? Math.random() * H : H + 5; this.r = Math.random() * 1.8 + 0.4; this.speed = Math.random() * 0.35 + 0.08; this.alpha = Math.random() * 0.45 + 0.1; this.dir = Math.random() * Math.PI * 2; }
-    update() { this.x += Math.cos(this.dir) * this.speed; this.y += Math.sin(this.dir) * this.speed; if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset(); }
-    draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(192,57,43,${this.alpha})`; ctx.fill(); }
+    reset(init = false) { this.x = Math.random()*W; this.y = init ? Math.random()*H : H+5; this.r = Math.random()*1.8+0.4; this.speed = Math.random()*0.35+0.08; this.alpha = Math.random()*0.45+0.1; this.dir = Math.random()*Math.PI*2; }
+    update() { this.x += Math.cos(this.dir)*this.speed; this.y += Math.sin(this.dir)*this.speed; if (this.x<0||this.x>W||this.y<0||this.y>H) this.reset(); }
+    draw() { ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2); ctx.fillStyle=`rgba(192,57,43,${this.alpha})`; ctx.fill(); }
   }
 
   resize();
   for (let i = 0; i < 60; i++) particles.push(new Particle());
-
   let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(resize, 150); }, { passive: true });
   document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(rafId); else loop(); });
-
-  function loop() { ctx.clearRect(0, 0, W, H); particles.forEach(p => { p.update(); p.draw(); }); rafId = requestAnimationFrame(loop); }
+  function loop() { ctx.clearRect(0,0,W,H); particles.forEach(p=>{p.update();p.draw();}); rafId = requestAnimationFrame(loop); }
   loop();
 })();
-
-/* 12. Nav load flash fix */
-window.addEventListener('load', () => {
-  const nav = $('.nav');
-  if (nav) { nav.style.opacity = '0.999'; requestAnimationFrame(() => { nav.style.opacity = ''; }); }
-});
