@@ -247,7 +247,19 @@ main { padding-top: calc(64px + var(--safe-area-inset-top)); }
   transform: scale(1.05);
 }
 
+/* Fix: ghost button should NOT get red outline or jump on tap */
+.btn.ghost:focus-visible{
+  outline: 2px solid rgba(255,255,255,0.35) !important;
+  outline-offset: 3px;
+}
 
+.btn.ghost:active{
+  transform: none !important;
+}
+
+.btn.ghost:focus-visible{
+  outline: none !important;
+}
 
 .section { padding: 100px 20px; }
 .container { max-width: var(--maxW); margin: 0 auto; }
