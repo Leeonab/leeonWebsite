@@ -63,7 +63,11 @@ const $$ = s => [...document.querySelectorAll(s)];
 
 (function initActiveNav() {
   const navAs = $$('.nav-links a');
-  const ids   = navAs.map(a => a.getAttribute('href')).filter(h => h && h.startsWith('#')).map(h => h.substring(1));
+  // תיקון: הסרת #faq ו-#booking מהניווט הפעיל
+  const ids = navAs
+    .map(a => a.getAttribute('href'))
+    .filter(h => h && h.startsWith('#') && h !== '#faq' && h !== '#booking')
+    .map(h => h.substring(1));
   const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
 
   const handler = () => {
