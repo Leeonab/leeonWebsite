@@ -57,6 +57,17 @@ body { font-family:"Alef","Rubik",system-ui,sans-serif; background:var(--dark); 
 .nav-links .cta-link:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(192,57,43,0.5); background:linear-gradient(135deg,#e74c3c,var(--red)) !important; }
 .nav-links .cta-link.active-nav::after { display:none; }
 
+/* תיקון: FAQ ו-booking לא מסומנים כפעילים */
+.nav-links a[href="#faq"].active-nav,
+.nav-links a[href="#booking"].active-nav {
+  color:rgba(255,255,255,0.7) !important;
+  background:none !important;
+}
+.nav-links a[href="#faq"].active-nav::after,
+.nav-links a[href="#booking"].active-nav::after {
+  display:none !important;
+}
+
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid var(--red); outline-offset:3px; }
 
 .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; cursor:pointer; background:none; border:none; padding:6px; border-radius:8px; transition:background 0.2s; -webkit-tap-highlight-color:transparent; }
@@ -301,7 +312,28 @@ input.error, textarea.error { border-color:var(--red-light); }
   .stat-label { font-size:0.55rem; }
   .stat-divider { height:32px; }
   .reviews-grid { grid-template-columns:1fr; }
-  .cards { grid-template-columns:1fr; }
+
+  /* תיקון: חבילות לא עד קצה המסך */
+  #services {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #services .section-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #services .container {
+    padding: 0;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 20px;
+  }
+  .card {
+    margin: 0;
+  }
+
   form { padding:28px 20px; }
   .modal-content { padding:32px 20px; }
   .footer-bottom { flex-direction:column; gap:12px; }
@@ -318,7 +350,6 @@ input.error, textarea.error { border-color:var(--red-light); }
   .scroll-line { animation:none; }
 }
 
-
 #about .about-text p {
   color: rgba(255,255,255,0.7);
   text-align: center;
@@ -333,27 +364,7 @@ input.error, textarea.error { border-color:var(--red-light); }
 
 #about .about-text p:first-of-type  { max-width: 400px; }
 #about .about-text p:nth-of-type(2) { max-width: 360px; }
-#about .about-text p:nth-of-type(3) { max-width: 320px; } 
-
-
-
-#services .container {
-  padding: 0 24px;
-}
-
-@media (max-width: 600px) {
-  #services .container {
-    padding: 0 16px;
-  }
-  .cards {
-    grid-template-columns: 1fr;
-    padding: 0 4px;
-  }
-  .card {
-    margin: 0 4px;
-  }
-}
-
+#about .about-text p:nth-of-type(3) { max-width: 320px; }
 
 #services {
   padding-top: 100px;
