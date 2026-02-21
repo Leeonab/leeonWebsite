@@ -70,11 +70,9 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-// מעקב גלילה וסימון קישור אקטיבי (התיקון המרכזי)
 (function initActiveNav() {
   const navAs = $$('.nav-links a');
   
-  // אוספים רק את הקישורים שיש להם יעד אמיתי בדף
   const sections = navAs
     .map(a => {
       const href = a.getAttribute('href');
@@ -88,13 +86,18 @@ const $$ = s => [...document.querySelectorAll(s)];
     const scrollHeight = document.documentElement.scrollHeight;
     const clientHeight = document.documentElement.clientHeight;
 
-    // פתרון לקצה הדף: אם הגענו לסוף, נסמן את האלמנט האחרון שקיים בתפריט
-    if (scrollY + clientHeight >= scrollHeight - 80) {
-        current = sections[sections.length - 1].id;
+    // בדיקה אם הגענו ממש לקצה התחתון של הדף (פיקסלים אחרונים)
+    const isAtBottom = (scrollY + clientHeight >= scrollHeight - 20);
+
+    if (isAtBottom) {
+      // אם אנחנו ממש בסוף, נסמן את האחרון (השאירו פרטים)
+      current = sections[sections.length - 1].id;
     } else {
-      // אחרת, נבדוק מי הסקשן שנמצא כרגע בטווח הראייה
+      // לוגיקה חכמה יותר: מוצאים את הסקשן שהכי קרוב לראש המסך אבל עדיין בטווח הראייה
       sections.forEach(sec => {
-        if (scrollY >= sec.offsetTop - 200) {
+        const rect = sec.getBoundingClientRect();
+        // אם החלק העליון של הסקשן הגיע לאזור ה-200 פיקסלים העליונים
+        if (rect.top <= 200) {
           current = sec.id;
         }
       });
@@ -107,7 +110,6 @@ const $$ = s => [...document.querySelectorAll(s)];
   };
 
   window.addEventListener('scroll', handler, { passive: true });
-  // הפעלה ראשונית כדי לסמן את "דף הבית" בטעינה
   handler();
 })();
 
