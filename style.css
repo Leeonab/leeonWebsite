@@ -365,4 +365,64 @@ input.error, textarea.error { border-color:var(--red-light); }
 }
 
 
+/* =========================
+   FIX PACK v1 (paste at END)
+   ========================= */
+
+/* 1) ABOUT: פחות צפוף + שורות "מתקצרות" */
+#about .about-text p{
+  max-width: 560px;             /* בסיס פחות צפוף */
+  margin: 0 auto 14px;          /* ריווח בין פסקאות */
+  line-height: 1.95;
+  font-size: 1.02rem;
+  letter-spacing: 0.1px;
+}
+
+/* ארוך -> קצר ככל שיורדים */
+#about .about-text p:first-of-type  { max-width: 560px; }
+#about .about-text p:nth-of-type(2) { max-width: 500px; }
+#about .about-text p:nth-of-type(3) { max-width: 440px; }
+
+/* תוספת רווח מסביב לטקסט כדי שלא ירגיש "חנוק" */
+#about .about-text{
+  padding-inline: 12px;
+}
+
+/* 2) SERVICES: הכרטיסים לא עד הקצוות + ממורכזים */
+#services .container{
+  padding-inline: clamp(16px, 4vw, 28px);
+}
+
+#services .cards{
+  width: min(980px, 100%);      /* מרכז את הגריד */
+  margin-inline: auto;
+}
+
+/* כדי שכרטיס אחד במובייל לא יידבק לקצה */
+@media (max-width: 600px){
+  #services .cards{
+    width: min(560px, 100%);
+  }
+  #services .card{
+    border-radius: 22px;
+  }
+}
+
+/* 3) "מה אנחנו מציעים": רווח מהפס האדום העליון */
+#services{
+  padding-top: 120px;           /* נותן אוויר */
+}
+
+/* מוריד את הפס האדום קצת למטה שלא "יישב" על התג */
+#services::before{
+  top: 18px;                    /* היה top:0 */
+  opacity: 0.85;
+}
+
+/* עוד קצת אוויר בתוך ההדר */
+#services .section-header{
+  padding-top: 10px;
+}
+
+
 
