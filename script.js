@@ -26,6 +26,8 @@ const $$ = s => [...document.querySelectorAll(s)];
   const overlay   = document.getElementById('nav-overlay');
   if (!hamburger || !navLinks) return;
 
+  const navAs = $$('.nav-links a');
+
   function openMenu() {
     hamburger.classList.add('active');
     navLinks.classList.add('show');
@@ -45,11 +47,20 @@ const $$ = s => [...document.querySelectorAll(s)];
   overlay && overlay.addEventListener('click', closeMenu);
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && navLinks.classList.contains('show')) closeMenu(); });
 
-  $$('.nav-links a').forEach(link => {
+  const MANUAL_HIGHLIGHT = ['#faq', '#booking'];
+
+  navAs.forEach(link => {
     link.addEventListener('click', e => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#')) {
         e.preventDefault();
+
+        // סימון ידני לקישורים שמוחרגים מה-scroll-tracker
+        if (MANUAL_HIGHLIGHT.includes(href)) {
+          navAs.forEach(a => a.classList.remove('active-nav'));
+          link.classList.add('active-nav');
+        }
+
         closeMenu();
         const target = document.getElementById(href.substring(1));
         if (target) {
@@ -63,10 +74,10 @@ const $$ = s => [...document.querySelectorAll(s)];
 
 (function initActiveNav() {
   const navAs = $$('.nav-links a');
-  // תיקון: הסרת #faq ו-#booking מהניווט הפעיל
+  const EXCLUDED = ['#faq', '#booking'];
   const ids = navAs
     .map(a => a.getAttribute('href'))
-    .filter(h => h && h.startsWith('#') && h !== '#faq' && h !== '#booking')
+    .filter(h => h && h.startsWith('#') && !EXCLUDED.includes(h))
     .map(h => h.substring(1));
   const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
 
@@ -74,7 +85,14 @@ const $$ = s => [...document.querySelectorAll(s)];
     let current = '';
     const scrollY = window.scrollY + 120;
     sections.forEach(sec => { if (sec.offsetTop <= scrollY) current = sec.id; });
-    navAs.forEach(a => a.classList.toggle('active-nav', a.getAttribute('href') === `#${current}`));
+    navAs.forEach(a => {
+      const href = a.getAttribute('href');
+      if (EXCLUDED.includes(href)) {
+        // אל תגע בסימון של קישורים מוחרגים — הם מנוהלים ידנית
+        return;
+      }
+      a.classList.toggle('active-nav', href === `#${current}`);
+    });
   };
   window.addEventListener('scroll', handler, { passive: true });
   handler();
