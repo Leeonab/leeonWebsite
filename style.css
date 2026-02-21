@@ -57,17 +57,6 @@ body { font-family:"Alef","Rubik",system-ui,sans-serif; background:var(--dark); 
 .nav-links .cta-link:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(192,57,43,0.5); background:linear-gradient(135deg,#e74c3c,var(--red)) !important; }
 .nav-links .cta-link.active-nav::after { display:none; }
 
-/* תיקון: FAQ ו-booking לא מסומנים כפעילים */
-.nav-links a[href="#faq"].active-nav,
-.nav-links a[href="#booking"].active-nav {
-  color:rgba(255,255,255,0.7) !important;
-  background:none !important;
-}
-.nav-links a[href="#faq"].active-nav::after,
-.nav-links a[href="#booking"].active-nav::after {
-  display:none !important;
-}
-
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline:3px solid var(--red); outline-offset:3px; }
 
 .hamburger { display:none; flex-direction:column; justify-content:center; gap:5px; width:40px; height:40px; cursor:pointer; background:none; border:none; padding:6px; border-radius:8px; transition:background 0.2s; -webkit-tap-highlight-color:transparent; }
@@ -136,6 +125,8 @@ main { padding-top:calc(64px + var(--safe-area-inset-top)); }
 .step p { color:rgba(255,255,255,0.6); }
 
 #brands { background:#161616; padding:100px 20px; }
+#brands .reviews-grid { padding:0 20px; }
+
 #booking { background:#1a1a1a; padding:100px 20px; position:relative; overflow:hidden; }
 #booking::before { content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:700px; height:700px; background:radial-gradient(circle,rgba(192,57,43,0.08) 0%,transparent 70%); pointer-events:none; }
 .booking-title { font-family:"Playfair Display",serif; font-size:clamp(2rem,4vw,3rem); color:var(--white); margin-bottom:16px; }
@@ -195,6 +186,9 @@ main { padding-top:calc(64px + var(--safe-area-inset-top)); }
 .review-card { background:#1e1e1e; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-card); transition:var(--transition); border:1px solid rgba(192,57,43,0.1); }
 .review-card:hover { transform:translateY(-8px); box-shadow:0 20px 50px rgba(192,57,43,0.2); }
 .review-card img { width:100%; height:auto; display:block; object-fit:cover; }
+
+#reviews { padding:100px 20px; }
+#reviews .reviews-grid { padding:0 20px; }
 
 .cta-banner { background:linear-gradient(135deg,var(--red-dark) 0%,var(--red) 50%,var(--red-light) 100%); padding:60px 20px; position:relative; overflow:hidden; }
 .cta-banner::before { content:""; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
@@ -313,26 +307,14 @@ input.error, textarea.error { border-color:var(--red-light); }
   .stat-divider { height:32px; }
   .reviews-grid { grid-template-columns:1fr; }
 
-  /* תיקון: חבילות לא עד קצה המסך */
-  #services {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  #services .section-header {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  #services .container {
-    padding: 0;
-  }
-  .cards {
-    grid-template-columns: 1fr;
-    padding: 0 16px;
-    gap: 20px;
-  }
-  .card {
-    margin: 0;
-  }
+  #services { padding-left:0; padding-right:0; }
+  #services .section-header { padding-left:20px; padding-right:20px; }
+  #services .container { padding:0; }
+  .cards { grid-template-columns:1fr; padding:0 16px; gap:20px; }
+  .card { margin:0; }
+
+  #brands .reviews-grid,
+  #reviews .reviews-grid { padding:0 16px; }
 
   form { padding:28px 20px; }
   .modal-content { padding:32px 20px; }
@@ -366,11 +348,5 @@ input.error, textarea.error { border-color:var(--red-light); }
 #about .about-text p:nth-of-type(2) { max-width: 360px; }
 #about .about-text p:nth-of-type(3) { max-width: 320px; }
 
-#services {
-  padding-top: 100px;
-}
-
-#services .section-header {
-  padding-top: 20px;
-  margin-bottom: 60px;
-}
+#services { padding-top: 100px; }
+#services .section-header { padding-top: 20px; margin-bottom: 60px; }
