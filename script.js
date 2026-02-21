@@ -88,7 +88,8 @@ const $$ = s => [...document.querySelectorAll(s)];
     navAs.forEach(a => {
       const href = a.getAttribute('href');
       if (EXCLUDED.includes(href)) {
-        // אל תגע בסימון של קישורים מוחרגים — הם מנוהלים ידנית
+        // נקה תמיד את הסימון בגלילה — מסומנים רק בלחיצה ידנית
+        a.classList.remove('active-nav');
         return;
       }
       a.classList.toggle('active-nav', href === `#${current}`);
