@@ -317,3 +317,52 @@ input.error, textarea.error { border-color:var(--red-light); }
   .particle { display:none; }
   .scroll-line { animation:none; }
 }
+
+
+#about .about-text p {
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  word-break: normal;
+  overflow-wrap: break-word;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+#about .about-text p:first-of-type  { max-width: 400px; }
+#about .about-text p:nth-of-type(2) { max-width: 360px; }
+#about .about-text p:nth-of-type(3) { max-width: 320px; } 
+
+
+
+#services .container {
+  padding: 0 24px;
+}
+
+@media (max-width: 600px) {
+  #services .container {
+    padding: 0 16px;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    padding: 0 4px;
+  }
+  .card {
+    margin: 0 4px;
+  }
+}
+
+
+#services {
+  padding-top: 100px;
+}
+
+#services .section-header {
+  padding-top: 20px;
+  margin-bottom: 60px;
+}
+
+
+
