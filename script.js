@@ -7,9 +7,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 (function initNavScroll() {
   const nav = $('.nav');
   if (!nav) return;
-  const update = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 30);
-  };
+  const update = () => nav.classList.toggle('scrolled', window.scrollY > 30);
   window.addEventListener('scroll', update, { passive: true });
   update();
 })();
@@ -23,7 +21,7 @@ const $$ = s => [...document.querySelectorAll(s)];
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        const navH = $('.nav')?.offsetHeight || 58;
+        const navH = $('.nav')?.offsetHeight || 56;
         window.scrollTo({ top: target.offsetTop - navH - 8, behavior: 'smooth' });
       }
     });
@@ -144,7 +142,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /*
- * GOOGLE APPS SCRIPT:
+ * GOOGLE APPS SCRIPT — העתק לתוך Apps Script:
  *
  * function doPost(e) {
  *   try {
@@ -154,9 +152,13 @@ const $$ = s => [...document.querySelectorAll(s)];
  *       sheet.appendRow(['תאריך','שעה','שם מלא','טלפון','מקור']);
  *     }
  *     sheet.appendRow([data.date||'', data.time||'', data.fullname||'', data.phone||'', data.source||'']);
- *     return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
+ *     return ContentService
+ *       .createTextOutput(JSON.stringify({status:'success'}))
+ *       .setMimeType(ContentService.MimeType.JSON);
  *   } catch(err) {
- *     return ContentService.createTextOutput(JSON.stringify({status:'error',message:err.toString()})).setMimeType(ContentService.MimeType.JSON);
+ *     return ContentService
+ *       .createTextOutput(JSON.stringify({status:'error',message:err.toString()}))
+ *       .setMimeType(ContentService.MimeType.JSON);
  *   }
  * }
  */
