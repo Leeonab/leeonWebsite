@@ -3,14 +3,12 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-/* NAV SCROLL SHADOW */
+/* NAV SCROLL */
 (function initNavScroll() {
   const nav = $('.nav');
   if (!nav) return;
   const update = () => {
-    nav.style.boxShadow = window.scrollY > 40
-      ? '0 4px 30px rgba(192,57,43,0.18)'
-      : 'none';
+    nav.classList.toggle('scrolled', window.scrollY > 30);
   };
   window.addEventListener('scroll', update, { passive: true });
   update();
@@ -59,22 +57,11 @@ const $$ = s => [...document.querySelectorAll(s)];
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  /*
-   * ════════════════════════════════════════════
-   * Google Sheets — הוראות חיבור:
-   * 1. פתח Google Sheets חדש
-   * 2. Extensions > Apps Script
-   * 3. הדבק את הקוד בתחתית קובץ זה
-   * 4. Deploy > New deployment > Web app
-   * 5. Execute as: Me | Who has access: Anyone
-   * 6. קבל URL → הדבק ב-SHEETS_URL
-   * ════════════════════════════════════════════
-   */
   const SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const btn      = this.querySelector('.form-button-red');
+    const btn      = this.querySelector('.form-button-primary');
     const fullname = form.querySelector('#fullname');
     const phone    = form.querySelector('#phone');
 
@@ -97,7 +84,6 @@ const $$ = s => [...document.querySelectorAll(s)];
       source:   window.location.href
     };
 
-    /* EmailJS */
     if (typeof emailjs !== 'undefined') {
       try {
         await emailjs.send('service_qo34r5o', 'template_1c02ebv', {
@@ -110,7 +96,6 @@ const $$ = s => [...document.querySelectorAll(s)];
       } catch (err) { console.error('EmailJS:', err); }
     }
 
-    /* Google Sheets */
     if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
       try {
         await fetch(SHEETS_URL, {
@@ -132,7 +117,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* MODAL נגישות */
+/* MODAL */
 (function initModal() {
   const modal     = document.getElementById('accessibility-modal');
   const accessBtn = document.getElementById('accessibility-link');
@@ -159,9 +144,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /*
- * ════════════════════════════════════════════════════
- * GOOGLE APPS SCRIPT — הדבק זאת ב-Apps Script
- * ════════════════════════════════════════════════════
+ * GOOGLE APPS SCRIPT:
  *
  * function doPost(e) {
  *   try {
@@ -170,30 +153,10 @@ const $$ = s => [...document.querySelectorAll(s)];
  *     if (sheet.getLastRow() === 0) {
  *       sheet.appendRow(['תאריך','שעה','שם מלא','טלפון','מקור']);
  *     }
- *     sheet.appendRow([
- *       data.date     || '',
- *       data.time     || '',
- *       data.fullname || '',
- *       data.phone    || '',
- *       data.source   || ''
- *     ]);
- *     return ContentService
- *       .createTextOutput(JSON.stringify({status:'success'}))
- *       .setMimeType(ContentService.MimeType.JSON);
+ *     sheet.appendRow([data.date||'', data.time||'', data.fullname||'', data.phone||'', data.source||'']);
+ *     return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
  *   } catch(err) {
- *     return ContentService
- *       .createTextOutput(JSON.stringify({status:'error',message:err.toString()}))
- *       .setMimeType(ContentService.MimeType.JSON);
+ *     return ContentService.createTextOutput(JSON.stringify({status:'error',message:err.toString()})).setMimeType(ContentService.MimeType.JSON);
  *   }
  * }
- *
- * הוראות:
- * 1. פתח Google Sheets חדש
- * 2. Extensions > Apps Script
- * 3. הדבק הקוד למעלה ושמור
- * 4. Deploy > New deployment > Web app
- * 5. Execute as: Me | Who has access: Anyone
- * 6. Deploy → קבל URL
- * 7. החלף SHEETS_URL למעלה ב-URL
- * ════════════════════════════════════════════════════
  */
