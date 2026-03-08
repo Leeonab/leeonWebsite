@@ -92,7 +92,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 (function(){
   const form=document.getElementById('contactForm');
   if(!form) return;
-  const SHEETS='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  const SHEETS='https://script.google.com/macros/s/AKfycbwRAdiq6dumuH0QVD2b8XFnH9fXi4lMjI2XC5AwfaXq0y9AfE3BnQ4zhxL-2O1Wx8a0Mg/exec';
   form.addEventListener('submit',async function(e){
     e.preventDefault();
     const btn=this.querySelector('.form-btn');
@@ -121,10 +121,10 @@ const $$ = s => [...document.querySelectorAll(s)];
       }
       catch(err){ console.error('EmailJS:',err); }
     }
-    if(SHEETS!=='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'){
-      try{ await fetch(SHEETS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); }
-      catch(err){ console.error('Sheets:',err); }
+    try{
+      await fetch(SHEETS,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     }
+    catch(err){ console.error('Sheets:',err); }
     form.style.display='none';
     const msg=document.getElementById('responseMessage');
     if(msg) msg.style.display='flex';
@@ -145,14 +145,3 @@ const $$ = s => [...document.querySelectorAll(s)];
   modal.addEventListener('click',e=>{if(e.target===modal)shut();});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.style.display==='block')shut();});
 })();
-
-/*
- * GOOGLE APPS SCRIPT:
- * function doPost(e){
- *   var s=SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *   var d=JSON.parse(e.postData.contents);
- *   if(!s.getLastRow()) s.appendRow(['תאריך','שעה','שם','טלפון','מקור']);
- *   s.appendRow([d.date,d.time,d.fullname,d.phone,d.source]);
- *   return ContentService.createTextOutput('ok');
- * }
- */
