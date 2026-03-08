@@ -113,7 +113,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* MODAL */
+/* MODAL נגישות */
 (function initModal() {
   const modal     = document.getElementById('accessibility-modal');
   const accessBtn = document.getElementById('accessibility-link');
@@ -149,9 +149,11 @@ const $$ = s => [...document.querySelectorAll(s)];
  *     if (sheet.getLastRow() === 0)
  *       sheet.appendRow(['תאריך','שעה','שם מלא','טלפון','מקור']);
  *     sheet.appendRow([data.date||'',data.time||'',data.fullname||'',data.phone||'',data.source||'']);
- *     return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
+ *     return ContentService.createTextOutput(JSON.stringify({status:'success'}))
+ *       .setMimeType(ContentService.MimeType.JSON);
  *   } catch(err) {
- *     return ContentService.createTextOutput(JSON.stringify({status:'error',message:err.toString()})).setMimeType(ContentService.MimeType.JSON);
+ *     return ContentService.createTextOutput(JSON.stringify({status:'error',message:err.toString()}))
+ *       .setMimeType(ContentService.MimeType.JSON);
  *   }
  * }
  */
