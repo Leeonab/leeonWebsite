@@ -82,7 +82,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   letter-spacing: 0.04em;
   align-self: center;      /* ← הוסף שורה זו */
   line-height: var(--nav-h); /* ← או זו */
-  margin-top: 2px; /* כוון את זה עד שיהיה בקו */
+  margin-top: 1.5px; /* כוון את זה עד שיהיה בקו */
 }
 
 
