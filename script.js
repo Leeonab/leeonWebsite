@@ -64,6 +64,8 @@ const $$ = s => [...document.querySelectorAll(s)];
   }
   init('baSlider1','baBefore1','baHandle1');
   init('baSlider2','baBefore2','baHandle2');
+  init('baSlider3','baBefore3','baHandle3');
+  init('baSlider4','baBefore4','baHandle4');
 })();
 
 /* ── FAQ ── */
@@ -101,9 +103,22 @@ const $$ = s => [...document.querySelectorAll(s)];
     if(!ok) return;
     btn.disabled=true;
     btn.querySelector('span').textContent='שולח...';
-    const payload={fullname:name.value.trim(),phone:ph.value.trim(),date:new Date().toLocaleDateString('he-IL'),time:new Date().toLocaleTimeString('he-IL'),source:location.href};
+    const payload={
+      fullname: name.value.trim(),
+      phone:    ph.value.trim(),
+      date:     new Date().toLocaleDateString('he-IL'),
+      time:     new Date().toLocaleTimeString('he-IL'),
+      source:   location.href
+    };
     if(typeof emailjs!=='undefined'){
-      try{ await emailjs.send('service_qo34r5o','template_1c02ebv',{fullname:payload.fullname,phone:payload.phone,email:'',message:`שם: ${payload.fullname}\nטלפון: ${payload.phone}\n${payload.date} ${payload.time}`,date:payload.date}); }
+      try{
+        await emailjs.send('service_qo34r5o','template_1c02ebv',{
+          fullname: payload.fullname,
+          phone:    payload.phone,
+          date:     payload.date,
+          message:  `שם: ${payload.fullname}\nטלפון: ${payload.phone}\nתאריך: ${payload.date}\nשעה: ${payload.time}`
+        });
+      }
       catch(err){ console.error('EmailJS:',err); }
     }
     if(SHEETS!=='YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'){
