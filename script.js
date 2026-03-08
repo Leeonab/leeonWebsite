@@ -113,7 +113,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* MODAL נגישות */
+/* MODAL */
 (function initModal() {
   const modal     = document.getElementById('accessibility-modal');
   const accessBtn = document.getElementById('accessibility-link');
@@ -140,8 +140,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /*
- * GOOGLE APPS SCRIPT — העתק לתוך Apps Script:
- *
+ * GOOGLE APPS SCRIPT:
  * function doPost(e) {
  *   try {
  *     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
