@@ -2,169 +2,155 @@
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 
-/* ── NAV ── */
-(function initNav() {
+/* ── NAV SCROLL ── */
+(function() {
   const nav = $('.nav');
   if (!nav) return;
-  const update = () => nav.classList.toggle('scrolled', window.scrollY > 40);
-  window.addEventListener('scroll', update, { passive: true });
-  update();
+  const tick = () => nav.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
 })();
 
-/* ── STICKY CTA ── */
-(function initStickyCta() {
-  const cta    = $('#stickyCta');
-  const hero   = $('.hero-section');
-  const booking = $('#booking');
-  if (!cta || !hero || !booking) return;
-  const update = () => {
-    const heroBot   = hero.getBoundingClientRect().bottom;
-    const bookingTop = booking.getBoundingClientRect().top;
-    if (heroBot < 0 && bookingTop > window.innerHeight) {
-      cta.classList.add('visible');
-    } else {
-      cta.classList.remove('visible');
-    }
+/* ── STICKY BAR ── */
+(function() {
+  const bar    = $('#stickyBar');
+  const hero   = $('.hero');
+  const book   = $('#booking');
+  if (!bar || !hero || !book) return;
+  const tick = () => {
+    const hBot = hero.getBoundingClientRect().bottom;
+    const bTop = book.getBoundingClientRect().top;
+    bar.classList.toggle('visible', hBot < 0 && bTop > window.innerHeight);
   };
-  window.addEventListener('scroll', update, { passive: true });
-  update();
+  window.addEventListener('scroll', tick, { passive: true });
+  tick();
 })();
 
 /* ── SMOOTH SCROLL ── */
-(function initSmooth() {
+(function() {
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href === '#') return;
-      const t = document.querySelector(href);
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const t = document.querySelector(id);
       if (t) {
         e.preventDefault();
-        const navH = $('.nav')?.offsetHeight || 58;
+        const navH = $('.nav')?.offsetHeight || 60;
         window.scrollTo({ top: t.offsetTop - navH - 8, behavior: 'smooth' });
       }
     });
   });
 })();
 
-/* ── BEFORE/AFTER SLIDER ── */
-(function initSliders() {
-  function setupSlider(sliderId, beforeId, handleId) {
+/* ── BEFORE/AFTER SLIDERS ── */
+(function() {
+  function initSlider(sliderId, beforeId, handleId) {
     const slider = document.getElementById(sliderId);
     const before = document.getElementById(beforeId);
     const handle = document.getElementById(handleId);
     if (!slider || !before || !handle) return;
 
-    let dragging = false;
-    let pct = 50; // percent from right (RTL)
+    let drag = false;
 
-    function setPos(x) {
+    function setPos(clientX) {
       const rect = slider.getBoundingClientRect();
-      // RTL: left side = "before", right side = "after"
-      let raw = (x - rect.left) / rect.width;
-      raw = Math.max(0.04, Math.min(0.96, raw));
-      pct = raw * 100;
-      // clip-path: show left portion as "before"
-      before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-      handle.style.left = pct + '%';
+      let pct = (clientX - rect.left) / rect.width;
+      pct = Math.max(0.03, Math.min(0.97, pct));
+      before.style.clipPath = `inset(0 ${(1 - pct) * 100}% 0 0)`;
+      handle.style.left = (pct * 100) + '%';
     }
 
-    // Init
+    // init at 50%
     before.style.clipPath = 'inset(0 50% 0 0)';
+    handle.style.left = '50%';
 
-    slider.addEventListener('mousedown', e => {
-      dragging = true;
-      setPos(e.clientX);
-    });
-    window.addEventListener('mousemove', e => {
-      if (dragging) setPos(e.clientX);
-    });
-    window.addEventListener('mouseup', () => { dragging = false; });
+    slider.addEventListener('mousedown',  e => { drag = true; setPos(e.clientX); });
+    window.addEventListener('mousemove', e => { if (drag) setPos(e.clientX); });
+    window.addEventListener('mouseup',   () => { drag = false; });
 
     slider.addEventListener('touchstart', e => {
-      dragging = true;
-      setPos(e.touches[0].clientX);
+      drag = true; setPos(e.touches[0].clientX);
     }, { passive: true });
     window.addEventListener('touchmove', e => {
-      if (dragging) setPos(e.touches[0].clientX);
+      if (drag) setPos(e.touches[0].clientX);
     }, { passive: true });
-    window.addEventListener('touchend', () => { dragging = false; });
+    window.addEventListener('touchend', () => { drag = false; });
   }
 
-  setupSlider('baSlider1', 'baBefore1', 'baHandle1');
-  setupSlider('baSlider2', 'baBefore2', 'baHandle2');
+  initSlider('baSlider1', 'baBefore1', 'baHandle1');
+  initSlider('baSlider2', 'baBefore2', 'baHandle2');
 })();
 
 /* ── FAQ ── */
-(function initFAQ() {
+(function() {
   $$('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
-      const item   = btn.closest('.faq-item');
-      const answer = item.querySelector('.faq-a');
-      const isOpen = item.classList.contains('open');
+      const item = btn.closest('.faq-item');
+      const ans  = item.querySelector('.faq-a');
+      const open = item.classList.contains('open');
       $$('.faq-item.open').forEach(o => {
         if (o === item) return;
         o.classList.remove('open');
         o.querySelector('.faq-a').classList.remove('open');
-        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
       });
-      item.classList.toggle('open', !isOpen);
-      answer.classList.toggle('open', !isOpen);
-      btn.setAttribute('aria-expanded', String(!isOpen));
+      item.classList.toggle('open', !open);
+      ans.classList.toggle('open', !open);
+      btn.setAttribute('aria-expanded', String(!open));
     });
   });
 })();
 
-/* ── CONTACT FORM ── */
-(function initForm() {
+/* ── FORM ── */
+(function() {
   const form = document.getElementById('contactForm');
   if (!form) return;
-  const SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+  const SHEETS = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    const btn  = this.querySelector('.form-submit');
+    const btn  = this.querySelector('.form-btn');
     const name = form.querySelector('#fullname');
     const ph   = form.querySelector('#phone');
 
     let ok = true;
     [name, ph].forEach(f => {
-      if (!f.value.trim()) { f.classList.add('error'); ok = false; }
-      else f.classList.remove('error');
+      f.classList.toggle('error', !f.value.trim());
+      if (!f.value.trim()) ok = false;
     });
     if (!ok) return;
 
     btn.disabled = true;
-    const s = btn.querySelector('span');
-    if (s) s.textContent = 'שולח...';
+    btn.querySelector('span').textContent = 'שולח...';
 
     const payload = {
       fullname: name.value.trim(),
       phone:    ph.value.trim(),
       date:     new Date().toLocaleDateString('he-IL'),
       time:     new Date().toLocaleTimeString('he-IL'),
-      source:   window.location.href
+      source:   location.href
     };
 
     if (typeof emailjs !== 'undefined') {
       try {
-        await emailjs.send('service_qo34r5o','template_1c02ebv',{
+        await emailjs.send('service_qo34r5o', 'template_1c02ebv', {
           fullname: payload.fullname,
           phone:    payload.phone,
           email:    '',
-          message:  `שם: ${payload.fullname}\nטלפון: ${payload.phone}\nתאריך: ${payload.date} ${payload.time}`,
+          message:  `שם: ${payload.fullname}\nטלפון: ${payload.phone}\n${payload.date} ${payload.time}`,
           date:     payload.date
         });
-      } catch(err){ console.error('EmailJS:',err); }
+      } catch(err) { console.error('EmailJS:', err); }
     }
 
-    if (SHEETS_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    if (SHEETS !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
       try {
-        await fetch(SHEETS_URL,{
-          method:'POST',mode:'no-cors',
-          headers:{'Content-Type':'application/json'},
-          body:JSON.stringify(payload)
+        await fetch(SHEETS, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
         });
-      } catch(err){ console.error('Sheets:',err); }
+      } catch(err) { console.error('Sheets:', err); }
     }
 
     form.style.display = 'none';
@@ -178,26 +164,26 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /* ── MODAL ── */
-(function initModal() {
+(function() {
   const modal  = document.getElementById('accessibility-modal');
-  const accBtn = document.getElementById('accessibility-link');
+  const btn    = document.getElementById('accessibility-link');
   const close  = modal?.querySelector('.modal-close');
-  if (!modal || !accBtn) return;
-  const open  = () => { modal.style.display='block'; modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
-  const shut  = () => { modal.style.display='none';  modal.setAttribute('aria-hidden','true');  document.body.style.overflow=''; };
-  accBtn.addEventListener('click', open);
-  close && close.addEventListener('click', shut);
-  modal.addEventListener('click', e => { if (e.target===modal) shut(); });
-  document.addEventListener('keydown', e => { if (e.key==='Escape' && modal.style.display==='block') shut(); });
+  if (!modal || !btn) return;
+  const open  = () => { modal.style.display = 'block'; modal.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; };
+  const shut  = () => { modal.style.display = 'none';  modal.setAttribute('aria-hidden','true');  document.body.style.overflow = ''; };
+  btn.addEventListener('click', open);
+  close?.addEventListener('click', shut);
+  modal.addEventListener('click', e => { if (e.target === modal) shut(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.style.display === 'block') shut(); });
 })();
 
 /*
- * GOOGLE APPS SCRIPT:
+ * GOOGLE APPS SCRIPT (הדבק ב-Apps Script):
  * function doPost(e) {
- *   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *   var data  = JSON.parse(e.postData.contents);
- *   if (sheet.getLastRow()===0) sheet.appendRow(['תאריך','שעה','שם','טלפון','מקור']);
- *   sheet.appendRow([data.date,data.time,data.fullname,data.phone,data.source]);
- *   return ContentService.createTextOutput(JSON.stringify({status:'success'})).setMimeType(ContentService.MimeType.JSON);
+ *   var s = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+ *   var d = JSON.parse(e.postData.contents);
+ *   if (!s.getLastRow()) s.appendRow(['תאריך','שעה','שם','טלפון','מקור']);
+ *   s.appendRow([d.date,d.time,d.fullname,d.phone,d.source]);
+ *   return ContentService.createTextOutput('ok');
  * }
  */
