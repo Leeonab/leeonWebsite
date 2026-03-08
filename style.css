@@ -104,7 +104,7 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
   background-image:
     linear-gradient(var(--border) 1px,transparent 1px),
     linear-gradient(90deg,var(--border) 1px,transparent 1px);
-  background-size:60px 60px;opacity:0.3;
+  background-size:60px 60px;opacity:0.6;
 }
 .hero-content{position:relative;z-index:1;max-width:760px;width:100%}
 
