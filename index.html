@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="theme-color" content="#F9F8F6" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Leeon AI — פרסום חכם לתכשיטים ויהלומים</title>
   <meta name="description" content="פרסומות AI מתקדמות לתכשיטים ויהלומים – Leeon AI" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Heebo:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -18,177 +18,162 @@
 
 <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
 
-<!-- NAV -->
+<!-- ══ NAV ══ -->
 <header class="nav" role="banner">
   <div class="nav-inner">
-    <div class="nav-right">
-      <span class="nav-tagline">מאת לי-און אמסילי</span>
-    </div>
-    <div class="nav-left">
-      <a href="#home" class="nav-logo-link" aria-label="Leeon AI - דף הבית">
-        <span class="nav-brand-name">Leeon<span class="nav-brand-dot">.AI</span></span>
-        <img src="assets/images/logo.png" class="nav-logo" alt="לוגו Leeon AI" width="38" height="38" />
-      </a>
-    </div>
+    <span class="nav-tagline">מאת לי-און אמסילי</span>
+    <a href="#home" class="nav-brand" aria-label="Leeon AI דף הבית">
+      <img src="assets/images/logo.png" class="nav-logo" alt="לוגו Leeon AI" width="38" height="38" />
+      <span class="nav-name">Leeon<span class="nav-dot">.AI</span></span>
+    </a>
   </div>
 </header>
 
 <main id="main-content">
 
-  <!-- ═══ HERO ═══ -->
-  <section id="home" class="hero-section">
-    <div class="hero-bg-layer" aria-hidden="true"></div>
+  <!-- ══ HERO ══ -->
+  <section id="home" class="hero">
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <span class="hero-diamond">◆</span>
-        <span>AI · יוקרה · תכשיטים</span>
-        <span class="hero-diamond">◆</span>
-      </div>
-      <h1 class="hero-title">
+      <div class="hero-badge">AI · יוקרה · תכשיטים</div>
+      <h1 class="hero-h1">
         איך מותגי תכשיטים<br>
-        <span class="hero-title-gold">מכפילים מכירות</span><br>
+        <span class="red-text">מכפילים מכירות</span><br>
         עם פרסומות AI
       </h1>
-      <p class="hero-subtitle">ללא ימי צילום · ללא דוגמניות · רק תוצאות</p>
+      <p class="hero-sub">ללא ימי צילום &nbsp;·&nbsp; ללא דוגמניות &nbsp;·&nbsp; רק תוצאות אמיתיות</p>
 
       <div class="video-label-row">
-        <span class="video-label-text">👇 צפו בסרטון עד הסוף</span>
-        <span class="video-label-sub">(גם אם כבר יודעים שרוצים להתחיל)</span>
+        <span class="vl-main">👇 צפו בסרטון עד הסוף</span>
+        <span class="vl-sub">(גם אם כבר יודעים שרוצים להתחיל)</span>
       </div>
-      <div class="video-container">
-        <div class="video-placeholder">
-          <div class="video-play-btn" aria-label="הפעל סרטון"><i class="fas fa-play"></i></div>
-          <p class="video-hint">הכנס כאן את הסרטון הראשי (60–120 שניות)</p>
+
+      <div class="video-box">
+        <div class="video-ph">
+          <button class="play-btn" aria-label="הפעל סרטון"><i class="fas fa-play"></i></button>
+          <p class="video-hint">הכנס את הסרטון הראשי כאן (60–120 שניות)</p>
         </div>
       </div>
 
-      <a href="#booking" class="cta-hero">
-        <span class="cta-hero-main">לשיחת ייעוץ ללא עלות ←</span>
-        <span class="cta-hero-sub">השאירו פרטים ונחזור תוך 24 שעות</span>
+      <a href="#booking" class="cta-btn cta-lg">
+        <span>לשיחת ייעוץ ללא עלות ←</span>
+        <span class="cta-sub">נחזור אליכם תוך 24 שעות</span>
       </a>
-    </div>
-
-    <!-- Sticky CTA mobile -->
-    <div class="sticky-cta" id="stickyCta">
-      <a href="#booking" class="sticky-cta-btn">לשיחת ייעוץ חינמית ←</a>
     </div>
   </section>
 
-  <!-- ═══ PROBLEM ═══ -->
-  <section id="problem" class="problem-section">
+  <!-- ══ PROBLEM ══ -->
+  <section class="section bg-white" id="problem">
     <div class="container">
-      <p class="problem-intro">הבעיה של 99% ממותגי התכשיטים:</p>
-      <div class="problem-items">
-        <div class="problem-item">
-          <span class="problem-num">01</span>
+      <p class="section-kicker">למה רוב מותגי התכשיטים נתקעים?</p>
+      <h2 class="section-h2">הבעיה של 99%<br>ממותגי התכשיטים</h2>
+      <div class="problem-grid">
+        <div class="prob-card">
+          <span class="prob-num">01</span>
           <p>מעלים סרטונים לרשתות — לא מקבלים צפיות, לא לייקים, לא מעורבות.</p>
         </div>
-        <div class="problem-item">
-          <span class="problem-num">02</span>
+        <div class="prob-card">
+          <span class="prob-num">02</span>
           <p>משקיעים אלפי שקלים בימי צילום, צלמים ודוגמניות — <strong>ועדיין לא רואים תוצאות.</strong></p>
         </div>
-        <div class="problem-item">
-          <span class="problem-num">03</span>
+        <div class="prob-card">
+          <span class="prob-num">03</span>
           <p>בסוף החודש — <strong>אף אחד לא משאיר פניות.</strong></p>
         </div>
       </div>
 
-      <div class="what-block">
-        <div class="what-label">הפתרון</div>
-        <h2 class="what-title">שירות <span class="gold-text">Leeon.AI</span></h2>
-        <p class="what-desc">פתרון B2B מקצה לקצה — אונליין, חנויות פיזיות, בורסה, יצרנים. הכל 100% אונליין.</p>
-        <div class="what-features">
-          <div class="what-feat"><i class="fas fa-check"></i><span>Reels לקמפיינים ממומנים</span></div>
-          <div class="what-feat"><i class="fas fa-check"></i><span>תמונות לפיד ולקטלוגים</span></div>
-          <div class="what-feat"><i class="fas fa-check"></i><span>תוכן לדפי מכירה</span></div>
-          <div class="what-feat"><i class="fas fa-check"></i><span>Horizontal לאתרים</span></div>
+      <div class="solution-box">
+        <div class="sol-kicker">הפתרון</div>
+        <h3 class="sol-title">שירות <span class="red-text">Leeon.AI</span></h3>
+        <p class="sol-desc">פתרון B2B מקצה לקצה — מותאם לאונליין, חנויות פיזיות, בורסה ויצרנים. הכל 100% אונליין, בלי ימי צילום, בלי פגישות.</p>
+        <div class="sol-features">
+          <div class="sol-feat"><i class="fas fa-check"></i><span>Reels לקמפיינים ממומנים</span></div>
+          <div class="sol-feat"><i class="fas fa-check"></i><span>תמונות לפיד ולקטלוגים</span></div>
+          <div class="sol-feat"><i class="fas fa-check"></i><span>תוכן לדפי מכירה</span></div>
+          <div class="sol-feat"><i class="fas fa-check"></i><span>Horizontal לאתרים</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ ABOUT ═══ -->
-  <section id="about" class="about-section">
+  <!-- ══ ABOUT ══ -->
+  <section class="section bg-pearl" id="about">
     <div class="container">
       <div class="about-grid">
         <div class="about-img-wrap">
-          <div class="about-img" style="background-image:url('assets/images/leeon.jpeg')"></div>
-          <div class="about-img-badge">
-            <span class="badge-num">50+</span>
-            <span class="badge-lbl">פרויקטים</span>
+          <img src="assets/images/leeon.jpeg" alt="לי-און אמסילי" class="about-img" loading="lazy" />
+          <div class="about-badge">
+            <span class="ab-num">50+</span>
+            <span class="ab-lbl">פרויקטים</span>
           </div>
         </div>
         <div class="about-text">
-          <div class="section-eyebrow">אודות</div>
-          <h2 class="about-title">
-            זה עבד לי —<br>
-            <span class="gold-text">יעבוד גם לכם</span>
-          </h2>
-          <p>אני <strong>הנדסאי אלקטרוניקה, עורך וידאו מקצועי ומומחה AI</strong> עם התמחות ספציפית בתכשיטים ויהלומים.</p>
-          <p>עבדתי עם <strong>הבורסה ברמת גן</strong>, מותגים אמריקאים מובילים, ועשרות מותגים ישראלים.</p>
-          <p>אני הופך תמונת מוצר פשוטה <strong>לפרסומת ברמת סטודיו.</strong></p>
-          <a href="#booking" class="btn-gold">לשיחת ייעוץ ←</a>
+          <p class="section-kicker">אודות</p>
+          <h2 class="section-h2">זה עבד לי —<br><span class="red-text">יעבוד גם לכם</span></h2>
+          <p>אני <strong>הנדסאי אלקטרוניקה, עורך וידאו מקצועי ומומחה בינה מלאכותית</strong> עם התמחות ספציפית בתכשיטים ויהלומים.</p>
+          <p>עבדתי עם <strong>הבורסה ברמת גן</strong>, מותגים אמריקאים מובילים, ועשרות מותגי תכשיטים ישראלים — <strong>מעל 50 פרויקטים, 5+ שנות ניסיון.</strong></p>
+          <p>אני הופך תמונת מוצר פשוטה <strong>לפרסומת ברמת סטודיו — בלי סטודיו.</strong></p>
+          <a href="#booking" class="cta-btn">לשיחת ייעוץ ←</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ BEFORE / AFTER SLIDER ═══ -->
-  <section id="proof" class="proof-section">
+  <!-- ══ BEFORE / AFTER ══ -->
+  <section class="section bg-white" id="proof">
     <div class="container">
-      <div class="section-eyebrow center">תוצאות</div>
-      <h2 class="section-title center">לפני ואחרי</h2>
-      <p class="section-sub center">גרור את הסליידר וראה את ההבדל</p>
+      <p class="section-kicker center">תוצאות</p>
+      <h2 class="section-h2 center">לפני ואחרי</h2>
+      <p class="section-desc center">גרור את הסליידר וראה את ההבדל</p>
 
-      <!-- Slider 1 -->
-      <div class="ba-slider-wrap">
-        <div class="ba-slider" id="baSlider1">
-          <div class="ba-after" style="background-image:url('assets/images/review9_2.jpeg')">
-            <div class="ba-tag ba-tag-after">אחרי ◆</div>
+      <div class="sliders-wrap">
+        <div class="ba-wrap">
+          <div class="ba-slider" id="baSlider1">
+            <div class="ba-after" style="background-image:url('assets/images/review9_2.jpeg')">
+              <span class="ba-tag ba-tag-after">אחרי ◆</span>
+            </div>
+            <div class="ba-before" id="baBefore1" style="background-image:url('assets/images/review9_2.jpeg')">
+              <div class="ba-dim"></div>
+              <span class="ba-tag ba-tag-before">לפני</span>
+            </div>
+            <div class="ba-handle" id="baHandle1">
+              <div class="ba-line"></div>
+              <div class="ba-circle"><i class="fas fa-arrows-left-right"></i></div>
+              <div class="ba-line"></div>
+            </div>
           </div>
-          <div class="ba-before" id="baBefore1" style="background-image:url('assets/images/review9_2.jpeg')">
-            <div class="ba-tag ba-tag-before">לפני</div>
-            <div class="ba-before-overlay"></div>
-          </div>
-          <div class="ba-handle" id="baHandle1">
-            <div class="ba-handle-line"></div>
-            <div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div>
-            <div class="ba-handle-line"></div>
-          </div>
+          <p class="ba-hint"><i class="fas fa-hand-pointer"></i> גרור לגילוי הפרסומת</p>
         </div>
-        <p class="ba-hint"><i class="fas fa-hand-pointer"></i> גרור לגילוי הפרסומת</p>
-      </div>
 
-      <!-- Slider 2 -->
-      <div class="ba-slider-wrap" style="margin-top:40px">
-        <div class="ba-slider" id="baSlider2">
-          <div class="ba-after" style="background-image:url('assets/images/review9_3.jpeg')">
-            <div class="ba-tag ba-tag-after">אחרי ◆</div>
+        <div class="ba-wrap">
+          <div class="ba-slider" id="baSlider2">
+            <div class="ba-after" style="background-image:url('assets/images/review9_3.jpeg')">
+              <span class="ba-tag ba-tag-after">אחרי ◆</span>
+            </div>
+            <div class="ba-before" id="baBefore2" style="background-image:url('assets/images/review9_3.jpeg')">
+              <div class="ba-dim"></div>
+              <span class="ba-tag ba-tag-before">לפני</span>
+            </div>
+            <div class="ba-handle" id="baHandle2">
+              <div class="ba-line"></div>
+              <div class="ba-circle"><i class="fas fa-arrows-left-right"></i></div>
+              <div class="ba-line"></div>
+            </div>
           </div>
-          <div class="ba-before" id="baBefore2" style="background-image:url('assets/images/review9_3.jpeg')">
-            <div class="ba-tag ba-tag-before">לפני</div>
-            <div class="ba-before-overlay"></div>
-          </div>
-          <div class="ba-handle" id="baHandle2">
-            <div class="ba-handle-line"></div>
-            <div class="ba-handle-circle"><i class="fas fa-arrows-left-right"></i></div>
-            <div class="ba-handle-line"></div>
-          </div>
+          <p class="ba-hint"><i class="fas fa-hand-pointer"></i> גרור לגילוי הפרסומת</p>
         </div>
-        <p class="ba-hint"><i class="fas fa-hand-pointer"></i> גרור לגילוי הפרסומת</p>
       </div>
 
       <!-- Stats -->
-      <div class="proof-stats">
-        <div class="proof-stat"><span class="ps-num">50+</span><span class="ps-lbl">פרויקטים</span></div>
-        <div class="proof-stat-div">◆</div>
-        <div class="proof-stat"><span class="ps-num">5+</span><span class="ps-lbl">שנות ניסיון</span></div>
-        <div class="proof-stat-div">◆</div>
-        <div class="proof-stat"><span class="ps-num">100%</span><span class="ps-lbl">אונליין</span></div>
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-n">50+</span><span class="stat-l">פרויקטים</span></div>
+        <div class="stat-sep">·</div>
+        <div class="stat-item"><span class="stat-n">5+</span><span class="stat-l">שנות ניסיון</span></div>
+        <div class="stat-sep">·</div>
+        <div class="stat-item"><span class="stat-n">100%</span><span class="stat-l">אונליין</span></div>
       </div>
 
-      <!-- Logos — Monochrome -->
-      <div class="logos-label">מותגים שעבדנו איתם</div>
+      <!-- Logos -->
+      <p class="logos-label">מותגים שעבדנו איתם</p>
       <div class="brands-grid">
         <div class="brand-card"><img src="assets/images/IMG_4816.jpeg" alt="Montier" loading="lazy" /></div>
         <div class="brand-card"><img src="assets/images/IMG_4817.jpeg" alt="Labi" loading="lazy" /></div>
@@ -200,109 +185,107 @@
     </div>
   </section>
 
-  <!-- ═══ SERVICES ═══ -->
-  <section id="services" class="services-section">
+  <!-- ══ SERVICES ══ -->
+  <section class="section bg-pearl" id="services">
     <div class="container">
-      <div class="section-eyebrow center">שירותים</div>
-      <h2 class="section-title center">מה אנחנו יוצרים</h2>
+      <p class="section-kicker center">שירותים</p>
+      <h2 class="section-h2 center">מה אנחנו יוצרים</h2>
       <div class="services-grid">
 
         <div class="serv-card">
-          <div class="serv-icon">
-            <svg viewBox="0 0 60 100" fill="none">
-              <rect x="8" y="4" width="44" height="88" rx="8" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-              <rect x="11" y="7" width="38" height="82" rx="6" fill="#111"/>
-              <circle cx="30" cy="50" r="12" fill="#c9a84c" opacity="0.15"/>
-              <circle cx="30" cy="50" r="8" stroke="#c9a84c" stroke-width="1" fill="none"/>
-              <polygon points="27,46 27,54 35,50" fill="#c9a84c"/>
-              <rect x="14" y="10" width="20" height="4" rx="2" fill="#c9a84c" opacity="0.5"/>
+          <div class="serv-icon-wrap">
+            <svg viewBox="0 0 60 100" fill="none" class="serv-svg">
+              <rect x="8" y="4" width="44" height="88" rx="8" stroke="#E31E24" stroke-width="1.5" fill="none"/>
+              <rect x="11" y="7" width="38" height="82" rx="6" fill="#F9F8F6"/>
+              <rect x="14" y="10" width="20" height="4" rx="2" fill="#E31E24" opacity="0.6"/>
+              <circle cx="30" cy="50" r="10" fill="#E31E24" opacity="0.9"/>
+              <polygon points="27.5,46 27.5,54 35.5,50" fill="white"/>
             </svg>
           </div>
-          <div class="serv-tag">9:16 · Reels</div>
+          <span class="serv-tag">9:16 · Reels</span>
           <h3>פרסומות Reels</h3>
-          <p>סרטוני Reels לקמפיינים ממומנים — Hook חזק בשניות הראשונות.</p>
+          <p>סרטוני Reels לקמפיינים ממומנים בפייסבוק ואינסטגרם — Hook חזק בשניות הראשונות.</p>
         </div>
 
         <div class="serv-card">
-          <div class="serv-icon">
-            <svg viewBox="0 0 100 80" fill="none">
-              <rect x="4" y="4" width="55" height="55" rx="6" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-              <rect x="7" y="7" width="49" height="49" rx="4" fill="#111"/>
-              <polygon points="31,20 42,31 31,42 20,31" fill="#c9a84c" opacity="0.25"/>
-              <polygon points="31,23 39,31 31,39 23,31" fill="#c9a84c" opacity="0.5"/>
-              <rect x="63" y="4" width="33" height="24" rx="5" stroke="#c9a84c" stroke-width="1.2" fill="none"/>
-              <rect x="66" y="7" width="27" height="18" rx="3" fill="#111"/>
-              <rect x="63" y="35" width="33" height="24" rx="5" stroke="#c9a84c" stroke-width="1.2" fill="none"/>
-              <rect x="66" y="38" width="27" height="18" rx="3" fill="#111"/>
-              <rect x="4" y="64" width="92" height="12" rx="4" stroke="#c9a84c" stroke-width="1" fill="none"/>
+          <div class="serv-icon-wrap">
+            <svg viewBox="0 0 100 80" fill="none" class="serv-svg" style="height:80px">
+              <rect x="4" y="4" width="55" height="55" rx="6" stroke="#E31E24" stroke-width="1.5" fill="none"/>
+              <rect x="7" y="7" width="49" height="49" rx="4" fill="#F9F8F6"/>
+              <polygon points="31,20 42,31 31,42 20,31" fill="#E31E24" opacity="0.2"/>
+              <polygon points="31,24 39,31 31,38 23,31" fill="#E31E24" opacity="0.5"/>
+              <rect x="63" y="4" width="33" height="24" rx="5" stroke="#E31E24" stroke-width="1.2" fill="none"/>
+              <rect x="66" y="7" width="27" height="18" rx="3" fill="#F9F8F6"/>
+              <rect x="63" y="35" width="33" height="24" rx="5" stroke="#E31E24" stroke-width="1.2" fill="none"/>
+              <rect x="66" y="38" width="27" height="18" rx="3" fill="#F9F8F6"/>
+              <rect x="4" y="64" width="92" height="12" rx="4" stroke="#E31E24" stroke-width="1" fill="none"/>
             </svg>
           </div>
-          <div class="serv-tag">תמונות</div>
+          <span class="serv-tag">תמונות</span>
           <h3>פיד · מכירה · קטלוג</h3>
-          <p>תמונות AI ברמת סטודיו — לפיד, לדפי מכירה ולקטלוגים.</p>
+          <p>תמונות AI ברמת סטודיו לפיד, לדפי מכירה ולקטלוגים — בלי צלם ובלי דוגמנית.</p>
         </div>
 
         <div class="serv-card">
-          <div class="serv-icon">
-            <svg viewBox="0 0 100 60" fill="none">
-              <rect x="4" y="4" width="92" height="52" rx="7" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-              <rect x="7" y="7" width="86" height="46" rx="5" fill="#111"/>
-              <circle cx="50" cy="30" r="12" fill="#c9a84c" opacity="0.12"/>
-              <circle cx="50" cy="30" r="8" stroke="#c9a84c" stroke-width="1" fill="none"/>
-              <polygon points="47,26 47,34 55,30" fill="#c9a84c"/>
-              <rect x="70" y="9" width="14" height="6" rx="2" fill="#c9a84c" opacity="0.4"/>
-              <text x="77" y="14" text-anchor="middle" font-size="4" fill="#0a0a0a" font-family="Arial">16:9</text>
+          <div class="serv-icon-wrap">
+            <svg viewBox="0 0 100 60" fill="none" class="serv-svg" style="height:60px">
+              <rect x="4" y="4" width="92" height="52" rx="7" stroke="#E31E24" stroke-width="1.5" fill="none"/>
+              <rect x="7" y="7" width="86" height="46" rx="5" fill="#F9F8F6"/>
+              <circle cx="50" cy="30" r="10" fill="#E31E24" opacity="0.9"/>
+              <polygon points="47,26 47,34 55,30" fill="white"/>
+              <rect x="72" y="9" width="14" height="6" rx="2" fill="#E31E24" opacity="0.4"/>
+              <text x="79" y="14" text-anchor="middle" font-size="4" fill="white" font-family="Arial" font-weight="bold">16:9</text>
             </svg>
           </div>
-          <div class="serv-tag">16:9 · Horizontal</div>
+          <span class="serv-tag">16:9 · Horizontal</span>
           <h3>סרטוני Horizontal</h3>
-          <p>פורמט רחב לדפי מכירה ותמונה ראשית לאתר.</p>
+          <p>פורמט אופקי לדפי מכירה ותמונה ראשית לאתר — יוקרה ואיכות מקסימלית.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ═══ PROCESS ═══ -->
-  <section id="process" class="process-section">
+  <!-- ══ PROCESS ══ -->
+  <section class="section bg-white" id="process">
     <div class="container">
-      <div class="section-eyebrow center">תהליך</div>
-      <h2 class="section-title center">איך זה עובד</h2>
-      <div class="process-steps">
-        <div class="proc-step">
+      <p class="section-kicker center">תהליך</p>
+      <h2 class="section-h2 center">איך זה עובד</h2>
+      <div class="process-grid">
+        <div class="proc-card">
           <div class="proc-num">01</div>
           <h3>שיחת ייעוץ</h3>
-          <p>מבינים את המותג ובונים קונספט.</p>
+          <p>מבינים את המותג ובונים קונספט מנצח — בחינם.</p>
         </div>
         <div class="proc-arrow"><i class="fas fa-arrow-left"></i></div>
-        <div class="proc-step">
+        <div class="proc-card">
           <div class="proc-num">02</div>
           <h3>הצעת מחיר</h3>
           <p>מותאמת לצרכים ולתקציב — שקיפות מלאה.</p>
         </div>
         <div class="proc-arrow"><i class="fas fa-arrow-left"></i></div>
-        <div class="proc-step">
+        <div class="proc-card">
           <div class="proc-num">03</div>
           <h3>יצירה ועדכונים</h3>
           <p>עדכונים שוטפים לאורך כל התהליך.</p>
         </div>
         <div class="proc-arrow"><i class="fas fa-arrow-left"></i></div>
-        <div class="proc-step">
+        <div class="proc-card">
           <div class="proc-num">04</div>
           <h3>מסירה</h3>
-          <p>קבצים לתיקיית Google Drive פרטית.</p>
+          <p>קבצים לתיקיית Google Drive פרטית שלכם.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FOR WHO ═══ -->
-  <section id="for-who" class="for-who-section">
+  <!-- ══ FOR WHO ══ -->
+  <section class="section bg-pearl" id="for-who">
     <div class="container">
-      <h2 class="section-title center">זה לא מתאים לכולם</h2>
-      <div class="for-who-grid">
+      <h2 class="section-h2 center">זה לא מתאים לכולם</h2>
+      <div class="fw-grid">
         <div class="fw-card fw-no">
-          <div class="fw-header"><h3>לא מתאים למי ש...</h3></div>
+          <div class="fw-head"><h3>לא מתאים למי ש...</h3></div>
           <ul>
             <li><span class="fw-x"><i class="fas fa-times"></i></span><span>מחפש פתרון קסם בלי עבודה</span></li>
             <li><span class="fw-x"><i class="fas fa-times"></i></span><span>לא מוכן להשקיע בפרסום</span></li>
@@ -311,110 +294,125 @@
           </ul>
         </div>
         <div class="fw-card fw-yes">
-          <div class="fw-header"><h3>כן מתאים למי ש...</h3></div>
+          <div class="fw-head fw-head-yes"><h3>כן מתאים למי ש...</h3></div>
           <ul>
             <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>יש לו מותג תכשיטים ורוצה לגדול</span></li>
-            <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>רוצה להביא יותר לקוחות ולהגדיל רווח</span></li>
+            <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>רוצה להביא לקוחות ולהגדיל רווח</span></li>
             <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>מוכן להשקיע בפרסום חכם</span></li>
-            <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>רוצה לחסוך על הפקות בלי פשרה על איכות</span></li>
+            <li><span class="fw-chk"><i class="fas fa-check"></i></span><span>רוצה לחסוך על הפקות בלי פשרה</span></li>
           </ul>
-          <div class="fw-cta">
-            <a href="#booking" class="btn-gold">זה בשבילי ←</a>
-          </div>
+          <div class="fw-cta"><a href="#booking" class="cta-btn">זה בשבילי ←</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ BOOKING ═══ -->
-  <section id="booking" class="booking-section">
+  <!-- ══ BOOKING ══ -->
+  <section class="section bg-white" id="booking">
     <div class="container">
-      <div class="booking-inner">
+      <div class="booking-grid">
         <div class="booking-left">
-          <div class="section-eyebrow">בואו נתחיל</div>
-          <h2 class="booking-title">שיחת ייעוץ<br><span class="gold-text">ללא עלות</span></h2>
+          <p class="section-kicker">בואו נתחיל</p>
+          <h2 class="section-h2">שיחת ייעוץ<br><span class="red-text">ללא עלות</span></h2>
           <p class="booking-sub">השאירו שם ומספר — נחזור תוך 24 שעות</p>
           <div class="booking-perks">
-            <div class="perk"><i class="fas fa-check"></i><span>ייעוץ חינמי</span></div>
+            <div class="perk"><i class="fas fa-check"></i><span>ייעוץ חינמי לחלוטין</span></div>
             <div class="perk"><i class="fas fa-check"></i><span>ללא התחייבות</span></div>
             <div class="perk"><i class="fas fa-check"></i><span>100% אונליין</span></div>
-            <div class="perk"><i class="fas fa-check"></i><span>מותאם אישית</span></div>
+            <div class="perk"><i class="fas fa-check"></i><span>מותאם אישית לעסק שלכם</span></div>
           </div>
         </div>
         <div class="booking-right">
-          <form id="contactForm" class="booking-form" novalidate>
+          <form id="contactForm" novalidate>
             <div class="fg">
               <label for="fullname">שם מלא</label>
-              <input type="text" id="fullname" name="fullname" required autocomplete="name" placeholder="הכניסו את שמכם" />
+              <input type="text" id="fullname" name="fullname" required autocomplete="name" placeholder="הכניסו את שמכם המלא" />
             </div>
             <div class="fg">
               <label for="phone">טלפון</label>
               <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="050-000-0000" />
             </div>
-            <button type="submit" class="form-submit">
+            <button type="submit" class="form-btn">
               <span>לשיחת ייעוץ ללא עלות ←</span>
-              <span class="form-submit-sub">נחזור תוך 24 שעות</span>
+              <span class="form-btn-sub">נחזור אליכם תוך 24 שעות</span>
             </button>
           </form>
-          <div id="responseMessage" style="display:none" class="resp-msg">
+          <div id="responseMessage" style="display:none" class="resp-ok">
             <i class="fas fa-check-circle"></i> תודה! נחזור אליכם בקרוב
           </div>
-          <p class="form-lock"><i class="fas fa-lock"></i> הפרטים מאובטחים</p>
+          <p class="form-lock"><i class="fas fa-lock"></i> הפרטים מאובטחים ולא יועברו לצד שלישי</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ FAQ ═══ -->
-  <section id="faq" class="faq-section">
+  <!-- ══ FAQ ══ -->
+  <section class="section bg-pearl" id="faq">
     <div class="container">
-      <div class="section-eyebrow center">שאלות</div>
-      <h2 class="section-title center">שאלות נפוצות</h2>
+      <p class="section-kicker center">שאלות</p>
+      <h2 class="section-h2 center">שאלות נפוצות</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>מה אתה עושה בעצם? איך זה עובד בלי צלם?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
-          <div class="faq-a"><div class="faq-ai"><p>אני יוצר פרסומות מותאמות אישית בעזרת AI ועריכה מתקדמת. גם תמונה פשוטה מהוואטסאפ מספיקה — אני הופך אותה לפרסומת ברמת סטודיו.</p></div></div>
+          <button class="faq-q" aria-expanded="false">
+            <span>מה אתה עושה בעצם? איך זה עובד בלי צלם?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-a"><div class="faq-ai"><p>אני יוצר פרסומות מותאמות אישית מאפס בעזרת AI ועריכה מתקדמת. גם תמונה פשוטה מהוואטסאפ מספיקה — אני הופך אותה לפרסומת ברמת סטודיו.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>מה צריך לספק?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
+          <button class="faq-q" aria-expanded="false">
+            <span>מה צריך לספק כדי להתחיל?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
           <div class="faq-a"><div class="faq-ai"><p>תמונות בסיסיות של המוצר ופרטים על המיתוג. אם אין קונספט ספציפי — אני בונה אחד.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>כמה זמן לוקח?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
-          <div class="faq-a"><div class="faq-ai"><p>3–7 ימי עסקים לפרסומת בודדת, תלוי במורכבות.</p></div></div>
+          <button class="faq-q" aria-expanded="false">
+            <span>כמה זמן לוקח לייצר פרסומת?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-a"><div class="faq-ai"><p>3–7 ימי עסקים לפרסומת בודדת, תלוי במורכבות. מעדכן אתכם בזמן אמת לאורך כל התהליך.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>כמה זה עולה?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
+          <button class="faq-q" aria-expanded="false">
+            <span>כמה זה עולה?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
           <div class="faq-a"><div class="faq-ai"><p>לפרויקט בודד: 250–650 ₪. חבילות ריטיינר זמינות — כל הצעה מותאמת אישית.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>האם ניתן לשלם ב-Bit / Apple Pay?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
+          <button class="faq-q" aria-expanded="false">
+            <span>האם ניתן לשלם ב-Bit / Apple Pay?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
           <div class="faq-a"><div class="faq-ai"><p>כן! Apple Pay, Google Pay, Bit, כרטיס אשראי והעברה בנקאית.</p></div></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q" aria-expanded="false"><span>מה תהליך העבודה?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
-          <div class="faq-a"><div class="faq-ai"><p>סוגרים פרטים → מקדמה 150 ₪ → יצירה עם עדכונים שוטפים → לאחר אישורכם, הקבצים עולים לתיקיית Google Drive פרטית.</p></div></div>
+          <button class="faq-q" aria-expanded="false">
+            <span>מה תהליך העבודה המלא?</span>
+            <span class="faq-ico"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-a"><div class="faq-ai"><p>סוגרים פרטים → מקדמה 150 ₪ → יצירה עם עדכונים שוטפים → לאחר אישורכם הקבצים עולים לתיקיית Google Drive פרטית.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ CTA FINAL ═══ -->
+  <!-- ══ CTA FINAL ══ -->
   <section class="cta-final">
     <div class="cta-final-inner">
-      <div class="cta-diamond-deco">◆ ◇ ◆</div>
-      <h2>מוכנים לשדרג?</h2>
+      <h2>מוכנים לשדרג את הפרסום שלכם?</h2>
       <p>שיחת ייעוץ חינמית — ללא התחייבות, 100% אונליין</p>
-      <a href="#booking" class="btn-gold-lg">לשיחת ייעוץ ← </a>
+      <a href="#booking" class="cta-btn cta-lg">לשיחת ייעוץ ←</a>
     </div>
   </section>
 
-  <!-- ═══ FOOTER ═══ -->
+  <!-- ══ FOOTER ══ -->
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="assets/images/logo.png" alt="Leeon AI" width="36" height="36" />
-        <span>Leeon<span class="gold-text">.AI</span></span>
+        <span class="footer-name">Leeon<span class="red-text">.AI</span></span>
       </div>
       <p class="footer-tag">פרסום חכם לתכשיטים ויהלומים</p>
       <div class="footer-social">
@@ -426,18 +424,23 @@
         <span>© לי-און אמסילי ברק 2026</span>
         <button class="acc-btn" id="accessibility-link" type="button">הצהרת נגישות</button>
       </div>
-      <p class="credit">עיצוב: <span class="gold-text">Adaya Moyal</span></p>
+      <p class="credit">עיצוב: <span style="color:#E31E24">Adaya Moyal</span></p>
     </div>
   </footer>
 
 </main>
 
-<!-- ═══ THANK YOU ═══ -->
+<!-- ══ STICKY CTA (mobile) ══ -->
+<div class="sticky-bar" id="stickyBar">
+  <a href="#booking" class="sticky-cta-btn">לשיחת ייעוץ חינמית ←</a>
+</div>
+
+<!-- ══ THANK YOU ══ -->
 <div id="thank-you-page" class="ty-page" style="display:none">
   <div class="ty-inner">
     <div class="ty-check"><i class="fas fa-check-circle"></i></div>
     <h2>תודה! קיבלנו את הפרטים</h2>
-    <p>נחזור תוך 24 שעות לשיחת ייעוץ חינמית.</p>
+    <p>נחזור אליכם תוך 24 שעות לשיחת ייעוץ חינמית.</p>
     <div class="ty-prep">
       <h3>הכינו לשיחה:</h3>
       <div class="ty-items">
@@ -451,18 +454,18 @@
         <p>סרטון הכנה לשיחה — הכנס כאן</p>
       </div>
     </div>
-    <button class="btn-gold" onclick="document.getElementById('thank-you-page').style.display='none'">חזרה לאתר</button>
+    <button class="cta-btn" onclick="document.getElementById('thank-you-page').style.display='none'">חזרה לאתר</button>
   </div>
 </div>
 
-<!-- ═══ MODAL נגישות ═══ -->
+<!-- ══ MODAL ══ -->
 <div id="accessibility-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
   <div class="modal-box">
     <button class="modal-close" type="button" aria-label="סגור">&times;</button>
     <h2 id="modal-title">הצהרת נגישות</h2>
     <p>אתר leeon-ai.com מופעל על ידי לי-און אמסילי ברק. האתר עומד ברמת AA של תקן WCAG 2.1 ומותקן תוסף Enable בתקן Israeli Standard 5568.</p>
-    <p><strong>ליצירת קשר בנושא נגישות:</strong><br>📧 li.ab225.146@gmail.com<br>אחראי: לי-און אמסילי ברק</p>
-    <p>עדכון אחרון: 20 בפברואר 2026</p>
+    <p><strong>ליצירת קשר:</strong><br>📧 li.ab225.146@gmail.com<br>אחראי: לי-און אמסילי ברק</p>
+    <p>עדכון: 20 בפברואר 2026</p>
   </div>
 </div>
 
