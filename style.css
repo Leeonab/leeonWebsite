@@ -288,9 +288,8 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 
 /* BOOKING */
 .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,68px);align-items:start}
-.booking-sub{font-size:0.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6;text-align:center}
-.booking-perks{display:flex;flex-direction:column;gap:10px;align-items:center}
-.booking-left{text-align:center}
+.booking-sub{font-size:0.9rem;color:var(--muted);margin-bottom:22px;line-height:1.6}
+.booking-perks{display:flex;flex-direction:column;gap:10px}
 .perk{display:flex;align-items:center;gap:9px;font-size:0.87rem;color:var(--muted)}
 .perk i{color:var(--red);font-size:0.7rem}
 .booking-right{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);box-shadow:var(--shadow-md)}
