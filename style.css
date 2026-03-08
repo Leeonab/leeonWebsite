@@ -75,15 +75,17 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   height:var(--nav-h);display:flex;align-items:center;
   justify-content:space-between;padding:0 clamp(18px,5vw,44px);
 }
+
+
 .nav-tagline {
   font-size: 0.82rem;
   font-weight: 400;
   color: var(--muted);
   letter-spacing: 0.04em;
-  align-self: center;      /* ← הוסף שורה זו */
-  line-height: var(--nav-h); /* ← או זו */
-  margin-top: 1.5px; /* כוון את זה עד שיהיה בקו */
+  align-self: center;
+  margin-top: 4px;
 }
+
 
 
 .nav-brand{
