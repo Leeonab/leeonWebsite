@@ -126,6 +126,10 @@ const $$ = s => [...document.querySelectorAll(s)];
     }
     catch(err){ console.error('Sheets:',err); }
     form.style.display='none';
+    if(typeof gtag !== 'undefined'){
+         gtag('event', 'lead_submitted', {event_category:'form', event_label:'booking_form'});
+      }
+
     const msg=document.getElementById('responseMessage');
     if(msg) msg.style.display='flex';
     setTimeout(()=>{ const ty=document.getElementById('thank-you-page'); if(ty) ty.style.display='flex'; },1200);
