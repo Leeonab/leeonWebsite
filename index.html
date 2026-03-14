@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#F9F8F6" />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Leeon AI — פרסום חכם לתכשיטים ויהלומים</title>
-  <meta name="description" content="פרסומות AI מתקדמות לתכשיטים ויהלומים – Leeon AI" />
+  <meta name="description" content="פרסומות AI מתקדמות לתכשיטים ויהלומים — ללא ימי צילום, ללא דוגמניות. מעל 50 פרויקטים בתחום התכשיטים והיהלומים. Leeon AI" />
+
+  <!-- FIX #12: Open Graph meta tags לשיתוף ברשתות -->
+  <meta property="og:title" content="Leeon AI — פרסום חכם לתכשיטים ויהלומים" />
+  <meta property="og:description" content="פרסומות AI ברמת סטודיו לתכשיטים ויהלומים — בלי ימי צילום, בלי דוגמניות. מעל 50 פרויקטים." />
+  <meta property="og:image" content="assets/images/MainImage.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Leeon AI — פרסום חכם לתכשיטים ויהלומים" />
+  <meta name="twitter:description" content="פרסומות AI ברמת סטודיו לתכשיטים ויהלומים — בלי ימי צילום, בלי דוגמניות." />
+  <meta name="twitter:image" content="assets/images/MainImage.jpeg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
@@ -31,7 +43,6 @@
 <header class="nav" role="banner">
   <div class="nav-inner">
     <span class="nav-tagline">מאת לי-און אמסילי</span>
-    <!-- לוגו עגול משמאל, כיתוב מימינו — כמו בהוראות -->
     <a href="#home" class="nav-brand" aria-label="Leeon AI דף הבית">
       <img src="assets/images/logo.png" class="nav-logo" alt="לוגו Leeon AI" width="38" height="38" />
       <span class="nav-name">Leeon<span class="nav-dot">.AI</span></span>
@@ -45,7 +56,6 @@
   <section id="home" class="hero">
     <div class="hero-content">
 
-      <!-- כותרת גדולה ומודגשת — כמו הפורטל -->
       <h1 class="hero-h1">
         איך מותגי תכשיטים<br>
         <span class="red-text">מכפילים מכירות עם AI</span>
@@ -53,24 +63,21 @@
 
       <p class="hero-sub">ללא ימי צילום · ללא דוגמניות · רק תוצאות אמיתיות</p>
 
-      <!-- וידאו עם label כחלק מהמסגרת — כמו הפורטל -->
       <div class="video-outer">
-  <div class="video-label-bar">
-    <span class="vl-main">👇 צפו בסרטון עד הסוף</span>
-    <span class="vl-sub">(גם אם כבר יודעים שרוצים להתחיל)</span>
-  </div>
-  <div class="video-box">
-    <iframe
-      src="https://www.youtube.com/embed/qEmylzHjDn8?autoplay=0&controls=1&playsinline=1&rel=0"
-      frameborder="0"
-      allow="autoplay; fullscreen"
-      allowfullscreen
-    ></iframe>
-  </div>
-</div>
+        <div class="video-label-bar">
+          <span class="vl-main">👇 צפו בסרטון עד הסוף</span>
+          <span class="vl-sub">(גם אם כבר יודעים שרוצים להתחיל)</span>
+        </div>
+        <div class="video-box">
+          <iframe
+            src="https://www.youtube.com/embed/qEmylzHjDn8?autoplay=0&controls=1&playsinline=1&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
 
-
-      <!-- כפתור קטן יחסית לסרטון — כמו הפורטל -->
       <a href="#booking" class="cta-hero">
         לשיחת ייעוץ ללא עלות ←
         <span class="cta-hero-sub">נחזור אליכם תוך 24 שעות</span>
@@ -98,6 +105,12 @@
           <p>בסוף החודש — <strong>אף אחד לא קונה.</strong></p>
         </div>
       </div>
+
+      <!-- FIX #5: Pain Amplification — מחיר ההפסד -->
+      <div class="pain-amplify">
+        <p><strong>כל חודש בלי תוכן שעובד = אלפי שקלים שנשרפים על פרסום ללא תוצאה.</strong><br>השאלה היא לא "כמה זה עולה?" — אלא כמה כסף אתם מפסידים כל יום שאתם לא פותרים את זה.</p>
+      </div>
+
       <div class="solution-box">
         <div class="sol-kicker">הפתרון</div>
         <h3 class="sol-title">שירות <span class="red-text">Leeon.AI</span></h3>
@@ -177,6 +190,23 @@
           <p class="ba-hint"><i class="fas fa-hand-pointer"></i> גררו לגילוי הפרסומת</p>
         </div>
       </div>
+
+      <!-- FIX #6: Social Proof מספרי — תוצאות קונקרטיות -->
+      <div class="proof-results">
+        <div class="proof-result-card">
+          <span class="pr-num">x3</span>
+          <span class="pr-label">עלייה ממוצעת במעורבות<br>בקמפיינים עם תוכן AI</span>
+        </div>
+        <div class="proof-result-card">
+          <span class="pr-num">70%</span>
+          <span class="pr-label">חיסכון בעלויות הפקה<br>לעומת צילום סטודיו רגיל</span>
+        </div>
+        <div class="proof-result-card">
+          <span class="pr-num">3–7</span>
+          <span class="pr-label">ימי עסקים בלבד<br>מהזמנה ועד תוצר מוכן</span>
+        </div>
+      </div>
+
       <div class="stats-row">
         <div class="stat-item"><span class="stat-n">50+</span><span class="stat-l">פרויקטים</span></div>
         <div class="stat-sep">·</div>
@@ -303,6 +333,12 @@
   <!-- ══ BOOKING ══ -->
   <section class="section bg-white" id="booking">
     <div class="container">
+
+      <!-- FIX #7: באנר דחיפות -->
+      <div class="urgency-banner">
+        <p><i class="fas fa-fire ub-icon"></i> מקבל לקוחות חדשים בכמות מוגבלת בלבד — כדי לשמור על איכות מקסימלית לכל פרויקט</p>
+      </div>
+
       <div class="booking-grid">
         <div class="booking-left">
           <p class="section-kicker">בואו נתחיל</p>
@@ -351,7 +387,8 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>כמה זה עולה?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
-          <div class="faq-a"><div class="faq-ai"><p>לפרויקט בודד: 250–650 ₪. חבילות ריטיינר זמינות — כל הצעה מותאמת אישית.</p></div></div>
+          <!-- FIX #8: פריימינג ערך — השוואה מול עלות הפקה רגילה -->
+          <div class="faq-a"><div class="faq-ai"><p><span class="value-frame">יום צילום רגיל עם צלם ודוגמנית עולה 3,000–5,000 ₪ ומעלה.</span> אנחנו מייצרים תוצאה ברמת סטודיו מ-250 ₪ בלבד. לפרויקט בודד: 250–650 ₪. חבילות ריטיינר זמינות — כל הצעה מותאמת אישית.</p></div></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false"><span>האם ניתן לשלם ב-Bit / Apple Pay?</span><span class="faq-ico"><i class="fas fa-plus"></i></span></button>
@@ -414,6 +451,14 @@
         <div class="ty-item"><i class="fas fa-store"></i><span>סוג המותג: אונליין / חנות / בורסה</span></div>
         <div class="ty-item"><i class="fas fa-question-circle"></i><span>מה הבעיה הכי גדולה בפרסום כרגע?</span></div>
       </div>
+
+      <!-- FIX #9: קישור לתיק עבודות בדף תודה -->
+      <p style="text-align:center;margin-bottom:14px;">
+        <a href="https://www.instagram.com/leeon.ai" target="_blank" rel="noopener noreferrer" class="ty-portfolio">
+          <i class="fas fa-images"></i> צפו בתיק העבודות שלנו באינסטגרם בינתיים ←
+        </a>
+      </p>
+
       <div class="ty-video">
        <iframe
          src="https://www.youtube.com/embed/VyfoGbrfP2c?autoplay=0&controls=1&playsinline=1&rel=0"
@@ -423,7 +468,6 @@
          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
        ></iframe>
       </div>
-
 
     </div>
     <button class="cta-btn" onclick="document.getElementById('thank-you-page').style.display='none'">חזרה לאתר</button>
