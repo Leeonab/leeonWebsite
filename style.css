@@ -1,12 +1,13 @@
 /* ══════════════════════════════════════
-   LEEON AI — DARK MODE 2026
+   LEEON AI — DARK MODE 2026 (FIXED)
 ══════════════════════════════════════ */
 :root {
   --pearl:    #0a0a0a;
   --white:    #111111;
   --text:     #F5F5F5;
   --muted:    #999999;
-  --border:   #2a2a2a;
+  /* FIX #1: גבולות בהירים יותר — מ-#2a2a2a ל-#3a3a3a */
+  --border:   #3a3a3a;
   --red:      #E31E24;
   --red-dark: #C01820;
   --red-pale: rgba(227,30,36,0.10);
@@ -76,7 +77,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   justify-content:space-between;padding:0 clamp(18px,5vw,44px);
 }
 
-
 .nav-tagline {
   font-size: 0.82rem;
   font-weight: 400;
@@ -85,8 +85,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   align-self: center;
   margin-top: 4px;
 }
-
-
 
 .nav-brand{
   display:flex;align-items:center;
@@ -160,10 +158,10 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
   font-weight:500;color:rgba(255,255,255,0.55);
 }
 
-
+/* FIX #3: רקע בהיר יותר לווידאו כדי שלא ייבלע בשחור */
 .video-box{
   width:100%;aspect-ratio:16/9;
-  background:#111;
+  background:#1a1a1a;
   position:relative;overflow:hidden;
   isolation:isolate;
 }
@@ -209,12 +207,33 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 
 /* PROBLEM */
 .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px}
-.prob-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:26px 20px;box-shadow:var(--shadow-sm)}
+/* FIX #1: הוספת shadow עדין יותר לכרטיסים */
+.prob-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:26px 20px;box-shadow:0 2px 16px rgba(0,0,0,0.4)}
 .prob-num{display:block;font-family:"Playfair Display",serif;font-size:2rem;font-weight:700;color:var(--red);opacity:0.3;line-height:1;margin-bottom:12px}
 .prob-card p{font-size:0.88rem;color:var(--muted);line-height:1.7}
 .prob-card p strong{color:var(--text)}
 
-.solution-box{max-width:680px;margin:0 auto;background:var(--white);border-radius:var(--r-lg);border:1px solid var(--border);padding:clamp(26px,5vw,46px);box-shadow:var(--shadow-md);text-align:center}
+/* FIX #5: הוספת pain amplification box */
+.pain-amplify{
+  background:rgba(227,30,36,0.06);
+  border:1px solid rgba(227,30,36,0.18);
+  border-radius:var(--r);
+  padding:16px 22px;
+  margin-bottom:36px;
+  text-align:center;
+}
+.pain-amplify p{
+  font-size:0.9rem;
+  color:var(--text);
+  line-height:1.7;
+  margin:0;
+}
+.pain-amplify strong{
+  color:var(--red);
+  font-weight:700;
+}
+
+.solution-box{max-width:680px;margin:0 auto;background:var(--white);border-radius:var(--r-lg);border:1px solid var(--border);padding:clamp(26px,5vw,46px);box-shadow:0 6px 32px rgba(0,0,0,0.45);text-align:center}
 .sol-kicker{font-size:0.62rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .sol-title{font-family:"Playfair Display",serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700;color:var(--text);margin-bottom:12px}
 .sol-desc{font-size:0.9rem;color:var(--muted);margin-bottom:22px;line-height:1.7}
@@ -250,6 +269,32 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .ba-hint{font-size:0.72rem;color:var(--muted);margin-top:8px;display:flex;align-items:center;gap:5px}
 .ba-hint i{color:var(--red)}
 
+/* FIX #6: social proof מספרי */
+.proof-results{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;margin-bottom:40px;
+}
+.proof-result-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  padding:20px 18px;
+  text-align:center;
+  box-shadow:0 2px 16px rgba(0,0,0,0.35);
+}
+.proof-result-card .pr-num{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:1.6rem;font-weight:700;
+  color:var(--red);line-height:1;
+  margin-bottom:6px;
+}
+.proof-result-card .pr-label{
+  font-size:0.78rem;
+  color:var(--muted);
+  line-height:1.5;
+}
+
 .stats-row{display:flex;align-items:center;justify-content:center;gap:clamp(14px,4vw,40px);flex-wrap:wrap;margin-bottom:40px}
 .stat-item{text-align:center}
 .stat-n{display:block;font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--red);line-height:1;margin-bottom:3px}
@@ -257,16 +302,16 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .stat-sep{color:var(--border);font-size:1.2rem}
 
 .logos-label{text-align:center;font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
-.brand-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;height:74px;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:var(--trans)}
+.brands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.brand-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;height:74px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 14px rgba(0,0,0,0.35);transition:var(--trans)}
 .brand-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .brand-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%) brightness(0.7);transition:var(--trans)}
 .brand-card:hover img{filter:grayscale(40%) brightness(0.9)}
 
 /* SERVICES */
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.serv-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px) 22px;box-shadow:var(--shadow-sm);transition:var(--trans)}
-.serv-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:rgba(227,30,36,0.3)}
+.serv-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px) 22px;box-shadow:0 2px 16px rgba(0,0,0,0.4);transition:var(--trans)}
+.serv-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.5);transform:translateY(-3px);border-color:rgba(227,30,36,0.3)}
 .serv-icon-wrap{display:flex;justify-content:center;margin-bottom:16px;min-height:76px;align-items:center}
 .serv-svg{height:76px;width:auto}
 .serv-tag{display:inline-block;font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:7px}
@@ -275,24 +320,47 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 
 /* PROCESS */
 .process-grid{display:flex;align-items:flex-start;justify-content:center;flex-wrap:wrap;gap:0;margin-top:8px}
-.proc-card{flex:1;min-width:clamp(130px,18vw,200px);max-width:220px;text-align:center;padding:clamp(16px,2.5vw,26px) 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow-sm)}
+.proc-card{flex:1;min-width:clamp(130px,18vw,200px);max-width:220px;text-align:center;padding:clamp(16px,2.5vw,26px) 14px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 2px 14px rgba(0,0,0,0.35)}
 .proc-num{font-family:"Playfair Display",serif;font-size:1.9rem;font-weight:700;color:var(--red);opacity:0.3;line-height:1;margin-bottom:9px}
 .proc-card h3{font-size:0.88rem;color:var(--text);margin-bottom:5px;font-weight:700;letter-spacing:0.03em}
 .proc-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
 .proc-arrow{display:flex;align-items:center;padding:0 8px;color:var(--border);font-size:0.9rem;margin-top:28px;flex-shrink:0}
 
 /* FOR WHO */
+/* FIX #4: הפרדה חזקה יותר בין העמודות */
 .fw-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.fw-card{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--white);box-shadow:var(--shadow-sm)}
+.fw-card{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);background:var(--white);box-shadow:0 2px 16px rgba(0,0,0,0.35)}
 .fw-head{padding:18px 22px 12px;background:#1a1a1a;border-bottom:1px solid var(--border)}
-.fw-head-yes{background:rgba(227,30,36,0.12);border-bottom-color:rgba(227,30,36,0.2)}
+.fw-head-yes{background:rgba(227,30,36,0.15);border-bottom-color:rgba(227,30,36,0.3)}
 .fw-head h3{font-family:"Playfair Display",serif;font-size:0.98rem;font-weight:700;color:var(--text)}
 .fw-yes .fw-head h3{color:var(--red)}
+/* FIX #4: גבול אדום מודגש לעמודה החיובית */
+.fw-yes{border-color:rgba(227,30,36,0.35)}
 .fw-card ul{list-style:none;padding:16px 22px 20px;display:flex;flex-direction:column;gap:11px}
 .fw-card ul li{display:flex;align-items:flex-start;gap:10px;font-size:0.86rem;color:var(--muted);line-height:1.55}
 .fw-x{width:20px;height:20px;min-width:20px;border-radius:50%;background:#1a1a1a;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:#555;font-size:0.55rem;margin-top:2px}
 .fw-chk{width:20px;height:20px;min-width:20px;border-radius:50%;background:rgba(227,30,36,0.12);border:1px solid rgba(227,30,36,0.3);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:0.55rem;margin-top:2px}
 .fw-cta{padding:0 22px 20px;text-align:center}
+
+/* FIX #7: באנר דחיפות */
+.urgency-banner{
+  background:rgba(227,30,36,0.08);
+  border:1px solid rgba(227,30,36,0.2);
+  border-radius:var(--r);
+  padding:14px 20px;
+  text-align:center;
+  margin-bottom:22px;
+}
+.urgency-banner p{
+  font-size:0.86rem;
+  font-weight:500;
+  color:var(--red);
+  margin:0;
+  letter-spacing:0.02em;
+}
+.urgency-banner .ub-icon{
+  margin-left:6px;
+}
 
 /* BOOKING */
 .booking-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,68px);align-items:start}
@@ -300,27 +368,31 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .booking-perks{display:flex;flex-direction:column;gap:10px}
 .perk{display:flex;align-items:center;gap:9px;font-size:0.87rem;color:var(--muted)}
 .perk i{color:var(--red);font-size:0.7rem}
-.booking-right{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);box-shadow:var(--shadow-md)}
+
+/* FIX #2: שדות טופס בולטים יותר */
+.booking-right{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);box-shadow:0 6px 32px rgba(0,0,0,0.45)}
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:15px}
 label{font-size:0.78rem;font-weight:500;color:var(--text);letter-spacing:0.04em}
 input[type="text"],input[type="tel"]{
   width:100%;padding:12px 14px;
-  background:#1a1a1a;border:1px solid var(--border);
+  /* FIX #2: רקע בהיר יותר וגבול חזק יותר */
+  background:#1e1e1e;border:1.5px solid #4a4a4a;
   border-radius:var(--r);color:var(--text);
   font-size:0.95rem;font-family:inherit;font-weight:300;transition:var(--trans);
 }
-input::placeholder{color:#444}
-input:focus{outline:none;border-color:var(--red);background:#1f1f1f;box-shadow:0 0 0 3px rgba(227,30,36,0.1)}
+input::placeholder{color:#555}
+input:focus{outline:none;border-color:var(--red);background:#222;box-shadow:0 0 0 3px rgba(227,30,36,0.15)}
 input.error{border-color:var(--red)}
 .form-btn{width:100%;padding:15px 18px;background:var(--red);color:#fff;border:none;border-radius:var(--r-pill);font-size:0.96rem;font-weight:700;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:var(--trans);font-family:inherit;box-shadow:0 4px 18px rgba(227,30,36,0.28)}
 .form-btn:hover{background:var(--red-dark);transform:translateY(-1px)}
+.form-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
 .form-btn-sub{font-size:0.67rem;font-weight:300;opacity:0.78}
 .form-lock{text-align:center;font-size:0.7rem;color:var(--muted);margin-top:9px;display:flex;align-items:center;justify-content:center;gap:5px}
 .resp-ok{background:rgba(227,30,36,0.1);border:1px solid rgba(227,30,36,0.2);color:var(--red);border-radius:var(--r);padding:18px;font-size:0.9rem;font-weight:500;display:flex;align-items:center;justify-content:center;gap:9px}
 
 /* FAQ */
 .faq-list{max-width:700px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
-.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s;box-shadow:var(--shadow-sm)}
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:border-color .2s;box-shadow:0 2px 14px rgba(0,0,0,0.35)}
 .faq-item.open{border-color:rgba(227,30,36,0.3)}
 .faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 20px;background:none;border:none;cursor:pointer;text-align:right;font-family:inherit;font-size:0.91rem;font-weight:500;color:var(--text);transition:color .2s;letter-spacing:0.02em}
 .faq-q:hover{color:var(--red)}
@@ -331,6 +403,11 @@ input.error{border-color:var(--red)}
 .faq-a.open{max-height:300px}
 .faq-ai{padding:12px 20px 16px;border-top:1px solid var(--border)}
 .faq-ai p{font-size:0.84rem;color:var(--muted);line-height:1.8}
+/* FIX #8: הדגשה של פריימינג ערך בתשובת המחיר */
+.faq-ai .value-frame{
+  color:var(--text);
+  font-weight:500;
+}
 
 /* CTA FINAL */
 .cta-final{background:#111;padding:clamp(52px,8vw,90px) 20px;text-align:center;border-top:1px solid var(--border)}
@@ -370,10 +447,17 @@ input.error{border-color:var(--red)}
 .ty-items{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .ty-item{display:flex;align-items:center;gap:10px;background:#1a1a1a;border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-size:0.82rem;color:var(--muted)}
 .ty-item i{color:var(--red);min-width:14px}
-.ty-video{background:#1a1a1a;border:1px solid var(--border);border-radius:var(--r);height:136px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;margin-bottom:18px}
-.ty-play{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff}
 .ty-video{background:#1a1a1a;border:1px solid var(--border);border-radius:var(--r);position:relative;aspect-ratio:16/9;width:100%;overflow:hidden;margin-bottom:18px}
+.ty-play{width:46px;height:46px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#fff}
 
+/* FIX #9: קישור לתיק עבודות בדף תודה */
+.ty-portfolio{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--red);font-size:0.84rem;font-weight:500;
+  text-decoration:underline;margin-bottom:16px;
+  transition:var(--trans);
+}
+.ty-portfolio:hover{color:var(--red-dark)}
 
 /* MODAL */
 .modal{display:none;position:fixed;z-index:99999;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px);overflow-y:auto;padding:34px 20px}
@@ -404,6 +488,7 @@ input.error{border-color:var(--red)}
   .booking-grid{grid-template-columns:1fr;gap:32px}
   .brands-grid{grid-template-columns:repeat(2,1fr)}
   .sol-features{grid-template-columns:1fr}
+  .proof-results{grid-template-columns:1fr}
 }
 
 /* ══ MOBILE 600px ══ */
@@ -417,6 +502,7 @@ input.error{border-color:var(--red)}
   .modal-box{padding:20px 14px}
   main{padding-bottom:72px}
   .cta-hero{max-width:100%}
+  .brands-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(prefers-reduced-motion:reduce){
