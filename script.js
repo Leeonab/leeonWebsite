@@ -89,20 +89,41 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /* ── FORM ── */
+/* FIX #11: Rate limiting בסיסי — מונע שליחה חוזרת תוך 30 שניות */
 (function(){
   const form=document.getElementById('contactForm');
   if(!form) return;
   const SHEETS='https://script.google.com/macros/s/AKfycbwRAdiq6dumuH0QVD2b8XFnH9fXi4lMjI2XC5AwfaXq0y9AfE3BnQ4zhxL-2O1Wx8a0Mg/exec';
+  let lastSubmit = 0;
+  const COOLDOWN = 30000; // 30 שניות בין שליחות
+
   form.addEventListener('submit',async function(e){
     e.preventDefault();
+
+    // FIX #11: בדיקת rate limit
+    const now = Date.now();
+    if(now - lastSubmit < COOLDOWN){
+      return; // עדיין בתקופת צינון
+    }
+
     const btn=this.querySelector('.form-btn');
     const name=form.querySelector('#fullname');
     const ph=form.querySelector('#phone');
     let ok=true;
     [name,ph].forEach(f=>{ f.classList.toggle('error',!f.value.trim()); if(!f.value.trim()) ok=false; });
     if(!ok) return;
+
+    // FIX #11: בדיקה בסיסית שהטלפון נראה תקין (לפחות 9 ספרות)
+    const phoneClean = ph.value.replace(/\D/g,'');
+    if(phoneClean.length < 9){
+      ph.classList.add('error');
+      return;
+    }
+
     btn.disabled=true;
     btn.querySelector('span').textContent='שולח...';
+    lastSubmit = now;
+
     const payload={
       fullname: name.value.trim(),
       phone:    ph.value.trim(),
