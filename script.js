@@ -38,17 +38,38 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* ── VIDEO OVERLAY — לחיצה מפעילה סאונד (סרטון כבר רץ מושתק) ── */
+/* ── VIDEO — YouTube IFrame API for unmute without reload ── */
 (function(){
-  const overlay = document.getElementById('videoOverlay');
-  const iframe = document.getElementById('heroVideo');
-  if(!overlay || !iframe) return;
+  // טוען את ה-API של YouTube
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScript = document.getElementsByTagName('script')[0];
+  firstScript.parentNode.insertBefore(tag, firstScript);
+
+  var player;
+
+  // YouTube קורא לפונקציה הזו אוטומטית כשה-API מוכן
+  window.onYouTubeIframeReady = function(){};
+
+  window.onYouTubePlayerAPIReady = function(){
+    player = new YT.Player('heroVideo', {
+      events: {
+        'onReady': function(event){
+          event.target.mute();
+          event.target.playVideo();
+        }
+      }
+    });
+  };
+
+  // לחיצה על overlay = unmute בלי טעינה מחדש
+  var overlay = document.getElementById('videoOverlay');
+  if(!overlay) return;
 
   overlay.addEventListener('click', function(){
-    // מסיר את ה-mute מה-URL כדי להפעיל סאונד
-    const src = iframe.getAttribute('src');
-    if(src){
-      iframe.setAttribute('src', src.replace('mute=1','mute=0'));
+    if(player && player.unMute){
+      player.unMute();
+      player.setVolume(100);
     }
     overlay.classList.add('hidden');
   });
