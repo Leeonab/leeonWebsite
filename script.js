@@ -38,6 +38,21 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
+/* ── VIDEO OVERLAY — לחיצה מפעילה את הסרטון ── */
+(function(){
+  const overlay = document.getElementById('videoOverlay');
+  const iframe = document.getElementById('heroVideo');
+  if(!overlay || !iframe) return;
+
+  overlay.addEventListener('click', function(){
+    const src = iframe.getAttribute('src');
+    if(src && !src.includes('autoplay=1')){
+      iframe.setAttribute('src', src.replace('autoplay=0','autoplay=1'));
+    }
+    overlay.classList.add('hidden');
+  });
+})();
+
 /* ── BEFORE/AFTER SLIDERS ── */
 (function(){
   function init(sliderId,beforeId,handleId){
@@ -89,21 +104,19 @@ const $$ = s => [...document.querySelectorAll(s)];
 })();
 
 /* ── FORM ── */
-/* FIX #11: Rate limiting בסיסי — מונע שליחה חוזרת תוך 30 שניות */
 (function(){
   const form=document.getElementById('contactForm');
   if(!form) return;
   const SHEETS='https://script.google.com/macros/s/AKfycbwRAdiq6dumuH0QVD2b8XFnH9fXi4lMjI2XC5AwfaXq0y9AfE3BnQ4zhxL-2O1Wx8a0Mg/exec';
   let lastSubmit = 0;
-  const COOLDOWN = 30000; // 30 שניות בין שליחות
+  const COOLDOWN = 30000;
 
   form.addEventListener('submit',async function(e){
     e.preventDefault();
 
-    // FIX #11: בדיקת rate limit
     const now = Date.now();
     if(now - lastSubmit < COOLDOWN){
-      return; // עדיין בתקופת צינון
+      return;
     }
 
     const btn=this.querySelector('.form-btn');
@@ -113,7 +126,6 @@ const $$ = s => [...document.querySelectorAll(s)];
     [name,ph].forEach(f=>{ f.classList.toggle('error',!f.value.trim()); if(!f.value.trim()) ok=false; });
     if(!ok) return;
 
-    // FIX #11: בדיקה בסיסית שהטלפון נראה תקין (לפחות 9 ספרות)
     const phoneClean = ph.value.replace(/\D/g,'');
     if(phoneClean.length < 9){
       ph.classList.add('error');
