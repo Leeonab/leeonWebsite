@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════
-   LEEON AI — DARK MODE 2026 (IMPROVED)
+   LEEON AI — DARK MODE 2026 (V3)
 ══════════════════════════════════════ */
 :root {
   --pearl:    #0a0a0a;
@@ -10,11 +10,9 @@
   --red:      #E31E24;
   --red-dark: #C01820;
   --red-pale: rgba(227,30,36,0.10);
-
   --shadow-sm: 0 2px 12px rgba(0,0,0,0.3);
   --shadow-md: 0 6px 28px rgba(0,0,0,0.4);
   --shadow-lg: 0 16px 56px rgba(0,0,0,0.5);
-
   --r:     8px;
   --r-lg:  14px;
   --r-pill:50px;
@@ -88,7 +86,7 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
   background:#0a0a0a;
   min-height:calc(100dvh - var(--nav-h) - var(--safe-top));
   display:flex;align-items:center;justify-content:center;
-  padding:clamp(20px,3vw,40px) clamp(10px,3vw,24px) clamp(28px,4vw,48px);
+  padding:clamp(16px,2.5vw,32px) clamp(10px,3vw,24px) clamp(20px,3vw,36px);
   text-align:center;position:relative;overflow:hidden;
 }
 .hero::before{
@@ -100,7 +98,6 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 }
 .hero-content{position:relative;z-index:1;max-width:760px;width:100%}
 
-/* ══ HERO SPOTLIGHT EFFECT ══ */
 .hero-spotlight{
   position:absolute;top:-30%;width:45%;height:120%;
   background:radial-gradient(ellipse at center, rgba(227,30,36,0.06) 0%, transparent 70%);
@@ -114,87 +111,75 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
   font-size:clamp(2.2rem,8vw,4.4rem);
   font-weight:900;color:var(--text);
   line-height:1.05;letter-spacing:-0.02em;
-  margin-bottom:14px;
+  margin-bottom:10px;
   animation:fadeUp .7s ease both;
 }
 
 .hero-sub{
   font-size:clamp(0.85rem,2.5vw,1rem);
-  color:var(--muted);letter-spacing:0.03em;
+  color:var(--muted);letter-spacing:0.05em;
   margin-bottom:16px;font-weight:300;
-  font-style:italic;
   animation:fadeUp .7s ease .1s both;
 }
 
-/* ══ HERO TRUST BAR ══ */
-.hero-trust{
-  display:flex;align-items:center;justify-content:center;
-  gap:8px;flex-wrap:wrap;margin-bottom:22px;
-  animation:fadeUp .7s ease .12s both;
-}
-.hero-trust-label{font-size:0.72rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
-.hero-trust-names{font-size:0.78rem;color:var(--text);font-weight:400;letter-spacing:0.02em;opacity:0.7}
-
-/* ══ VIDEO OUTER ══ */
+/* ══ VIDEO ══ */
 .video-outer{
   width:100%;border-radius:var(--r-lg);overflow:hidden;
   border:1px solid var(--border);box-shadow:var(--shadow-md);
-  margin-bottom:18px;animation:fadeUp .7s ease .18s both;
+  margin-bottom:14px;animation:fadeUp .7s ease .18s both;
 }
 .video-label-bar{
-  background:#1a1a1a;padding:11px 18px;
+  background:#1a1a1a;padding:10px 18px;
   display:flex;flex-direction:column;align-items:center;gap:2px;
   text-align:center;border-bottom:1px solid var(--border);
 }
-.vl-main{font-size:clamp(0.9rem,2.5vw,1rem);font-weight:700;color:#fff;letter-spacing:0.02em}
-.vl-sub{font-size:clamp(0.72rem,2vw,0.8rem);font-weight:500;color:rgba(255,255,255,0.55)}
+.vl-main{font-size:clamp(0.88rem,2.5vw,1rem);font-weight:700;color:#fff;letter-spacing:0.02em}
+.vl-sub{font-size:clamp(0.7rem,2vw,0.78rem);font-weight:500;color:rgba(255,255,255,0.55)}
 .video-box{
   width:100%;aspect-ratio:16/9;background:#1a1a1a;
   position:relative;overflow:hidden;isolation:isolate;
 }
 .video-box iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block}
 
-/* ══ VIDEO OVERLAY ══ */
+/* ══ VIDEO OVERLAY — כמו הפורטל ══ */
 .video-overlay{
   position:absolute;inset:0;z-index:5;
-  background:rgba(10,10,10,0.75);
+  background:rgba(10,10,10,0.55);
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;transition:opacity 0.4s ease;
 }
 .video-overlay.hidden{opacity:0;pointer-events:none}
-.video-overlay-inner{display:flex;flex-direction:column;align-items:center;gap:14px}
-.video-play-pulse{
-  width:68px;height:68px;border-radius:50%;background:var(--red);
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
-  box-shadow:0 0 0 0 rgba(227,30,36,0.4);
-  animation:pulse-ring 2s ease-out infinite;
+.video-overlay-inner{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  background:rgba(30,30,30,0.85);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:var(--r-lg);
+  padding:24px 36px;
+  backdrop-filter:blur(8px);
 }
-.video-play-pulse::after{
-  content:"";width:0;height:0;
-  border-style:solid;border-width:12px 0 12px 20px;
-  border-color:transparent transparent transparent #fff;
-  margin-right:-4px;
+.video-sound-icon{
+  font-size:1.8rem;color:#fff;margin-bottom:2px;
 }
-@keyframes pulse-ring{
-  0%{box-shadow:0 0 0 0 rgba(227,30,36,0.5)}
-  70%{box-shadow:0 0 0 20px rgba(227,30,36,0)}
-  100%{box-shadow:0 0 0 0 rgba(227,30,36,0)}
+.video-overlay-title{
+  font-size:1rem;font-weight:700;color:#fff;letter-spacing:0.02em;
 }
-.video-overlay-text{font-size:1rem;font-weight:700;color:#fff;letter-spacing:0.03em;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.video-overlay-cta{
+  font-size:0.88rem;font-weight:500;color:var(--red);letter-spacing:0.02em;
+}
 
+/* ══ HERO CTA — קטן ונקי ══ */
 .cta-hero{
-  display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+  display:inline-flex;flex-direction:column;align-items:center;gap:3px;
   background:var(--red);color:#fff;
-  padding:14px 32px;border-radius:var(--r-pill);
-  font-size:0.95rem;font-weight:700;text-decoration:none;
+  padding:12px 24px;border-radius:var(--r-pill);
+  font-size:0.88rem;font-weight:700;text-decoration:none;
   border:none;cursor:pointer;font-family:inherit;
   box-shadow:0 5px 22px rgba(227,30,36,0.3);
   transition:var(--trans);animation:fadeUp .7s ease .28s both;
-  max-width:420px;width:auto;
+  max-width:340px;width:auto;
 }
 .cta-hero:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(227,30,36,0.4)}
-.cta-hero-sub{font-size:0.68rem;font-weight:300;opacity:0.8}
+.cta-hero-sub{font-size:0.65rem;font-weight:300;opacity:0.8}
 
 /* ══ SECTIONS ══ */
 .section{padding:clamp(56px,8vw,100px) 0;border-top:1px solid var(--border)}
@@ -213,7 +198,6 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .pain-amplify p{font-size:0.9rem;color:var(--text);line-height:1.7;margin:0}
 .pain-amplify strong{color:var(--red);font-weight:700}
 
-/* ══ REFRAME BOX (זו לא אשמתכם) ══ */
 .reframe-box{
   max-width:680px;margin:0 auto 36px;text-align:center;
   padding:28px 24px;
@@ -315,7 +299,6 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .fw-chk{width:20px;height:20px;min-width:20px;border-radius:50%;background:rgba(227,30,36,0.12);border:1px solid rgba(227,30,36,0.3);display:flex;align-items:center;justify-content:center;color:var(--red);font-size:0.55rem;margin-top:2px}
 .fw-cta{padding:0 22px 20px;text-align:center}
 
-/* URGENCY BANNER */
 .urgency-banner{background:rgba(227,30,36,0.08);border:1px solid rgba(227,30,36,0.2);border-radius:var(--r);padding:14px 20px;text-align:center;margin-bottom:22px}
 .urgency-banner p{font-size:0.86rem;font-weight:500;color:var(--red);margin:0;letter-spacing:0.02em}
 .urgency-banner .ub-icon{margin-left:6px}
@@ -326,7 +309,6 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 .booking-perks{display:flex;flex-direction:column;gap:10px}
 .perk{display:flex;align-items:center;gap:9px;font-size:0.87rem;color:var(--muted)}
 .perk i{color:var(--red);font-size:0.7rem}
-
 .booking-right{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);box-shadow:0 6px 32px rgba(0,0,0,0.45)}
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:15px}
 label{font-size:0.78rem;font-weight:500;color:var(--text);letter-spacing:0.04em}
@@ -448,8 +430,10 @@ input.error{border-color:var(--red)}
   main{padding-bottom:72px}
   .cta-hero{max-width:100%}
   .brands-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-trust{flex-direction:column;gap:4px}
-  .video-overlay-text{font-size:0.88rem}
+  .video-overlay-inner{padding:18px 24px}
+  .video-overlay-title{font-size:0.9rem}
+  .video-overlay-cta{font-size:0.8rem}
+  .video-sound-icon{font-size:1.5rem}
 }
 
 @media(prefers-reduced-motion:reduce){
