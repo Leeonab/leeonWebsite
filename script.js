@@ -38,16 +38,17 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* ── VIDEO OVERLAY — לחיצה מפעילה את הסרטון ── */
+/* ── VIDEO OVERLAY — לחיצה מפעילה סאונד (סרטון כבר רץ מושתק) ── */
 (function(){
   const overlay = document.getElementById('videoOverlay');
   const iframe = document.getElementById('heroVideo');
   if(!overlay || !iframe) return;
 
   overlay.addEventListener('click', function(){
+    // מסיר את ה-mute מה-URL כדי להפעיל סאונד
     const src = iframe.getAttribute('src');
-    if(src && !src.includes('autoplay=1')){
-      iframe.setAttribute('src', src.replace('autoplay=0','autoplay=1'));
+    if(src){
+      iframe.setAttribute('src', src.replace('mute=1','mute=0'));
     }
     overlay.classList.add('hidden');
   });
