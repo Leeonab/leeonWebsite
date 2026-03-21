@@ -54,23 +54,37 @@
 
   <!-- ══ HERO ══ -->
   <section id="home" class="hero">
+    <div class="hero-spotlight hero-spotlight-left"></div>
+    <div class="hero-spotlight hero-spotlight-right"></div>
     <div class="hero-content">
 
       <h1 class="hero-h1">
-        איך מותגי תכשיטים<br>
-        <span class="red-text">מכפילים מכירות עם AI</span>
+        תוכן שיווקי שמביא לקוחות<br>
+        <span class="red-text">בלי לצלם אפילו תמונה אחת</span>
       </h1>
 
-      <p class="hero-sub">ללא ימי צילום · ללא דוגמניות · רק תוצאות אמיתיות</p>
+      <p class="hero-sub">(גם בלי צלם, בלי דוגמנית, ובלי להוציא אלפים על ימי צילום)</p>
+
+      <div class="hero-trust">
+        <span class="hero-trust-label">עבדנו עם:</span>
+        <span class="hero-trust-names">Sayag Diamonds · Montebello · Labi · Gemesis · +50 פרויקטים</span>
+      </div>
 
       <div class="video-outer">
         <div class="video-label-bar">
-          <span class="vl-main">👇 צפו בסרטון עד הסוף</span>
+          <span class="vl-main">ראו דוגמה של פרויקט — 2 דקות</span>
           <span class="vl-sub">(גם אם כבר יודעים שרוצים להתחיל)</span>
         </div>
         <div class="video-box">
+          <div class="video-overlay" id="videoOverlay">
+            <div class="video-overlay-inner">
+              <div class="video-play-pulse"></div>
+              <span class="video-overlay-text">הסרטון שלך מחכה — לחצו לצפייה</span>
+            </div>
+          </div>
           <iframe
-            src="https://www.youtube.com/embed/qEmylzHjDn8?autoplay=0&controls=1&playsinline=1&rel=0"
+            id="heroVideo"
+            src="https://www.youtube.com/embed/qEmylzHjDn8?autoplay=0&controls=1&playsinline=1&rel=0&enablejsapi=1"
             frameborder="0"
             allow="autoplay; fullscreen"
             allowfullscreen
@@ -79,8 +93,8 @@
       </div>
 
       <a href="#booking" class="cta-hero">
-        לשיחת ייעוץ ללא עלות ←
-        <span class="cta-hero-sub">נחזור אליכם תוך 24 שעות</span>
+        אני רוצה לראות מה AI יכול לעשות למותג שלי ←
+        <span class="cta-hero-sub">ייעוץ חינמי · ללא התחייבות</span>
       </a>
 
     </div>
@@ -109,6 +123,13 @@
       <!-- Pain Amplification — מחיר ההפסד -->
       <div class="pain-amplify">
         <p><strong>כל חודש בלי תוכן שעובד = אלפי שקלים שנשרפים על פרסום ללא תוצאה.</strong><br>השאלה היא לא "כמה זה עולה?" — אלא כמה כסף אתם מפסידים כל יום שאתם לא פותרים את זה.</p>
+      </div>
+
+      <!-- Pain Reframe — זו לא אשמתכם -->
+      <div class="reframe-box">
+        <h3 class="reframe-title">אבל זו לא אשמתכם.</h3>
+        <p>כל מותג תכשיטים מתמודד עם אותו הדבר — ימי צילום עולים הון, הדוגמניות לא תמיד מתאימות, והתוצאות לא מגיעות. <strong>הבעיה היא לא אתם — הבעיה היא השיטה הישנה.</strong></p>
+        <p>היום יש דרך אחרת. דרך שבה תמונה אחת מהנייד הופכת לפרסומת ברמת סטודיו — <strong>בלי סטודיו.</strong></p>
       </div>
 
       <div class="solution-box">
@@ -142,7 +163,7 @@
           <p>אני <strong>הנדסאי אלקטרוניקה, עורך וידאו מקצועי ומומחה בינה מלאכותית</strong> עם התמחות ספציפית בתכשיטים ויהלומים.</p>
           <p>עבדתי עם <strong>הבורסה ברמת גן</strong>, מותג אמריקאי מוביל, ועשרות מותגי תכשיטים ישראלים — <strong>מעל 50 פרויקטים, 5+ שנות ניסיון.</strong></p>
           <p>אני הופך תמונת מוצר פשוטה <strong>לפרסומת ברמת סטודיו — בלי סטודיו.</strong></p>
-          <a href="#booking" class="cta-btn">לשיחת ייעוץ ←</a>
+          <a href="#booking" class="cta-btn">אני רוצה לשמוע עוד ←</a>
         </div>
       </div>
     </div>
@@ -356,8 +377,8 @@
             <div class="fg"><label for="fullname">שם מלא</label><input type="text" id="fullname" name="fullname" required autocomplete="name" placeholder="הכניסו את שמכם המלא" /></div>
             <div class="fg"><label for="phone">טלפון</label><input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="050-000-0000" /></div>
             <button type="submit" class="form-btn">
-              <span>לשיחת ייעוץ ללא עלות ←</span>
-              <span class="form-btn-sub">נחזור אליכם תוך 24 שעות</span>
+              <span>אני רוצה לשמוע עוד ←</span>
+              <span class="form-btn-sub">נחזור אליכם תוך 24 שעות · ללא התחייבות</span>
             </button>
           </form>
           <div id="responseMessage" style="display:none" class="resp-ok"><i class="fas fa-check-circle"></i> תודה! נחזור אליכם בקרוב</div>
@@ -404,9 +425,9 @@
   <!-- ══ CTA FINAL ══ -->
   <section class="cta-final">
     <div class="cta-final-inner">
-      <h2>מוכנים לשדרג את הפרסום שלכם?</h2>
-      <p>שיחת ייעוץ חינמית — ללא התחייבות, 100% אונליין</p>
-      <a href="#booking" class="cta-btn cta-lg">לשיחת ייעוץ ←</a>
+      <h2>מוכנים לראות מה AI יכול לעשות למותג שלכם?</h2>
+      <p>ייעוץ חינמי — ללא התחייבות, 100% אונליין</p>
+      <a href="#booking" class="cta-btn cta-lg">קחו אותי לשלב הבא ←</a>
     </div>
   </section>
 
@@ -433,7 +454,7 @@
 
 <!-- ══ STICKY BAR ══ -->
 <div class="sticky-bar" id="stickyBar">
-  <a href="#booking" class="sticky-cta-btn">לשיחת ייעוץ חינמית ←</a>
+  <a href="#booking" class="sticky-cta-btn">רוצה לראות דוגמאות? ← השאירו פרטים</a>
 </div>
 
 <!-- ══ THANK YOU ══ -->
