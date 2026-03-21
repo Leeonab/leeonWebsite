@@ -40,7 +40,6 @@ const $$ = s => [...document.querySelectorAll(s)];
 
 /* ── VIDEO — YouTube IFrame API for unmute without reload ── */
 (function(){
-  // טוען את ה-API של YouTube
   var tag = document.createElement('script');
   tag.src = 'https://www.youtube.com/iframe_api';
   var firstScript = document.getElementsByTagName('script')[0];
@@ -48,7 +47,6 @@ const $$ = s => [...document.querySelectorAll(s)];
 
   var player;
 
-  // YouTube קורא לפונקציה הזו אוטומטית כשה-API מוכן
   window.onYouTubeIframeReady = function(){};
 
   window.onYouTubePlayerAPIReady = function(){
@@ -62,14 +60,15 @@ const $$ = s => [...document.querySelectorAll(s)];
     });
   };
 
-  // לחיצה על overlay = unmute בלי טעינה מחדש
   var overlay = document.getElementById('videoOverlay');
   if(!overlay) return;
 
   overlay.addEventListener('click', function(){
     if(player && player.unMute){
+      player.seekTo(0, true);
       player.unMute();
       player.setVolume(100);
+      player.playVideo();
     }
     overlay.classList.add('hidden');
   });
