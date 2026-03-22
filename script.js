@@ -38,7 +38,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* ── VIDEO — YouTube IFrame API + postMessage fallback ── */
+/* ── VIDEO — YouTube IFrame API + fallback for in-app browsers ── */
 (function(){
   var tag = document.createElement('script');
   tag.src = 'https://www.youtube.com/iframe_api';
@@ -73,19 +73,8 @@ const $$ = s => [...document.querySelectorAll(s)];
       player.playVideo();
     } else {
       var iframe = document.getElementById('heroVideo');
-      if(iframe && iframe.contentWindow){
-        iframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command', func: 'seekTo', args: [0, true]
-        }), '*');
-        iframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command', func: 'unMute', args: []
-        }), '*');
-        iframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command', func: 'setVolume', args: [100]
-        }), '*');
-        iframe.contentWindow.postMessage(JSON.stringify({
-          event: 'command', func: 'playVideo', args: []
-        }), '*');
+      if(iframe){
+        iframe.src = 'https://www.youtube.com/embed/qEmylzHjDn8?autoplay=1&mute=0&controls=1&playsinline=1&rel=0&start=0&enablejsapi=1';
       }
     }
     overlay.classList.add('hidden');
