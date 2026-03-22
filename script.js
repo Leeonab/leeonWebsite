@@ -38,7 +38,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
-/* ── VIDEO — YouTube IFrame API for unmute without reload ── */
+/* ── VIDEO — YouTube IFrame API + fallback for in-app browsers ── */
 (function(){
   var tag = document.createElement('script');
   tag.src = 'https://www.youtube.com/iframe_api';
@@ -46,6 +46,7 @@ const $$ = s => [...document.querySelectorAll(s)];
   firstScript.parentNode.insertBefore(tag, firstScript);
 
   var player;
+  var playerReady = false;
 
   window.onYouTubeIframeReady = function(){};
 
@@ -53,6 +54,7 @@ const $$ = s => [...document.querySelectorAll(s)];
     player = new YT.Player('heroVideo', {
       events: {
         'onReady': function(event){
+          playerReady = true;
           event.target.mute();
           event.target.playVideo();
         }
@@ -64,11 +66,16 @@ const $$ = s => [...document.querySelectorAll(s)];
   if(!overlay) return;
 
   overlay.addEventListener('click', function(){
-    if(player && player.unMute){
+    if(playerReady && player && player.seekTo){
       player.seekTo(0, true);
       player.unMute();
       player.setVolume(100);
       player.playVideo();
+    } else {
+      var iframe = document.getElementById('heroVideo');
+      if(iframe){
+        iframe.src = 'https://www.youtube.com/embed/qEmylzHjDn8?autoplay=1&mute=0&controls=1&playsinline=1&rel=0&start=0&enablejsapi=1';
+      }
     }
     overlay.classList.add('hidden');
   });
