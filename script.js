@@ -197,6 +197,26 @@ const $$ = s => [...document.querySelectorAll(s)];
   });
 })();
 
+/* ── SCROLL ANIMATIONS ── */
+(function(){
+  const observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin:'0px 0px -50px 0px', threshold:0.1});
+
+  // Add fade-in to various elements
+  var selectors = '.prob-card, .serv-card, .portfolio-card, .proc-card, .fw-card, .faq-item, .proof-result-card, .solution-box, .reframe-box, .pain-amplify, .compare-section, .about-grid, .booking-grid, .cta-final';
+  document.querySelectorAll(selectors).forEach(function(el, i){
+    el.classList.add('fade-in');
+    el.style.transitionDelay = (i % 4) * 0.1 + 's';
+    observer.observe(el);
+  });
+})();
+
 /* ── MODAL ── */
 (function(){
   const modal=document.getElementById('accessibility-modal');
