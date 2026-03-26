@@ -1,0 +1,1561 @@
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ביוטי בר — Beauty Bar | סטודיו לקוסמטיקה וטיפולי יופי</title>
+  <meta name="description" content="ביוטי בר — סטודיו לקוסמטיקה וטיפולי יופי ברמה הגבוהה ביותר. טיפולי פנים, איפור מקצועי, לק ג'ל, טיפולי שיער ועיצוב גבות.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --text: #F5F5F5;
+      --text-muted: #a0a0a0;
+      --text-dim: #777;
+      --red: #E31E24;
+      --red-dark: #c41a1f;
+      --red-glow: rgba(227, 30, 36, 0.15);
+      --gold: #c9a96e;
+      --gold-dim: rgba(201, 169, 110, 0.3);
+      --border: #3a3a3a;
+      --border-light: #2a2a2a;
+      --font-body: 'Heebo', sans-serif;
+      --font-display: 'Playfair Display', serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+      --shadow-hover: 0 8px 40px rgba(0,0,0,0.6);
+      --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Section Titles ── */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* ── Decorative Line ── */
+    .divider-line {
+      width: 60px;
+      height: 2px;
+      background: var(--red);
+      margin: 20px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 100;
+      padding: 16px 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 var(--border-light);
+      padding: 10px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-logo svg {
+      width: 36px;
+      height: 36px;
+    }
+    .nav-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .nav-logo-text span {
+      color: var(--red);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--red);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--text);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+    .nav-cta::after { display: none !important; }
+
+    /* Mobile menu toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: var(--transition);
+      border-radius: 2px;
+    }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to left,
+        rgba(10, 10, 10, 0.85) 0%,
+        rgba(10, 10, 10, 0.7) 40%,
+        rgba(10, 10, 10, 0.5) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      padding-top: 100px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(227, 30, 36, 0.12);
+      border: 1px solid rgba(227, 30, 36, 0.25);
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--red);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 .highlight {
+      color: var(--red);
+    }
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 36px;
+      max-width: 500px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(227, 30, 36, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(227, 30, 36, 0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--text-muted);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dim);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+    .hero-scroll .mouse {
+      width: 20px;
+      height: 32px;
+      border: 1.5px solid var(--text-dim);
+      border-radius: 10px;
+      position: relative;
+    }
+    .hero-scroll .mouse::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 6px;
+      background: var(--text-dim);
+      border-radius: 2px;
+      animation: scroll-mouse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-mouse {
+      0%, 100% { top: 6px; opacity: 1; }
+      50% { top: 16px; opacity: 0.3; }
+    }
+
+    /* ══════════════════════════════════
+       ABOUT
+    ══════════════════════════════════ */
+    .about {
+      padding: 100px 0;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .about-image:hover img {
+      transform: scale(1.03);
+    }
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .about-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .about-feature svg {
+      width: 18px;
+      height: 18px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════
+       SERVICES
+    ══════════════════════════════════ */
+    .services {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--bg) 0%, #0e0e0e 100%);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .service-card:hover {
+      border-color: rgba(227, 30, 36, 0.3);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover), 0 0 40px var(--red-glow);
+    }
+    .service-card-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-card-img img {
+      transform: scale(1.08);
+    }
+    .service-card-body {
+      padding: 20px;
+    }
+    .service-card-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .service-card-body p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .service-price {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════
+       GALLERY
+    ══════════════════════════════════ */
+    .gallery {
+      padding: 100px 0;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+    .gallery-item:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .gallery-item:nth-child(1) img { height: 100%; min-height: 420px; }
+    .gallery-item:not(:first-child) img { height: 200px; }
+
+    /* ══════════════════════════════════
+       STATS
+    ══════════════════════════════════ */
+    .stats {
+      padding: 80px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+    .stat-item {
+      padding: 24px;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--red);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .stat-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    /* ══════════════════════════════════
+       PRICING
+    ══════════════════════════════════ */
+    .pricing {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--bg) 0%, #0e0e0e 50%, var(--bg) 100%);
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .pricing-card.featured {
+      border-color: var(--red);
+      box-shadow: 0 0 40px var(--red-glow);
+    }
+    .pricing-card.featured::before {
+      content: 'הכי פופולרי';
+      position: absolute;
+      top: -12px;
+      right: 28px;
+      background: var(--red);
+      color: #fff;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .pricing-card-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .pricing-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .pricing-card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+    .pricing-card-price .amount {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pricing-card-price .currency {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex: 1;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .pricing-card .btn {
+      width: 100%;
+    }
+
+    /* ══════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════ */
+    .testimonials {
+      padding: 100px 0;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: all var(--transition);
+    }
+    .testimonial-card:hover {
+      border-color: rgba(227, 30, 36, 0.2);
+      box-shadow: var(--shadow-card);
+    }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+    .testimonial-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--gold);
+    }
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ══════════════════════════════════
+       CONTACT
+    ══════════════════════════════════ */
+    .contact {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--bg) 0%, #0e0e0e 100%);
+    }
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .contact-info h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .contact-info p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .contact-detail svg {
+      width: 20px;
+      height: 20px;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px;
+    }
+    .contact-form-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-dim);
+    }
+    .form-submit {
+      width: 100%;
+    }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    .footer {
+      padding: 48px 0 24px;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-logo svg {
+      width: 28px;
+      height: 28px;
+    }
+    .footer-logo-text {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .footer-social a:hover {
+      border-color: var(--red);
+      color: var(--red);
+      background: var(--red-glow);
+    }
+    .footer-social a svg {
+      width: 16px;
+      height: 16px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    /* ══════════════════════════════════
+       MOBILE
+    ══════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .about-grid,
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-image img {
+        height: 300px;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gallery-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      .gallery-item:nth-child(1) img { min-height: 250px; }
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+      }
+      .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      .hero-content { padding-top: 80px; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .about, .services, .gallery, .pricing, .testimonials, .contact {
+        padding: 72px 0;
+      }
+      .stats { padding: 56px 0; }
+      .stats-grid { gap: 8px; }
+      .stat-number { font-size: 1.5rem; }
+      .stat-label { font-size: 0.75rem; }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-item:nth-child(1) {
+        grid-column: span 1;
+      }
+      .gallery-item:not(:first-child) img { height: 180px; }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════ NAVIGATION ═══════ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <!-- Beauty/Flower SVG Logo -->
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ביוטי בר לוגו">
+        <circle cx="24" cy="24" r="6" fill="#E31E24"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(0 24 24)"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(60 24 24)"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(120 24 24)"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(180 24 24)"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(240 24 24)"/>
+        <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(300 24 24)"/>
+        <circle cx="24" cy="24" r="23" stroke="#E31E24" stroke-width="1" opacity="0.3"/>
+      </svg>
+      <span class="nav-logo-text">ביוטי <span>בר</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">אודות</a></li>
+      <li><a href="#services">שירותים</a></li>
+      <li><a href="#gallery">גלריה</a></li>
+      <li><a href="#pricing">מחירון</a></li>
+      <li><a href="#testimonials">המלצות</a></li>
+      <li><a href="#contact" class="nav-cta">קביעת תור</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="תפריט">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/hero.jpg" alt="סטודיו ביוטי בר — אווירה יוקרתית" loading="eager">
+  </div>
+  <div class="container hero-content">
+    <div class="hero-badge">סטודיו יוקרתי לטיפולי יופי</div>
+    <h1>היופי שלך,<br>בידיים <span class="highlight">הכי טובות</span></h1>
+    <p class="hero-subtitle">ביוטי בר — סטודיו פרימיום לקוסמטיקה וטיפולי יופי. צוות מומחים מוסמכים, מוצרים בלעדיים וחוויה שלא תשכחו.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">קביעת תור עכשיו</a>
+      <a href="#services" class="btn btn-outline">גלו את השירותים שלנו</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="mouse"></div>
+  </div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image fade-up">
+        <img src="images/products.jpg" alt="מוצרי קוסמטיקה יוקרתיים">
+      </div>
+      <div class="about-text fade-up">
+        <span class="section-label">אודות הסטודיו</span>
+        <h2>יותר מעשור של<br>מצוינות ויופי</h2>
+        <p>ביוטי בר נוסד מתוך אהבה אמיתית ליופי ומחויבות לשירות ברמה הגבוהה ביותר. כבר למעלה מ-10 שנים אנחנו מעניקים טיפולי יופי מתקדמים ללקוחות מרוצים בכל רחבי הארץ.</p>
+        <p>הצוות שלנו כולל קוסמטיקאיות מוסמכות בעלות הכשרה בינלאומית, שעובדות אך ורק עם מוצרים פרימיום מהמותגים המובילים בעולם.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            צוות מוסמך בינלאומית
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            10+ שנות ניסיון
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            מוצרים פרימיום בלבד
+          </div>
+          <div class="about-feature">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            היגיינה ברמה הגבוהה ביותר
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">השירותים שלנו</span>
+      <h2 class="section-title">טיפולים מקצועיים<br>בהתאמה אישית</h2>
+      <p class="section-subtitle">מגוון רחב של טיפולי יופי וקוסמטיקה מתקדמים, מותאמים אישית לצרכים ולסגנון שלך</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-card-img">
+          <img src="images/facial.jpg" alt="טיפולי פנים מתקדמים">
+        </div>
+        <div class="service-card-body">
+          <h3>טיפולי פנים</h3>
+          <p>טיפולי פנים מתקדמים לניקוי עמוק, הזנה והצערת העור באמצעות טכנולוגיות חדשניות.</p>
+          <span class="service-price">החל מ-₪250</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-img">
+          <img src="images/makeup.jpg" alt="איפור מקצועי">
+        </div>
+        <div class="service-card-body">
+          <h3>איפור מקצועי</h3>
+          <p>איפור מקצועי לכל אירוע — חתונות, צילומים, אירועים מיוחדים ואיפור יום יומי.</p>
+          <span class="service-price">החל מ-₪350</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-img">
+          <img src="images/nails.jpg" alt="לק ג'ל ומניקור">
+        </div>
+        <div class="service-card-body">
+          <h3>לק ג'ל ומניקור</h3>
+          <p>מניקור ופדיקור מושלמים, לק ג'ל עמיד, נייל ארט ועיצובים מרהיבים.</p>
+          <span class="service-price">החל מ-₪120</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-img">
+          <img src="images/hair.jpg" alt="טיפולי שיער">
+        </div>
+        <div class="service-card-body">
+          <h3>טיפולי שיער</h3>
+          <p>תספורות, צבע, החלקות והחייאת שיער פגום עם מוצרים מהשורה הראשונה.</p>
+          <span class="service-price">החל מ-₪200</span>
+        </div>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-card-img">
+          <img src="images/eyebrows.jpg" alt="עיצוב גבות">
+        </div>
+        <div class="service-card-body">
+          <h3>עיצוב גבות</h3>
+          <p>עיצוב גבות מדויק, מיקרובליידינג ולמינציית גבות לעיניים מרהיבות.</p>
+          <span class="service-price">החל מ-₪150</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ GALLERY ═══════ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">גלריה</span>
+      <h2 class="section-title">מהעבודות שלנו</h2>
+      <p class="section-subtitle">הצצה לתוצאות המדהימות שאנחנו משיגים עבור הלקוחות שלנו</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item">
+        <img src="images/hero.jpg" alt="סטודיו ביוטי בר">
+      </div>
+      <div class="gallery-item">
+        <img src="images/facial.jpg" alt="טיפול פנים">
+      </div>
+      <div class="gallery-item">
+        <img src="images/nails.jpg" alt="מניקור ג'ל">
+      </div>
+      <div class="gallery-item">
+        <img src="images/hair.jpg" alt="עיצוב שיער">
+      </div>
+      <div class="gallery-item">
+        <img src="images/eyebrows.jpg" alt="עיצוב גבות">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ STATS ═══════ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div class="stat-icon">💝</div>
+        <div class="stat-number" data-target="3000">0</div>
+        <div class="stat-label">לקוחות מרוצים</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-icon">✨</div>
+        <div class="stat-number" data-target="10">0</div>
+        <div class="stat-label">שנות ניסיון</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-number" data-target="5">0</div>
+        <div class="stat-label">כוכבים בגוגל</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PRICING ═══════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">מחירון</span>
+      <h2 class="section-title">חבילות טיפולים</h2>
+      <p class="section-subtitle">בחרו את החבילה המושלמת עבורכן והתחילו את המסע ליופי שלכן</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="pricing-grid">
+      <!-- Basic -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-name">בסיסי</div>
+        <div class="pricing-card-desc">טיפול בודד לחוויה ראשונית</div>
+        <div class="pricing-card-price">
+          <span class="amount">199</span>
+          <span class="currency">₪</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            טיפול פנים בסיסי
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ניקוי עמוק
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            מסכה מזינה
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ייעוץ עור ראשוני
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לקביעת תור</a>
+      </div>
+      <!-- Premium -->
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-card-name">פרימיום</div>
+        <div class="pricing-card-desc">חבילה מושלמת לטיפול מקיף</div>
+        <div class="pricing-card-price">
+          <span class="amount">449</span>
+          <span class="currency">₪</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            טיפול פנים מתקדם
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            עיצוב גבות
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            מניקור ג'ל
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            10% הנחה על המוצרים
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            משקה חם במתנה
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">לקביעת תור</a>
+      </div>
+      <!-- VIP -->
+      <div class="pricing-card fade-up">
+        <div class="pricing-card-name">VIP</div>
+        <div class="pricing-card-desc">חוויית פינוק מלאה ליום שלם</div>
+        <div class="pricing-card-price">
+          <span class="amount">899</span>
+          <span class="currency">₪</span>
+        </div>
+        <ul class="pricing-features">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            כל הטיפולים של פרימיום
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            איפור מקצועי מלא
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            טיפול שיער + עיצוב
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            20% הנחה על מוצרים
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            ארוחה קלה + שמפניה
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            צילום מקצועי לאחר הטיפול
+          </li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">לקביעת תור</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-label">המלצות</span>
+      <h2 class="section-title">מה הלקוחות שלנו אומרים</h2>
+      <p class="section-subtitle">אלפי לקוחות מרוצים כבר חוו את החוויה המיוחדת שלנו</p>
+      <div class="divider-line"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"הגעתי לביוטי בר לפני החתונה שלי ויצאתי מרגישה כמו מלכה. האיפור החזיק כל היום, והטיפול פנים שעשיתי שבוע לפני גרם לעור שלי לזרוח. ממליצה בחום!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">נ.כ</div>
+          <div>
+            <div class="testimonial-name">נועה כהן</div>
+            <div class="testimonial-role">כלה מאושרת</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"כבר שנתיים שאני לקוחה קבועה וכל פעם אני מתפעלת מחדש. הצוות מקצועי, האווירה מדהימה, והתוצאות מדברות בעד עצמן. הלק ג'ל מחזיק לי חודש שלם!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">מ.ל</div>
+          <div>
+            <div class="testimonial-name">מיכל לוי</div>
+            <div class="testimonial-role">לקוחה קבועה</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-up">
+        <div class="testimonial-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">"קיבלתי את חבילת ה-VIP כמתנת יום הולדת והייתה זו חוויה בלתי נשכחת. מהרגע שנכנסת מרגישים את היוקרה. טיפול פנים, איפור, שיער — הכל ברמה אחרת לגמרי."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ד.א</div>
+          <div>
+            <div class="testimonial-name">דנה אברהם</div>
+            <div class="testimonial-role">חוגגת יום הולדת</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-wrapper">
+      <div class="contact-info fade-up">
+        <span class="section-label">צרו קשר</span>
+        <h2>מוזמנות לקבוע<br>תור עכשיו</h2>
+        <p>השאירו פרטים ונחזור אליכן בהקדם לתיאום התור המושלם. אפשר גם להתקשר ישירות או לשלוח הודעה בוואטסאפ.</p>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          054-123-4567
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          רחוב דיזנגוף 150, תל אביב
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          ראשון-חמישי: 09:00-20:00 | שישי: 09:00-14:00
+        </div>
+      </div>
+      <div class="contact-form-card fade-up">
+        <h3>קביעת תור</h3>
+        <form onsubmit="event.preventDefault(); alert('תודה! נחזור אליך בהקדם.');">
+          <div class="form-group">
+            <label for="name">שם מלא</label>
+            <input type="text" id="name" name="name" placeholder="הזינו את שמכן" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">טלפון</label>
+            <input type="tel" id="phone" name="phone" placeholder="054-000-0000" required dir="ltr">
+          </div>
+          <div class="form-group">
+            <label for="service">סוג טיפול</label>
+            <select id="service" name="service">
+              <option value="">בחרו טיפול</option>
+              <option value="facial">טיפולי פנים</option>
+              <option value="makeup">איפור מקצועי</option>
+              <option value="nails">לק ג'ל ומניקור</option>
+              <option value="hair">טיפולי שיער</option>
+              <option value="eyebrows">עיצוב גבות</option>
+              <option value="package">חבילת טיפולים</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">שלחו בקשה</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ביוטי בר">
+          <circle cx="24" cy="24" r="6" fill="#E31E24"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(0 24 24)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(60 24 24)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(120 24 24)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(180 24 24)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(240 24 24)"/>
+          <ellipse cx="24" cy="12" rx="5" ry="9" fill="none" stroke="#E31E24" stroke-width="1.5" transform="rotate(300 24 24)"/>
+          <circle cx="24" cy="24" r="23" stroke="#E31E24" stroke-width="1" opacity="0.3"/>
+        </svg>
+        <span class="footer-logo-text">ביוטי בר — Beauty Bar</span>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 ביוטי בר — Beauty Bar. כל הזכויות שמורות.</span>
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="font-size:0.7rem;color:#999;">
+        Created with Perplexity Computer
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll effect ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Mobile menu toggle ──
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  // Close menu on link click
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // ── Fade-up on scroll ──
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── Counter animation ──
+  const counters = document.querySelectorAll('.stat-number[data-target]');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const duration = 2000;
+        const start = performance.now();
+        const isLargeNum = target > 100;
+
+        function update(now) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * target);
+
+          if (isLargeNum) {
+            el.textContent = current.toLocaleString() + '+';
+          } else if (target <= 5) {
+            el.textContent = (eased * target).toFixed(1);
+          } else {
+            el.textContent = current + '+';
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            if (isLargeNum) {
+              el.textContent = target.toLocaleString() + '+';
+            } else if (target <= 5) {
+              el.textContent = target.toFixed(1);
+            } else {
+              el.textContent = target + '+';
+            }
+          }
+        }
+        requestAnimationFrame(update);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  // ── Smooth scroll for anchor links ──
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
