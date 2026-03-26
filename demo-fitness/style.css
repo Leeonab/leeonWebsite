@@ -155,18 +155,18 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 
 /* ── DARK MODE ── */
 [data-theme="dark"] {
-  --color-bg:           #1A1917;
-  --color-surface:      #222120;
-  --color-surface-alt:  #2A2928;
-  --color-border:       #3D3C3A;
+  --color-bg:           #0a0f0a;
+  --color-surface:      #0f1a0f;
+  --color-surface-alt:  #141e14;
+  --color-border:       #1e3320;
   --color-text:         #E2E0DC;
   --color-text-muted:   #9A9894;
   --color-text-faint:   #5E5D5A;
-  --color-primary:      #8FBB93;
-  --color-primary-hover:#A8CFA9;
-  --color-primary-dark: #6B9B6F;
-  --color-accent:       #D4A08B;
-  --color-accent-hover: #E0B5A1;
+  --color-primary:      #4CAF50;
+  --color-primary-hover:#66BB6A;
+  --color-primary-dark: #388E3C;
+  --color-accent:       #66BB6A;
+  --color-accent-hover: #4CAF50;
   --color-accent-light: #3A302C;
 
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
@@ -176,18 +176,18 @@ a, button, [role="button"], [role="link"], input, textarea, select {
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --color-bg:           #1A1917;
-    --color-surface:      #222120;
-    --color-surface-alt:  #2A2928;
-    --color-border:       #3D3C3A;
+    --color-bg:           #0a0f0a;
+    --color-surface:      #0f1a0f;
+    --color-surface-alt:  #141e14;
+    --color-border:       #1e3320;
     --color-text:         #E2E0DC;
     --color-text-muted:   #9A9894;
     --color-text-faint:   #5E5D5A;
-    --color-primary:      #8FBB93;
-    --color-primary-hover:#A8CFA9;
-    --color-primary-dark: #6B9B6F;
-    --color-accent:       #D4A08B;
-    --color-accent-hover: #E0B5A1;
+    --color-primary:      #4CAF50;
+    --color-primary-hover:#66BB6A;
+    --color-primary-dark: #388E3C;
+    --color-accent:       #66BB6A;
+    --color-accent-hover: #4CAF50;
     --color-accent-light: #3A302C;
 
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);

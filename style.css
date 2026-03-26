@@ -218,7 +218,7 @@ main{padding-top:calc(var(--nav-h) + var(--safe-top))}
 /* ABOUT */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,68px);align-items:center}
 .about-img-wrap{position:relative}
-.about-img{width:100%;height:clamp(280px,40vw,460px);object-fit:cover;object-position:center top;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--shadow-lg);display:block}
+.about-img{width:100%;height:clamp(280px,40vw,460px);object-fit:cover;object-position:center 15%;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--shadow-lg);display:block}
 .about-badge{position:absolute;bottom:-14px;left:18px;background:var(--red);border-radius:var(--r);padding:11px 17px;text-align:center;box-shadow:0 8px 22px rgba(227,30,36,0.3)}
 .ab-num{display:block;font-family:"Playfair Display",serif;font-size:1.5rem;font-weight:700;color:#fff;line-height:1}
 .ab-lbl{font-size:0.65rem;font-weight:500;color:rgba(255,255,255,0.8);letter-spacing:1px}
