@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נובח טוב — אילוף כלבים מקצועי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0A120A;--bg-card:#121E12;--bg-lighter:#1A2A1A;--green:#2E7D32;--green-light:#4CAF50;--green-glow:rgba(46,125,50,0.2);--green-border:rgba(46,125,50,0.25);--text-white:#F0F4F0;--text-gray:#A8B8A8;--text-muted:#6A7A6A;--shadow:0 4px 24px rgba(0,0,0,0.5);--shadow-green:0 4px 20px rgba(46,125,50,0.15)}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text-white);padding-top:40px;overflow-x:hidden;line-height:1.7}
+.demo-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#E31E24;text-align:center;padding:8px 16px;font-family:Heebo,sans-serif;font-size:0.82rem;font-weight:500;color:#fff;direction:rtl}
+.demo-banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+h1,h2{font-family:'Heebo',sans-serif;font-weight:900;color:var(--text-white);text-transform:none}
+h3{font-family:'Heebo',sans-serif;font-weight:700;color:var(--text-white)}
+h1{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1.1;letter-spacing:-0.02em}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.2}
+h3{font-size:1.2rem}
+p{color:var(--text-gray);font-size:1.02rem}
+.green{color:var(--green-light)}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.8rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem}
+.section-tag::before{content:'';width:8px;height:8px;background:var(--green-light);border-radius:50%}
+
+/* NAV */
+nav{position:fixed;top:40px;left:0;right:0;z-index:9999;background:rgba(10,18,10,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--green-border)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 2rem}
+.logo{font-size:1.5rem;font-weight:900;color:var(--text-white);display:flex;align-items:center;gap:8px}
+.logo .icon{width:36px;height:36px;background:var(--green);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--text-white);font-size:1rem}
+.logo span{color:var(--green-light)}
+nav ul{display:flex;list-style:none;gap:2rem}
+nav ul li a{font-size:0.9rem;color:var(--text-muted);text-decoration:none;font-weight:600;transition:color 0.3s}
+nav ul li a:hover{color:var(--green-light)}
+.nav-btn{background:var(--green)!important;color:var(--text-white)!important;padding:9px 22px;border-radius:8px;transition:all 0.3s!important}
+.nav-btn:hover{background:var(--green-light)!important}
+.menu-toggle{display:none;background:none;border:none;font-size:1.4rem;color:var(--green-light);cursor:pointer}
+@media(max-width:768px){nav ul{display:none;position:absolute;top:64px;right:0;left:0;background:var(--bg);flex-direction:column;padding:1.5rem 2rem;gap:1rem;border-bottom:1px solid var(--green-border)}nav ul.active{display:flex}.menu-toggle{display:block}}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:0 2rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to left,rgba(10,18,10,0.4),rgba(10,18,10,0.92) 65%)}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;padding:100px 0}
+.hero h1{max-width:650px;margin-bottom:1.2rem}
+.hero p{font-size:1.2rem;max-width:520px;margin-bottom:2.5rem;color:var(--text-gray)}
+.btn-fill{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--text-white);padding:16px 40px;border-radius:8px;font-size:1.05rem;font-weight:700;text-decoration:none;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.3s}
+.btn-fill:hover{background:var(--green-light);box-shadow:var(--shadow-green);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--green-light);padding:16px 40px;border-radius:8px;font-size:1.05rem;font-weight:700;border:2px solid var(--green-border);text-decoration:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.3s}
+.btn-outline:hover{border-color:var(--green-light);background:var(--green-glow)}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-badges{display:flex;gap:2.5rem;margin-top:3rem}
+.h-badge{display:flex;align-items:center;gap:10px}
+.h-badge .num{font-size:2rem;font-weight:900;color:var(--green-light)}
+.h-badge .txt{font-size:0.82rem;color:var(--text-muted);line-height:1.3}
+@media(max-width:768px){.hero-inner{padding:80px 0}.hero-badges{gap:1.5rem;flex-wrap:wrap}}
+
+/* SECTIONS */
+section{padding:90px 2rem}
+.container{max-width:1100px;margin:0 auto}
+.sec-center{text-align:center;max-width:640px;margin:0 auto 3.5rem}
+
+/* PROBLEM */
+.problem{background:var(--bg-card);border-top:1px solid var(--green-border);border-bottom:1px solid var(--green-border)}
+.prob-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--green-border)}
+.prob-item{background:var(--bg-card);padding:2.5rem 1.5rem;text-align:center;transition:background 0.3s}
+.prob-item:hover{background:var(--bg-lighter)}
+.prob-item i{font-size:2rem;color:var(--green);margin-bottom:1rem;display:block}
+.prob-item h3{margin-bottom:0.5rem;font-size:1.05rem}
+.prob-item p{font-size:0.9rem}
+@media(max-width:768px){.prob-row{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.prob-row{grid-template-columns:1fr}}
+
+/* SOLUTION */
+.solution{background:var(--bg)}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.sol-img{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--green-border)}
+.sol-img img{width:100%;display:block;filter:brightness(0.85)}
+.sol-steps{list-style:none;counter-reset:steps}
+.sol-steps li{counter-increment:steps;display:flex;gap:16px;align-items:flex-start;padding:1rem 0;border-bottom:1px solid var(--green-border)}
+.sol-steps li:last-child{border:none}
+.sol-steps li::before{content:counter(steps);font-size:1.4rem;font-weight:900;color:var(--green);min-width:32px;text-align:center;font-family:'Heebo',sans-serif}
+.sol-steps li strong{display:block;margin-bottom:2px;color:var(--text-white)}
+.sol-steps li p{margin:0;font-size:0.92rem}
+@media(max-width:768px){.sol-grid{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{background:var(--bg-card);border-top:1px solid var(--green-border);border-bottom:1px solid var(--green-border)}
+.about-flex{display:flex;gap:3rem;align-items:center}
+.about-img{width:220px;min-width:220px;border-radius:12px;overflow:hidden;border:1px solid var(--green-border)}
+.about-img img{width:100%;display:block;filter:brightness(0.85)}
+.about-text h3{font-size:1.4rem;margin-bottom:0.2rem}
+.about-text p{margin-bottom:0.8rem}
+.about-stats{display:flex;gap:2rem;margin-top:1.5rem}
+.a-stat{text-align:center}
+.a-stat .val{font-size:1.8rem;font-weight:900;color:var(--green-light);display:block}
+.a-stat .lbl{font-size:0.8rem;color:var(--text-muted)}
+@media(max-width:768px){.about-flex{flex-direction:column}.about-img{width:180px}}
+
+/* SERVICES */
+.services{background:var(--bg)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.svc-card{background:var(--bg-card);border:1px solid var(--green-border);border-radius:12px;padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;right:0;width:4px;height:0;background:var(--green);transition:height 0.4s}
+.svc-card:hover::before{height:100%}
+.svc-card:hover{border-color:var(--green);box-shadow:var(--shadow-green)}
+.svc-card.pop{border-color:var(--green)}
+.svc-card.pop::after{content:'מומלץ';position:absolute;top:12px;left:12px;background:var(--green);color:var(--text-white);padding:4px 12px;border-radius:6px;font-size:0.75rem;font-weight:700}
+.svc-card h3{margin-bottom:0.4rem}
+.svc-price{font-size:2.2rem;font-weight:900;color:var(--green-light);margin:0.8rem 0 0.3rem}
+.svc-price span{font-size:0.85rem;font-weight:400;color:var(--text-muted)}
+.svc-list{list-style:none;margin-top:1rem}
+.svc-list li{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:0.92rem;color:var(--text-gray)}
+.svc-list li i{color:var(--green-light);font-size:0.75rem}
+@media(max-width:768px){.svc-grid{grid-template-columns:1fr}}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg-card);border-top:1px solid var(--green-border);border-bottom:1px solid var(--green-border)}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.test-card{background:var(--bg-lighter);border:1px solid var(--green-border);border-radius:12px;padding:2rem}
+.test-card .stars{color:#F59E0B;margin-bottom:0.8rem;font-size:0.85rem}
+.test-card blockquote{font-size:0.98rem;color:var(--text-gray);font-style:italic;margin-bottom:1rem;line-height:1.8}
+.test-card .name{font-weight:700;font-size:0.92rem;color:var(--text-white)}
+.test-card .dog{font-size:0.82rem;color:var(--text-muted)}
+@media(max-width:768px){.test-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{background:var(--bg)}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--green-border)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;font-weight:700;font-size:1rem;color:var(--text-white);transition:color 0.3s}
+.faq-q:hover{color:var(--green-light)}
+.faq-q i{color:var(--green-light);transition:transform 0.3s;font-size:0.8rem}
+.faq-q.active i{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:all 0.4s ease}
+.faq-a.active{max-height:200px;padding-bottom:1rem}
+
+/* CONTACT */
+.contact{background:var(--bg-card);border-top:1px solid var(--green-border)}
+.contact-card{max-width:500px;margin:0 auto;background:var(--bg-lighter);border:1px solid var(--green-border);border-radius:12px;padding:2.5rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:700;font-size:0.88rem;margin-bottom:4px;color:var(--text-gray)}
+.form-group input{width:100%;padding:14px 16px;border:1px solid var(--green-border);border-radius:8px;background:var(--bg);color:var(--text-white);font-size:1rem;font-family:'Heebo',sans-serif;outline:none;transition:border-color 0.3s}
+.form-group input:focus{border-color:var(--green-light)}
+.form-group input::placeholder{color:var(--text-muted)}
+.contact-card .btn-fill{width:100%;justify-content:center}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--green-border);text-align:center;padding:2rem}
+footer .brand{font-size:1.2rem;font-weight:900;margin-bottom:0.3rem;display:flex;align-items:center;justify-content:center;gap:8px}
+footer .brand i{color:var(--green-light)}
+footer p{font-size:0.82rem;color:var(--text-muted)}
+
+/* ANIMATIONS */
+.an{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.an.v{opacity:1;transform:translateY(0)}
+.an-r{opacity:0;transform:translateX(-28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.an-r.v{opacity:1;transform:translateX(0)}
+.an-l{opacity:0;transform:translateX(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.an-l.v{opacity:1;transform:translateX(0)}
+.an-s{opacity:0;transform:scale(0.92);transition:opacity 0.6s ease,transform 0.6s ease}
+.an-s.v{opacity:1;transform:scale(1)}
+</style>
+</head>
+<body>
+<div class="demo-banner">זהו אתר הדגמה לצורך המחשה בלבד · <a href="https://leeon-ai.com">חזרו לאתר Leeon.AI ←</a></div>
+
+<nav>
+<div class="nav-inner">
+<div class="logo"><div class="icon"><i class="fas fa-dog"></i></div> נובח <span>טוב</span></div>
+<button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')"><i class="fas fa-bars"></i></button>
+<ul>
+<li><a href="#about">אודות</a></li>
+<li><a href="#services">תוכניות</a></li>
+<li><a href="#testimonials">המלצות</a></li>
+<li><a href="#faq">שאלות</a></li>
+<li><a href="#contact" class="nav-btn">ייעוץ חינם</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-inner">
+<div class="section-tag an">אילוף כלבים מקצועי</div>
+<h1 class="an">כלב מאולף = <span class="green">חיים שקטים</span></h1>
+<p class="an" style="transition-delay:0.1s">שיטת אילוף חיובית ומבוססת מדע שתהפוך את הכלב שלכם לחבר הכי טוב — בבית, בחוץ ובכל מקום.</p>
+<div class="hero-btns an" style="transition-delay:0.2s">
+<a href="#contact" class="btn-fill"><i class="fas fa-phone-volume"></i> שיחת ייעוץ חינם</a>
+<a href="#services" class="btn-outline">התוכניות שלנו</a>
+</div>
+<div class="hero-badges an" style="transition-delay:0.3s">
+<div class="h-badge"><div class="num">8+</div><div class="txt">שנות<br>ניסיון</div></div>
+<div class="h-badge"><div class="num">2,000+</div><div class="txt">כלבים<br>אולפו</div></div>
+<div class="h-badge"><div class="num">99%</div><div class="txt">שביעות<br>רצון</div></div>
+</div>
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">הבעיה</div>
+<h2>כלב שלא מאולף = <span class="green">בעיה יומיומית</span></h2>
+<p>בעיות התנהגות לא נפתרות מעצמן. ככל שעובר זמן, הן רק מחריפות.</p>
+</div>
+<div class="prob-row">
+<div class="prob-item an">
+<i class="fas fa-volume-high"></i>
+<h3>נביחות מוגזמות</h3>
+<p>שכנים עצבניים ומצבים מביכים בכל פעם שמישהו עובר ליד הדלת</p>
+</div>
+<div class="prob-item an" style="transition-delay:0.1s">
+<i class="fas fa-person-running"></i>
+<h3>משיכה ברצועה</h3>
+<p>כל טיול הופך למאבק כוחות. הכלב שולט בטיול — לא אתם</p>
+</div>
+<div class="prob-item an" style="transition-delay:0.15s">
+<i class="fas fa-couch"></i>
+<h3>הרס בבית</h3>
+<p>רהיטים קרועים, נעליים אכולות ושטיחים הרוסים</p>
+</div>
+<div class="prob-item an" style="transition-delay:0.2s">
+<i class="fas fa-user-group"></i>
+<h3>תוקפנות</h3>
+<p>חשש מכלבים אחרים, אורחים, או ילדים. מצב שדורש טיפול מיידי</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">השיטה</div>
+<h2>אילוף חיובי <span class="green">שעובד</span></h2>
+</div>
+<div class="sol-grid">
+<div class="sol-img an-s">
+<img src="training.jpg" alt="אילוף כלבים">
+</div>
+<div class="an-l">
+<p style="margin-bottom:1.5rem">שיטת האילוף שלנו מבוססת על חיזוק חיובי — בלי צעקות, בלי עונשים. אנחנו בונים שפה משותפת בינכם לבין הכלב.</p>
+<ol class="sol-steps">
+<li><div><strong>אבחון התנהגותי</strong><p>מפגש ראשון להכרת הכלב, הבנת הבעיות והגדרת מטרות</p></div></li>
+<li><div><strong>תוכנית אישית</strong><p>בניית תוכנית אילוף מותאמת לכלב, לגזע ולאורח החיים שלכם</p></div></li>
+<li><div><strong>אימונים מעשיים</strong><p>שיעורים שבועיים בבית או בחוץ, עם תרגילים יומיים פשוטים</p></div></li>
+<li><div><strong>ליווי ותמיכה</strong><p>זמינות טלפונית בין שיעורים ומעקב אחר ההתקדמות</p></div></li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">אודות</div>
+<h2>הכירו את <span class="green">המאלף</span></h2>
+</div>
+<div class="about-flex an">
+<div class="about-img">
+<img src="hero.jpg" alt="המאלף">
+</div>
+<div class="about-text">
+<h3>רועי אילן</h3>
+<p style="color:var(--green-light);font-weight:600;margin-bottom:0.8rem">מאלף כלבים מוסמך · מייסד ״נובח טוב״</p>
+<p>רועי הוא מאלף כלבים מוסמך עם 8 שנות ניסיון, התמחות בבעיות התנהגות ואילוף גורים. בוגר בית הספר לאילוף כלבים באנגליה, עם הסמכה בינלאומית בשיטת החיזוק החיובי.</p>
+<p>רועי מאמין שכל כלב הוא טוב מטבעו — הוא רק צריך שילמדו אותו את הכללים בשפה שהוא מבין.</p>
+<div class="about-stats">
+<div class="a-stat"><span class="val">2,000+</span><span class="lbl">כלבים אולפו</span></div>
+<div class="a-stat"><span class="val">8</span><span class="lbl">שנות ניסיון</span></div>
+<div class="a-stat"><span class="val">5⭐</span><span class="lbl">דירוג גוגל</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">תוכניות אילוף</div>
+<h2>בחרו את התוכנית <span class="green">המתאימה</span></h2>
+</div>
+<div class="svc-grid">
+<div class="svc-card an">
+<h3>חבילת בסיס</h3>
+<p>4 מפגשי אילוף — מושלם לבעיות התנהגות קלות</p>
+<div class="svc-price">₪1,800 <span>/ 4 מפגשים</span></div>
+<ul class="svc-list">
+<li><i class="fas fa-check-circle"></i> אבחון ראשוני</li>
+<li><i class="fas fa-check-circle"></i> 4 מפגשים בבית</li>
+<li><i class="fas fa-check-circle"></i> תוכנית תרגול</li>
+<li><i class="fas fa-check-circle"></i> תמיכה טלפונית</li>
+</ul>
+</div>
+<div class="svc-card pop an" style="transition-delay:0.1s">
+<h3>חבילה מקצועית</h3>
+<p>8 מפגשים + ליווי צמוד — הפתרון המלא</p>
+<div class="svc-price">₪3,200 <span>/ 8 מפגשים</span></div>
+<ul class="svc-list">
+<li><i class="fas fa-check-circle"></i> אבחון מעמיק</li>
+<li><i class="fas fa-check-circle"></i> 8 מפגשים בבית ובחוץ</li>
+<li><i class="fas fa-check-circle"></i> ליווי וואטסאפ יומי</li>
+<li><i class="fas fa-check-circle"></i> סרטוני הדרכה</li>
+<li><i class="fas fa-check-circle"></i> מפגש ריענון חינם</li>
+</ul>
+</div>
+<div class="svc-card an" style="transition-delay:0.2s">
+<h3>אילוף גורים</h3>
+<p>בניית בסיס נכון מהיום הראשון</p>
+<div class="svc-price">₪2,400 <span>/ 6 מפגשים</span></div>
+<ul class="svc-list">
+<li><i class="fas fa-check-circle"></i> הרגלי בית</li>
+<li><i class="fas fa-check-circle"></i> סוציאליזציה</li>
+<li><i class="fas fa-check-circle"></i> פקודות בסיסיות</li>
+<li><i class="fas fa-check-circle"></i> הדרכת בעלים</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">המלצות</div>
+<h2>מה אומרים <span class="green">הלקוחות</span></h2>
+</div>
+<div class="test-grid">
+<div class="test-card an">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״הכלבה שלנו הפסיקה למשוך ברצועה אחרי 3 מפגשים בלבד. רועי סבלני, מקצועי ובאמת אוהב כלבים. ממליצים בחום!״</blockquote>
+<div class="name">אופיר ומיכל כהן</div>
+<div class="dog">בעלי לברדור, 2 שנים</div>
+</div>
+<div class="test-card an" style="transition-delay:0.1s">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״הגענו עם כלב תוקפני שפחדנו ממנו. היום הוא כלב אחר לגמרי. רועי הציל את המשפחה שלנו — וגם את הכלב.״</blockquote>
+<div class="name">יונתן ברוש</div>
+<div class="dog">בעל רוטוויילר, 4 שנים</div>
+</div>
+<div class="test-card an" style="transition-delay:0.2s">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״לקחנו את החבילה לגורים ולא מתחרטים לרגע. הגור שלנו למד את כל הבסיס בצורה חיובית ומהנה.״</blockquote>
+<div class="name">שני ואלון רז</div>
+<div class="dog">בעלי בורדר קולי, 5 חודשים</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">שאלות נפוצות</div>
+<h2>שאלות ותשובות</h2>
+</div>
+<div class="faq-list">
+<div class="faq-item an">
+<div class="faq-q" onclick="toggleFaq(this)">מאיזה גיל אפשר להתחיל אילוף? <i class="fas fa-plus"></i></div>
+<div class="faq-a"><p>מגיל 3 חודשים! ככל שמתחילים מוקדם יותר, הקליטה מהירה וקלה יותר. אבל גם כלבים מבוגרים יכולים ללמוד.</p></div>
+</div>
+<div class="faq-item an">
+<div class="faq-q" onclick="toggleFaq(this)">האילוף מתבצע אצלנו בבית? <i class="fas fa-plus"></i></div>
+<div class="faq-a"><p>כן! רוב המפגשים מתקיימים בסביבה הטבעית של הכלב — בבית ובמסלולי טיול קרובים. כך התוצאות מהירות ויעילות יותר.</p></div>
+</div>
+<div class="faq-item an">
+<div class="faq-q" onclick="toggleFaq(this)">כמה זמן עד שרואים תוצאות? <i class="fas fa-plus"></i></div>
+<div class="faq-a"><p>שיפור ראשוני ניכר כבר אחרי 2-3 מפגשים. שינוי מהותי — בדרך כלל תוך חודש-חודשיים, בהתאם לתרגול שלכם.</p></div>
+</div>
+<div class="faq-item an">
+<div class="faq-q" onclick="toggleFaq(this)">מה קורה אם השיטה לא עובדת? <i class="fas fa-plus"></i></div>
+<div class="faq-a"><p>אני מתחייב לתוצאות. אם לא תראו שיפור משמעותי, נמשיך עם מפגשים נוספים ללא תשלום עד שנגיע ליעד.</p></div>
+</div>
+<div class="faq-item an">
+<div class="faq-q" onclick="toggleFaq(this)">האם אתם מטפלים גם בתוקפנות? <i class="fas fa-plus"></i></div>
+<div class="faq-a"><p>בהחלט. תוקפנות היא אחד מתחומי ההתמחות שלי. נבנה תוכנית מיוחדת ומדורגת שתטפל בבעיה בצורה בטוחה ויעילה.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="sec-center an">
+<div class="section-tag" style="justify-content:center">יצירת קשר</div>
+<h2>מוכנים <span class="green">לשינוי</span>?</h2>
+<p>השאירו פרטים לשיחת ייעוץ ראשונה חינם — ונבנה יחד תוכנית</p>
+</div>
+<div class="contact-card an-s">
+<div class="form-group">
+<label>שם מלא</label>
+<input type="text" placeholder="השם שלכם">
+</div>
+<div class="form-group">
+<label>טלפון</label>
+<input type="tel" placeholder="050-0000000">
+</div>
+<button class="btn-fill" onclick="alert('תודה! נחזור אליכם בהקדם 🐕')"><i class="fas fa-paper-plane"></i> שליחה</button>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="brand"><i class="fas fa-dog"></i> נובח טוב</div>
+<p>אתר דוגמה בלבד — אינו מייצג עסק אמיתי</p>
+</footer>
+
+<script>
+function toggleFaq(el){const a=el.nextElementSibling;const w=el.classList.contains('active');document.querySelectorAll('.faq-q').forEach(q=>{q.classList.remove('active');q.nextElementSibling.classList.remove('active')});if(!w){el.classList.add('active');a.classList.add('active')}}
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('v');obs.unobserve(en.target)}})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.an,.an-r,.an-l,.an-s').forEach(el=>obs.observe(el));
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth'});document.querySelector('nav ul').classList.remove('active')}})});
+</script>
+</body>
+</html>

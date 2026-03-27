@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אקדמיית הגלאם — קורס איפור מקצועי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--pink:#D4618C;--pink-light:#F2D1DC;--pink-dark:#B04A72;--cream:#FFF8F0;--cream-dark:#F5EDE3;--text-dark:#2D1F2D;--text-medium:#5A4A5A;--text-light:#8A7A8A;--white:#FFFFFF;--shadow:0 4px 24px rgba(212,97,140,0.10);--shadow-lg:0 12px 48px rgba(212,97,140,0.15)}
+body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--text-dark);padding-top:40px;overflow-x:hidden;line-height:1.7}
+.demo-banner{position:fixed;top:0;left:0;right:0;z-index:99999;background:#E31E24;text-align:center;padding:8px 16px;font-family:Heebo,sans-serif;font-size:0.82rem;font-weight:500;color:#fff;direction:rtl}
+.demo-banner a{color:#fff;text-decoration:underline;font-weight:700}
+
+/* TYPOGRAPHY */
+h1,h2,h3{font-family:'Playfair Display',serif}
+h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.2;font-weight:700}
+h2{font-size:clamp(1.6rem,3.5vw,2.6rem);line-height:1.3;margin-bottom:1rem}
+h3{font-size:1.3rem;line-height:1.4}
+p{font-size:1.05rem;color:var(--text-medium)}
+.section-label{display:inline-block;font-family:'Heebo',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--pink);background:var(--pink-light);padding:6px 18px;border-radius:50px;margin-bottom:1rem}
+
+/* NAVIGATION */
+nav{position:fixed;top:40px;left:0;right:0;z-index:9999;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,97,140,0.1);padding:0 2rem;transition:all 0.3s ease}
+nav .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--pink)}
+nav .logo span{color:var(--text-dark)}
+nav ul{display:flex;list-style:none;gap:2rem}
+nav ul li a{font-size:0.92rem;color:var(--text-medium);text-decoration:none;font-weight:500;transition:color 0.3s}
+nav ul li a:hover{color:var(--pink)}
+.menu-toggle{display:none;background:none;border:none;font-size:1.5rem;color:var(--pink);cursor:pointer}
+@media(max-width:768px){
+nav ul{display:none;position:absolute;top:64px;right:0;left:0;background:var(--cream);flex-direction:column;padding:1.5rem;gap:1rem;border-bottom:2px solid var(--pink-light)}
+nav ul.active{display:flex}
+.menu-toggle{display:block}
+}
+
+/* HERO */
+.hero{padding:140px 2rem 80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-content{position:relative}
+.hero-content h1{margin-bottom:1.2rem}
+.hero-content h1 span{color:var(--pink);font-style:italic}
+.hero-content p{font-size:1.15rem;margin-bottom:2rem;max-width:500px}
+.hero-img{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg)}
+.hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-img::after{content:'';position:absolute;inset:0;border-radius:24px;border:2px solid var(--pink-light)}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:var(--white);padding:14px 36px;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer;font-family:'Heebo',sans-serif}
+.btn-primary:hover{background:var(--pink-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,97,140,0.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--pink);padding:14px 36px;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:2px solid var(--pink);transition:all 0.3s;cursor:pointer;font-family:'Heebo',sans-serif}
+.btn-outline:hover{background:var(--pink);color:var(--white)}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem}
+.hero-stat .number{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--pink)}
+.hero-stat .label{font-size:0.85rem;color:var(--text-light)}
+@media(max-width:768px){
+.hero{grid-template-columns:1fr;padding:120px 1.5rem 60px;gap:2rem}
+.hero-img{order:-1}
+.hero-stats{gap:1.5rem}
+}
+
+/* SECTIONS */
+section{padding:80px 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-center{text-align:center;max-width:680px;margin:0 auto 3rem}
+
+/* PROBLEM */
+.problem{background:var(--white)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.problem-card{background:var(--cream);padding:2.5rem 2rem;border-radius:20px;text-align:center;transition:transform 0.3s}
+.problem-card:hover{transform:translateY(-4px)}
+.problem-card .icon{width:64px;height:64px;background:var(--pink-light);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.5rem;color:var(--pink)}
+.problem-card h3{margin-bottom:0.6rem}
+@media(max-width:768px){.problem-grid{grid-template-columns:1fr}}
+
+/* SOLUTION */
+.solution{background:var(--cream)}
+.solution-content{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.solution-img{border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.solution-img img{width:100%;display:block}
+.solution-list{list-style:none;margin-top:1.5rem}
+.solution-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:1.2rem;font-size:1.05rem}
+.solution-list li i{color:var(--pink);margin-top:4px;font-size:1.1rem}
+@media(max-width:768px){.solution-content{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{background:var(--white)}
+.about-content{display:grid;grid-template-columns:320px 1fr;gap:3rem;align-items:start}
+.about-img{border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.about-img img{width:100%;display:block}
+.about-text h2{margin-bottom:0.5rem}
+.about-text p{margin-bottom:1rem}
+.about-badges{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--cream);padding:8px 16px;border-radius:50px;font-size:0.85rem;font-weight:500;color:var(--text-medium)}
+.badge i{color:var(--pink)}
+@media(max-width:768px){.about-content{grid-template-columns:1fr}.about-img{max-width:280px}}
+
+/* SERVICES */
+.services{background:var(--cream)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.service-card{background:var(--white);padding:2.5rem 2rem;border-radius:20px;box-shadow:var(--shadow);transition:all 0.3s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--pink-light));opacity:0;transition:opacity 0.3s}
+.service-card:hover::before{opacity:1}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.service-card .price{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--pink);margin:1rem 0 0.5rem}
+.service-card .price span{font-size:0.9rem;font-weight:400;color:var(--text-light)}
+.service-card h3{margin-bottom:0.5rem}
+.service-card ul{list-style:none;margin-top:1rem}
+.service-card ul li{padding:6px 0;font-size:0.95rem;color:var(--text-medium);display:flex;align-items:center;gap:8px}
+.service-card ul li i{color:var(--pink);font-size:0.8rem}
+@media(max-width:768px){.services-grid{grid-template-columns:1fr}}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--white)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.testimonial-card{background:var(--cream);padding:2rem;border-radius:20px;position:relative}
+.testimonial-card .stars{color:#F5A623;margin-bottom:0.8rem;font-size:0.9rem}
+.testimonial-card blockquote{font-size:1rem;font-style:italic;color:var(--text-medium);margin-bottom:1.2rem;line-height:1.8}
+.testimonial-card .author{font-weight:600;font-size:0.95rem;color:var(--text-dark)}
+.testimonial-card .role{font-size:0.82rem;color:var(--text-light)}
+@media(max-width:768px){.testimonials-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{background:var(--cream)}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:16px;margin-bottom:1rem;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.faq-question{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;font-size:1.05rem;transition:color 0.3s}
+.faq-question:hover{color:var(--pink)}
+.faq-question i{transition:transform 0.3s;color:var(--pink);font-size:0.9rem}
+.faq-question.active i{transform:rotate(45deg)}
+.faq-answer{padding:0 1.5rem;max-height:0;overflow:hidden;transition:all 0.4s ease}
+.faq-answer.active{max-height:200px;padding:0 1.5rem 1.2rem}
+.faq-answer p{font-size:0.95rem;color:var(--text-medium)}
+
+/* CONTACT */
+.contact{background:var(--white)}
+.contact-box{max-width:540px;margin:0 auto;background:var(--cream);padding:3rem;border-radius:24px;box-shadow:var(--shadow)}
+.contact-box .form-group{margin-bottom:1.2rem}
+.contact-box label{display:block;font-weight:600;font-size:0.92rem;margin-bottom:6px;color:var(--text-dark)}
+.contact-box input{width:100%;padding:14px 18px;border:2px solid var(--cream-dark);border-radius:12px;font-size:1rem;font-family:'Heebo',sans-serif;background:var(--white);transition:border-color 0.3s;outline:none}
+.contact-box input:focus{border-color:var(--pink)}
+.contact-box .btn-primary{width:100%;justify-content:center;padding:16px;font-size:1.05rem}
+
+/* FOOTER */
+footer{background:var(--text-dark);color:var(--white);text-align:center;padding:2.5rem 2rem}
+footer p{font-size:0.9rem;opacity:0.7}
+footer .footer-brand{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.5rem}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-right{opacity:0;transform:translateX(-30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-right.visible{opacity:1;transform:translateX(0)}
+.fade-left{opacity:0;transform:translateX(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-left.visible{opacity:1;transform:translateX(0)}
+.scale-in{opacity:0;transform:scale(0.9);transition:opacity 0.6s ease,transform 0.6s ease}
+.scale-in.visible{opacity:1;transform:scale(1)}
+</style>
+</head>
+<body>
+<div class="demo-banner">זהו אתר הדגמה לצורך המחשה בלבד · <a href="https://leeon-ai.com">חזרו לאתר Leeon.AI ←</a></div>
+
+<nav>
+<div class="nav-inner">
+<div class="logo">הגלאם <span>אקדמיה</span></div>
+<button class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')"><i class="fas fa-bars"></i></button>
+<ul>
+<li><a href="#about">אודות</a></li>
+<li><a href="#services">קורסים</a></li>
+<li><a href="#testimonials">המלצות</a></li>
+<li><a href="#faq">שאלות</a></li>
+<li><a href="#contact">יצירת קשר</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content fade-right">
+<span class="section-label">✦ קורס איפור מקצועי</span>
+<h1>הפכי את <span>התשוקה לאיפור</span> לקריירה מנצחת</h1>
+<p>אקדמיית הגלאם מציעה קורס איפור מקצועי ומקיף שיהפוך אותך לאמנית איפור מבוקשת, עם ליווי אישי מא׳ ועד ת׳.</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn-primary"><i class="fas fa-sparkles"></i> הרשמה לקורס</a>
+<a href="#services" class="btn-outline">פרטים נוספים</a>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><div class="number">+1,200</div><div class="label">בוגרות</div></div>
+<div class="hero-stat"><div class="number">98%</div><div class="label">שביעות רצון</div></div>
+<div class="hero-stat"><div class="number">12</div><div class="label">שנות ניסיון</div></div>
+</div>
+</div>
+<div class="hero-img fade-left">
+<img src="hero.jpg" alt="קורס איפור מקצועי">
+</div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">האתגר</span>
+<h2>למה כל כך קשה להיכנס לתעשייה?</h2>
+<p>שוק האיפור תחרותי ודורש מיומנויות מגוונות. בלי הכשרה נכונה, קשה לבלוט.</p>
+</div>
+<div class="problem-grid">
+<div class="problem-card fade-up">
+<div class="icon"><i class="fas fa-graduation-cap"></i></div>
+<h3>חוסר הכשרה מסודרת</h3>
+<p>סרטוני יוטיוב לא מספיקים כדי לבנות קריירה מקצועית באיפור</p>
+</div>
+<div class="problem-card fade-up" style="transition-delay:0.1s">
+<div class="icon"><i class="fas fa-palette"></i></div>
+<h3>טכניקות מיושנות</h3>
+<p>התעשייה מתפתחת כל הזמן ודורשת עדכון מתמיד של טרנדים וטכניקות</p>
+</div>
+<div class="problem-card fade-up" style="transition-delay:0.2s">
+<div class="icon"><i class="fas fa-briefcase"></i></div>
+<h3>אין ידע עסקי</h3>
+<p>גם אמנית איפור מוכשרת צריכה לדעת לשווק את עצמה ולנהל עסק</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">הפתרון</span>
+<h2>הקורס שישנה לך את הקריירה</h2>
+</div>
+<div class="solution-content">
+<div class="solution-img scale-in">
+<img src="classroom.jpg" alt="כיתת לימוד איפור">
+</div>
+<div class="fade-right">
+<h3 style="font-size:1.4rem;margin-bottom:0.8rem">תוכנית לימודים מקיפה ומעשית</h3>
+<p>הקורס שלנו משלב תיאוריה ופרקטיקה, עם דגש על ניסיון מעשי אמיתי וליווי מקצועי צמוד.</p>
+<ul class="solution-list">
+<li><i class="fas fa-check-circle"></i> 180 שעות לימוד תיאורטיות ומעשיות</li>
+<li><i class="fas fa-check-circle"></i> עבודה על מודלים אמיתיים מהשיעור הראשון</li>
+<li><i class="fas fa-check-circle"></i> סדנאות אורח עם מאפרות מובילות</li>
+<li><i class="fas fa-check-circle"></i> ערכת איפור מקצועית במתנה</li>
+<li><i class="fas fa-check-circle"></i> תעודת סיום מוכרת בתעשייה</li>
+<li><i class="fas fa-check-circle"></i> ליווי בהקמת עסק עצמאי</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">אודות</span>
+<h2>הכירו את המרצה</h2>
+</div>
+<div class="about-content">
+<div class="about-img fade-right">
+<img src="instructor.jpg" alt="רחל לוי - מרצה">
+</div>
+<div class="about-text fade-left">
+<h2>רחל לוי-כהן</h2>
+<p style="color:var(--pink);font-weight:600;font-size:1.1rem">מאפרת בכירה ומייסדת האקדמיה</p>
+<p>רחל היא מאפרת מקצועית עם למעלה מ-12 שנות ניסיון בתעשיית הביוטי הישראלית והבינלאומית. עבדה עם מותגי יוקרה מובילים, שבועות אופנה ואירועי טלוויזיה.</p>
+<p>הייחוד שלה? היכולת להעביר ידע מקצועי בצורה נגישה, חמה ומעוררת השראה. כל בוגרת יוצאת עם כלים אמיתיים להצלחה.</p>
+<div class="about-badges">
+<span class="badge"><i class="fas fa-award"></i> מוסמכת MAC Pro</span>
+<span class="badge"><i class="fas fa-star"></i> שבוע האופנה TLV</span>
+<span class="badge"><i class="fas fa-tv"></i> ערוצי טלוויזיה</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">הקורסים שלנו</span>
+<h2>בחרי את המסלול המושלם עבורך</h2>
+</div>
+<div class="services-grid">
+<div class="service-card fade-up">
+<h3>קורס בסיסי</h3>
+<p>מושלם למתחילות שרוצות לרכוש בסיס מקצועי איכותי</p>
+<div class="price">₪3,900 <span>/ 3 חודשים</span></div>
+<ul>
+<li><i class="fas fa-check"></i> 60 שעות לימוד</li>
+<li><i class="fas fa-check"></i> טכניקות בסיס</li>
+<li><i class="fas fa-check"></i> איפור יום ועירב</li>
+<li><i class="fas fa-check"></i> תעודת סיום</li>
+</ul>
+</div>
+<div class="service-card fade-up" style="transition-delay:0.1s;border:2px solid var(--pink)">
+<div style="position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--pink),var(--pink-light))"></div>
+<span class="section-label" style="margin-bottom:0.8rem">⭐ הכי פופולרי</span>
+<h3>קורס מתקדם</h3>
+<p>ההכשרה המלאה לקריירה מקצועית כמאפרת</p>
+<div class="price">₪6,900 <span>/ 6 חודשים</span></div>
+<ul>
+<li><i class="fas fa-check"></i> 180 שעות לימוד</li>
+<li><i class="fas fa-check"></i> כל הטכניקות</li>
+<li><i class="fas fa-check"></i> עבודה על מודלים</li>
+<li><i class="fas fa-check"></i> ערכת איפור במתנה</li>
+<li><i class="fas fa-check"></i> ליווי עסקי</li>
+</ul>
+</div>
+<div class="service-card fade-up" style="transition-delay:0.2s">
+<h3>סדנת מאסטר</h3>
+<p>למאפרות פעילות שרוצות להתמחות ולהתקדם</p>
+<div class="price">₪2,200 <span>/ סדנה</span></div>
+<ul>
+<li><i class="fas fa-check"></i> 12 שעות אינטנסיביות</li>
+<li><i class="fas fa-check"></i> התמחות ספציפית</li>
+<li><i class="fas fa-check"></i> טרנדים חדשים</li>
+<li><i class="fas fa-check"></i> נטוורקינג מקצועי</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">המלצות</span>
+<h2>מה אומרות הבוגרות שלנו</h2>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card fade-up">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״הקורס שינה לי את החיים. תוך חצי שנה מסיום הקורס כבר הייתה לי לקוחות קבועות ועסק משגשג. רחל היא מורה מדהימה!״</blockquote>
+<div class="author">מיכל דוידוב</div>
+<div class="role">מאפרת עצמאית, בוגרת 2024</div>
+</div>
+<div class="testimonial-card fade-up" style="transition-delay:0.1s">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״הגעתי בלי שום רקע ויצאתי עם ביטחון מלא ביכולות שלי. האווירה חמה, הלימוד מעשי, והתמיכה לא נגמרת גם אחרי הקורס.״</blockquote>
+<div class="author">שירה אזולאי</div>
+<div class="role">מאפרת כלות, בוגרת 2023</div>
+</div>
+<div class="testimonial-card fade-up" style="transition-delay:0.2s">
+<div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+<blockquote>״ההשקעה הכי טובה שעשיתי. ערכת האיפור שקיבלנו שווה לבד את המחיר, והידע שרכשתי — אין לו מחיר.״</blockquote>
+<div class="author">יעל כהן</div>
+<div class="role">מאפרת טלוויזיה, בוגרת 2024</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">שאלות נפוצות</span>
+<h2>שאלות ותשובות</h2>
+</div>
+<div class="faq-list">
+<div class="faq-item fade-up">
+<div class="faq-question" onclick="toggleFaq(this)">האם צריך ניסיון קודם? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>לא! הקורס הבסיסי מיועד למתחילות לחלוטין. אנחנו מלמדות מאפס ובונות את הידע שלב אחרי שלב.</p></div>
+</div>
+<div class="faq-item fade-up">
+<div class="faq-question" onclick="toggleFaq(this)">מה כוללת ערכת האיפור? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>ערכה מקצועית הכוללת מברשות, פלטות צלליות, בסיסי איפור, שפתונים ועוד — מותגים מקצועיים מובילים.</p></div>
+</div>
+<div class="faq-item fade-up">
+<div class="faq-question" onclick="toggleFaq(this)">האם יש אפשרות תשלומים? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>בהחלט! אנו מציעות עד 12 תשלומים ללא ריבית, וגם מלגות למקרים מיוחדים.</p></div>
+</div>
+<div class="faq-item fade-up">
+<div class="faq-question" onclick="toggleFaq(this)">מה קורה אחרי סיום הקורס? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>בוגרות הקורס מקבלות ליווי של 3 חודשים נוספים, גישה לקבוצת בוגרות אקסקלוסיבית, והזדמנויות עבודה.</p></div>
+</div>
+<div class="faq-item fade-up">
+<div class="faq-question" onclick="toggleFaq(this)">באילו ימים מתקיימים השיעורים? <i class="fas fa-plus"></i></div>
+<div class="faq-answer"><p>יש מספר מסלולים: בוקר (א׳-ג׳), ערב (ב׳-ד׳), וסופ״ש (ו׳). ניתן לבחור את המסלול שמתאים לכם.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="section-inner">
+<div class="section-center fade-up">
+<span class="section-label">הרשמה</span>
+<h2>רוצה לשמוע עוד? השאירי פרטים</h2>
+<p>נחזור אלייך תוך 24 שעות עם כל המידע</p>
+</div>
+<div class="contact-box scale-in">
+<div class="form-group">
+<label for="name">שם מלא</label>
+<input type="text" id="name" placeholder="הכניסי את שמך">
+</div>
+<div class="form-group">
+<label for="phone">טלפון</label>
+<input type="tel" id="phone" placeholder="050-0000000">
+</div>
+<button class="btn-primary" onclick="alert('תודה! נחזור אלייך בהקדם 💕')"><i class="fas fa-paper-plane"></i> שליחה</button>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-brand">אקדמיית הגלאם</div>
+<p>אתר דוגמה בלבד — אינו מייצג עסק אמיתי</p>
+</footer>
+
+<script>
+function toggleFaq(el){
+const answer=el.nextElementSibling;
+const wasActive=el.classList.contains('active');
+document.querySelectorAll('.faq-question').forEach(q=>{q.classList.remove('active');q.nextElementSibling.classList.remove('active')});
+if(!wasActive){el.classList.add('active');answer.classList.add('active')}
+}
+
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up,.fade-right,.fade-left,.scale-in').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
+a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t){t.scrollIntoView({behavior:'smooth'});document.querySelector('nav ul').classList.remove('active')}})
+});
+</script>
+</body>
+</html>
